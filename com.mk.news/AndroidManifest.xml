@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.mk.news" platformBuildVersionCode="23" platformBuildVersionName="6.0-2438415">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <permission android:name="com.mk.news.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.mk.news.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <permission android:label="MK News Read Permission" android:name="com.mk.news.permission.READ" android:protectionLevel="signature"/>
+    <permission android:label="MK News Write Permission" android:name="com.mk.news.permission.WRITE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.mk.news.permission.READ"/>
+    <uses-permission android:name="com.mk.news.permission.WRITE"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="com.mk.news.ApplicationEx" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mk.news.ActivityIntro" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:launchMode="singleTop" android:name="com.mk.news.ActivityMain"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mk.news.ActivityPaperPager"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mk.news.ActivityBookmark"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mk.news.ActivityContentView"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mk.news.ActivityPushSokbo"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mk.news.ActivitySetting"/>
+        <provider android:authorities="com.mk.news.manager.DatabaseProvider" android:name="com.mk.news.manager.DatabaseProvider" android:readPermission="com.mk.news.permission.READ" android:writePermission="com.mk.news.permission.WRITE"/>
+        <receiver android:name="com.mk.news.gcm.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.mk.mk_epaper_mobile"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.mk.news.GcmIntentService"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mk.news.gcm.GcmPopupDisplay" android:theme="@style/TransBackTheme"/>
+        <receiver android:label="@string/widget_name_news" android:name="com.mk.news.widget.NewsWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.mk.news.widget.action.LEFT"/>
+                <action android:name="com.mk.news.widget.action.RIGHT"/>
+                <action android:name="com.mk.news.widget.action.SCHEDULED"/>
+                <action android:name="com.mk.news.widget.action.CONFIGURED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/mknews_widget_info"/>
+        </receiver>
+        <service android:name="com.mk.news.widget.ServiceNewsWidget"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mk.news.widget.WidgetConfigure" android:theme="@style/TransBackTheme">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <receiver android:enabled="true" android:exported="false" android:name="com.mk.news.manager.RestartService">
+            <intent-filter>
+                <action android:name="ACTION.RESTART.ServiceNewsWidget"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="com.mk.news.google_measurement_service" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+    </application>
+</manifest>

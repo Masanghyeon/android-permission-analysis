@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.mcnc.parecis.hrdkorea.qnet" platformBuildVersionCode="19" platformBuildVersionName="4.4.2-1456859">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <application android:debuggable="false" android:icon="@drawable/app_icon" android:label="@string/app_name" android:largeHeap="true" android:name="com.mcnc.parecis.bizmob.controller.ImpProcessController" android:theme="@android:style/Theme.NoTitleBar">
+        <service android:name="com.mcnc.hsmart.download.DownloadServiceImpl">
+            <intent-filter>
+                <action android:name="com.mcnc.parecis.hrdkorea.qnet.ImpDownloadService"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.mcnc.hsmart.upload.UploadServiceImpl">
+            <intent-filter>
+                <action android:name="com.mcnc.parecis.hrdkorea.qnet.ImpUploadService"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.mcnc.parecis.bizmob.view.ImpLoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <service android:name="com.mcnc.parecis.bizmob.view.ForegroundService"/>
+        <activity android:label="@string/app_name" android:name="com.mcnc.parecis.bizmob.view.DummyActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:scheme="bizmob.qnet"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.mcnc.parecis.bizmob.view.ImpHomeActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.mcnc.parecis.bizmob.view.NetworkConfigurationActivity" android:theme="@android:style/Theme.Light"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.mcnc.parecis.bizmob.view.ImpMainActivity" android:theme="@android:style/Theme.Light"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.mcnc.parecis.bizmob.view.TabMainActivity" android:theme="@android:style/Theme.Light"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.mcnc.parecis.bizmob.view.TabHomeActivity" android:theme="@android:style/Theme.Light"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.mcnc.parecis.bizmob.nativeView.imageViewer.ImageViewActivity" android:theme="@android:style/Theme.Light"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.mcnc.hsmart.configuration.view.NetworkConfigurationActivity" android:theme="@android:style/Theme.Light"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.mcnc.hsmart.view.ImageViewActivity" android:theme="@style/Theme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.mcnc.parecis.bizmob.view.PopupViewActivity" android:theme="@android:style/Theme.Dialog" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.mcnc.hsmart.view.PopupViewActivity" android:theme="@android:style/Theme.Dialog" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.mcnc.hsmart.nativeApp.signature.SignatureActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.mcnc.hsmart.view.DownloadListActivity" android:theme="@android:style/Theme.Light">
+            <intent-filter>
+                <action android:name="com.mcnc.hsmart.downloadList"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.mcnc.hsmart.imageViewer.ImageViewer" android:theme="@android:style/Theme.Light"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.mcnc.hsmart.potal.DeviceRegistActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.Light"/>
+        <activity android:name="com.softsecurity.transkey.TransKeyActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.TouchEn.mVaccine.b2b2c.activity.ScanActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.mcnc.hsmart.util.device.qrcode.android.CaptureActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="com.google.zxing.client.android.SCAN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>	Allow web apps to launch Barcode Scanner by linking to
+				http://zxing.appspot.com/scan.
+<intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="zxing.appspot.com" android:path="/scan" android:scheme="http"/>
+            </intent-filter> We also support a Google Product Search URL. <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.google.com" android:path="/m/products/scan" android:scheme="http"/>
+            </intent-filter> And the UK version. <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.google.co.uk" android:path="/m/products/scan" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="provider.load.localfile.hrdkorea.qnet" android:name="com.mcnc.parecis.bizmob.configuration.provider.LocalFileProviderImp"/>
+        <receiver android:name="com.mcnc.parecis.bizmob.project.push.PushReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.mcnc.parecis.hrdkorea.qnet"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.mcnc.parecis.hrdkorea.qnet"/>
+            </intent-filter>
+        </receiver>
+    </application>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <permission android:name="com.mcnc.parecis.hrdkorea.qnet.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.mcnc.parecis.hrdkorea.qnet.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    <instrumentation android:label="your tests label" android:name="android.test.InstrumentationTestRunner" android:targetPackage="com.mcnc.hsmart.core"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true"/>
+</manifest>

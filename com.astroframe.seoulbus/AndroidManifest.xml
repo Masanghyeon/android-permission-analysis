@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.astroframe.seoulbus" platformBuildVersionCode="23" platformBuildVersionName="6.0-2704002">
+    <uses-feature android:name="android.hardware.location" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.portrait"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name=".permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name=".permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-feature android:glEsVersion="0x20000" android:required="true"/>
+    <application android:allowBackup="true" android:icon="@drawable/ico_launcher" android:label="@string/app_name" android:name="com.astroframe.seoulbus.application.GlobalApplication" android:screenOrientation="portrait" android:theme="@style/AppTheme">
+        <activity android:clearTaskOnLaunch="true" android:configChanges="orientation" android:launchMode="singleTask" android:name="com.astroframe.seoulbus.main.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustNothing">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="@string/kakao_link_host" android:scheme="@string/kakao_link_scheme"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="@string/kakaobus_busstop_host" android:scheme="@string/kakaobus_scheme"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="@string/kakaobus_alarm_host" android:scheme="@string/kakaobus_scheme"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation" android:launchMode="singleTop" android:name="com.astroframe.seoulbus.main.SplashActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="favorites" android:scheme="seoulbus"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="@string/kakaobus_main_host" android:scheme="@string/kakaobus_scheme"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.bus.BusDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.busstop.SubwayArrivalActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.favorite.edit.FavoriteEditorActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="orientation" android:launchMode="singleTop" android:name="com.astroframe.seoulbus.login.KakaoLoginActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kakao_app_key"/>
+        <meta-data android:name="KINSIGHT_APP_KEY" android:value="@string/kakao_app_key"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.alarm.sche.ScheListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.alarm.sche.ScheEditActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.alarm.sche.ScheSelectFavoriteActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.alarm.sche.SchePopupActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.setting.RegionSettingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.alarm.getoff.GetOffAlarmActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <service android:enabled="true" android:exported="false" android:name="com.astroframe.seoulbus.alarm.geton.GetOnAlarmService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.astroframe.seoulbus.alarm.getoff.GetOffAlarmService"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.busstop.BusStopDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.bus.BusInfoActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.map.MapActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.setting.SettingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.setting.RefreshIntervalSettingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.setting.AccountInfoActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.setting.AccountTerminateConfirmActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.favorite.edit.SuggestionCardSettingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.login.AcceptTermsAndConditionsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.search.SearchActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.alarm.AlarmActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.login.KakaoLoginPopupActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Dialog"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.favorite.edit.SuggestionCardHomeSettingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.favorite.home.suggestion.SuggestionNearbyBusStopsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.favorite.home.suggestion.SuggestionGoHomeDirectlyActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.favorite.home.suggestion.SuggestionNearbyNightBusesActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.setting.SeoulBusAccountActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.setting.SeoulBusEmailLoginActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.login.SignedInLocationTermsPopupActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Transparent"/>
+        <activity android:configChanges="orientation" android:name="com.astroframe.seoulbus.login.LocationTermsPopupActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Transparent"/>
+        <activity android:name="com.facebook.LoginActivity"/>
+        <service android:exported="false" android:name="com.astroframe.seoulbus.gcm.GcmIntentService"/>
+        <receiver android:name="com.astroframe.seoulbus.gcm.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.astroframe.seoulbus"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/fb_app_id"/>
+        <activity android:configChanges="keyboard|orientation|screenSize" android:name="com.astroframe.seoulbus.login.AuthorizeWebViewActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="keyboard|orientation|screenSize" android:name="com.astroframe.seoulbus.common.WebViewActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="keyboard|orientation|screenSize" android:name="com.astroframe.seoulbus.mfiy.MFIYWebView" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="keyboard|orientation|screenSize" android:name="com.astroframe.seoulbus.inquery.InquiryWebView" android:theme="@style/AppTheme.NoActionBar"/>
+        <receiver android:exported="true" android:name="com.kakao.kinsight.sdk.android.ReferralReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="@string/appwidget_arrive_1x1" android:name="com.astroframe.seoulbus.appwidget.providers.ArriveSmallAppWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/arrive_appwidget_small_info"/>
+        </receiver>
+        <receiver android:label="@string/appwidget_arrive_2x1" android:name="com.astroframe.seoulbus.appwidget.providers.ArriveMediumAppWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/arrive_appwidget_medium_info"/>
+        </receiver>
+        <receiver android:label="@string/appwidget_station_3x2" android:name="com.astroframe.seoulbus.appwidget.providers.StationAppWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/station_appwidget_info"/>
+        </receiver>
+        <service android:exported="false" android:name="com.astroframe.seoulbus.appwidget.ArriveAppWidgetUpdateService"/>
+        <service android:exported="false" android:name="com.astroframe.seoulbus.appwidget.StationAppWidgetUpdateService"/>
+        <service android:exported="false" android:name="com.astroframe.seoulbus.appwidget.StationAppWidgetListService" android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <activity android:name="com.astroframe.seoulbus.appwidget.configuration.ArriveWidgetConfigureActivity" android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.astroframe.seoulbus.appwidget.configuration.StationWidgetConfigureActivity" android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.astroframe.seoulbus.setting.ServiceProviderActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="com.astroframe.seoulbus.google_measurement_service" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+    </application>
+</manifest>

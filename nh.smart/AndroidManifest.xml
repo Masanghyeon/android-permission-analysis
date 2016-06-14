@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="nh.smart" platformBuildVersionCode="15" platformBuildVersionName="4.0.4-1406430">
+    <application android:description="@string/app_id" android:icon="@drawable/icon" android:label="@string/app_name" android:name=".service.realization.ExtendApplication">
+        <uses-library android:name="com.google.android.maps" android:required="true"/>
+        <activity android:label="@string/app_name" android:name=".MorpheusMobile" android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="@string/kakaolink_host" android:scheme="@string/kakao_scheme"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kakao_app_key"/>
+        <activity android:finishOnTaskLaunch="true" android:imeOptions="actionSend|flagNoEnterAction" android:name=".AppCommunicator" android:theme="@android:style/Theme.Black.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="nhsmartbank"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="locale|keyboardHidden|orientation" android:imeOptions="actionSend|flagNoEnterAction" android:name="kr.co.morpheus.client.framework.view.MainActivity"/>
+        <activity android:configChanges="locale|keyboardHidden|orientation" android:name="kr.co.morpheus.client.framework.view.ImageList1Activity"/>
+        <activity android:configChanges="locale|keyboardHidden|orientation" android:name="kr.co.morpheus.client.framework.view.ImageList2Activity"/>
+        <activity android:configChanges="locale|keyboardHidden|orientation" android:name="kr.co.morpheus.client.framework.view.AudioRecoderActivity"/>
+        <activity android:configChanges="locale|keyboardHidden|orientation" android:name=".service.view.StartActivity"/>
+        <activity android:configChanges="locale|keyboardHidden|orientation" android:name=".service.view.SampleActivity"/>
+        <activity android:configChanges="locale|keyboardHidden|orientation" android:name=".service.view.SampleActivity2"/>
+        <activity android:configChanges="locale|keyboardHidden|orientation" android:name=".service.view.BatchTempActivity"/>
+        <activity android:configChanges="locale|keyboardHidden|orientation" android:name=".service.view.SampleNativeListActivity"/>
+        <activity android:configChanges="locale|keyboardHidden|orientation" android:name=".service.view.SampleNativeMapActivity"/>
+        <activity android:name=".service.view.ShowPushPopup" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="btworks.codeguard.agent.AgentActivity" android:screenOrientation="portrait"/>
+        <service android:enabled="true" android:name="btworks.codeguard.engine.MainService" android:process=":engine">
+            <intent-filter>
+                <action android:name="btworks.codeguard.action.Service.Start"/>
+                <action android:name="btworks.codeguard.action.Service.Bind"/>
+                <action android:name="btworks.codeguard.action.Service.Unbind"/>
+                <action android:name="btworks.codeguard.action.Service.Stop"/>
+                <category android:name="NHPBANK.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="orientation" android:label="N-Filter" android:name="com.nshc.nfilter.NFilterNum" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation" android:label="N-Filter" android:name="com.nshc.nfilter.NFilterChar" android:screenOrientation="portrait"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation" android:name="com.google.zxing.client.android.CaptureActivity" android:stateNotNeeded="true" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="com.google.zxing.client.android.SCAN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="zxing.appspot.com" android:path="/scan" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.google.com" android:path="/m/products/scan" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="www.google.co.uk" android:path="/m/products/scan" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="scan" android:path="/" android:scheme="zxing"/>
+            </intent-filter>
+        </activity>
+        <receiver android:exported="false" android:name="com.btworks.BTW_DeviceInfoReciver">
+            <intent-filter>
+                <action android:name="kr.co.btworks.BTW_CheckDeviceInfo"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="true" android:name="btworks.appguard.AppGuardMain" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:exported="true" android:name="btworks.appguard.AppGuardPOP" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="true" android:launchMode="singleInstance" android:name="btworks.appguard.AppGuardWarning" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="btworks.appguard.AppGuardService" android:process=":ag">
+            <intent-filter>
+                <action android:name="btworks.appguard.action.Service.Start.v1.1"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="false" android:name="com.btworks.BTW_SSLReciver">
+            <intent-filter>
+                <action android:name="btworks.sslsign.SSLValidator"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="@string/main_4x4_widget_name" android:name=".service.widget.main.Main4x4Widget">
+            <intent-filter>
+                <action android:name="com.nh.finger.action.EVENT_WAKEUP"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.nh.finger.action.CLICK_NH_BANK"/>
+                <action android:name="com.nh.finger.action.CLICK_MENU1"/>
+                <action android:name="com.nh.finger.action.CLICK_MENU2"/>
+                <action android:name="com.nh.finger.action.CLICK_MENU3"/>
+                <action android:name="com.nh.finger.action.CLICK_MENU4"/>
+                <action android:name="com.nh.finger.action.CLICK_KOSPI"/>
+                <action android:name="com.nh.finger.action.CLICK_EX_RATE"/>
+                <action android:name="com.nh.finger.action.CLICK_APP1"/>
+                <action android:name="com.nh.finger.action.CLICK_APP2"/>
+                <action android:name="com.nh.finger.action.CLICK_REFRESH"/>
+                <action android:name="com.nh.finger.action.CLICK_SETUP"/>
+                <action android:name="com.nh.finger.action.CLICK_COUNTRY"/>
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <action android:name="com.nh.finger.action.SECURITY_NOTICE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/main_4x4_w"/>
+        </receiver>
+        <receiver android:label="@string/menu_4x1_name" android:name=".service.widget.menu.Menu4x1Widget">
+            <intent-filter>
+                <action android:name="com.nh.finger.action.EVENT_WAKEUP"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.nh.finger.action.CLICK_NH_BANK"/>
+                <action android:name="com.nh.finger.action.CLICK_MENU1"/>
+                <action android:name="com.nh.finger.action.CLICK_MENU2"/>
+                <action android:name="com.nh.finger.action.CLICK_MENU3"/>
+                <action android:name="com.nh.finger.action.CLICK_MENU4"/>
+                <action android:name="com.nh.finger.action.CLICK_REFRESH"/>
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/menu_4x1_w"/>
+        </receiver>
+        <receiver android:label="@string/menu_2x2_name" android:name=".service.widget.menu.Menu2x2Widget">
+            <intent-filter>
+                <action android:name="com.nh.finger.action.EVENT_WAKEUP"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.nh.finger.action.CLICK_NH_BANK"/>
+                <action android:name="com.nh.finger.action.CLICK_MENU1"/>
+                <action android:name="com.nh.finger.action.CLICK_MENU2"/>
+                <action android:name="com.nh.finger.action.CLICK_MENU3"/>
+                <action android:name="com.nh.finger.action.CLICK_MENU4"/>
+                <action android:name="com.nh.finger.action.CLICK_REFRESH"/>
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/menu_2x2_w"/>
+        </receiver>
+        <activity android:name=".service.widget.NHLinkWidgetActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.APPWIDGET_CONFIGURE"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <service android:name=".service.widget.com.UpdateService"/>
+        <provider android:authorities="nh.smart" android:name="kr.co.morpheus.client.library.managers.LocalFileContentProvider"/>
+        <receiver android:name=".sms.SmsReceiver">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+    </application>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.UPDATE_DEVICE_STATS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>deleted by hocheol.han
+<uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+</manifest>

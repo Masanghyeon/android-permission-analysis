@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.fatsecret.android" platformBuildVersionCode="22" platformBuildVersionName="5.1.1-1819727">
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-feature android:glEsVersion="0x20000" android:required="true"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.location" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.network" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <application android:configChanges="locale|orientation" android:debuggable="false" android:icon="@drawable/scales" android:label="@string/fatsecret" android:name="com.fatsecret.android.CounterApplication" android:supportsRtl="true" android:theme="@style/ThemeLight">
+        <activity android:label="@string/fatsecret" android:name="com.fatsecret.android.ui.activity.StartupActivity" android:noHistory="true" android:theme="@style/PreStartActTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:scheme="fatsecret"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="mobile.fatsecret.com.ar" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.at" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.com.br" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.be" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.ca" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.dk" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.cl" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.fi" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.com.mx" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.fr" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.com" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.de" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.com.au" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.it" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.nl" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.cn" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.pl" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.co.in" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.pt" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.co.id" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.ru" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.jp" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.es" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.kr" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.se" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.co.nz" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.ch" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.com.sg" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.com.tr" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.co.za" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.co.uk" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="test_mobile.fatsecret.local" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="mobile.fatsecret.com.ar" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.at" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.com.br" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.be" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.ca" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.dk" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.cl" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.fi" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.com.mx" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.fr" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.com" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.de" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.com.au" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.it" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.nl" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.cn" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.pl" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.co.in" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.pt" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.co.id" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.ru" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.jp" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.es" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.kr" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.se" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.co.nz" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.ch" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.com.sg" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.com.tr" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.co.za" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="mobile.fatsecret.co.uk" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.com.ar" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.at" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.com.br" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.be" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.ca" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.dk" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.cl" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.fi" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.com.mx" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.fr" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.com" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.de" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.com.au" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.it" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.nl" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.cn" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.pl" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.co.in" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.pt" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.co.id" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.ru" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.jp" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.es" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.kr" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.se" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.co.nz" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.ch" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.com.sg" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.com.tr" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.co.za" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.co.uk" android:pathPattern="/.*" android:scheme="http"/>
+                <data android:host="www.fatsecret.com.ar" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.at" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.com.br" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.be" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.ca" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.dk" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.cl" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.fi" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.com.mx" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.fr" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.com" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.de" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.com.au" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.it" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.nl" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.cn" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.pl" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.co.in" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.pt" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.co.id" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.ru" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.jp" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.es" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.kr" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.se" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.co.nz" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.ch" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.com.sg" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.com.tr" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.co.za" android:pathPattern="/.*" android:scheme="https"/>
+                <data android:host="www.fatsecret.co.uk" android:pathPattern="/.*" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="com.fatsecret.android.ui.activity.BasicActivity"/>
+        <activity android:launchMode="singleTop" android:name="com.fatsecret.android.ui.activity.RegistrationActivity"/>
+        <activity android:launchMode="singleTop" android:name="com.fatsecret.android.ui.activity.RegistrationActivityV2" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.fatsecret.android.ui.activity.RestartActivity"/>
+        <activity android:launchMode="singleTop" android:name="com.fatsecret.android.ui.activity.MainActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:launchMode="singleTop" android:name="com.fatsecret.android.ui.activity.DialogActivity" android:theme="@style/MonochromeTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTop" android:name="com.fatsecret.android.ui.activity.FoodDetailsActivity" android:theme="@style/MonochromeTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="com.google.zxing.client.android.CaptureActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:launchMode="singleTop" android:name="com.fatsecret.android.ui.activity.MultiPaneActivity"/>
+        <activity android:launchMode="singleTop" android:name="com.fatsecret.android.ui.activity.FoodJournalAddActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:launchMode="singleTop" android:name="com.fatsecret.android.ui.activity.ExerciseDiaryAddActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity android:launchMode="singleTop" android:name="com.fatsecret.android.ui.activity.FoodImageCaptureActivity" android:screenOrientation="portrait" android:theme="@style/TransparentTopTheme"/>
+        <activity android:launchMode="singleTop" android:name="com.fatsecret.android.ui.activity.RegisterSplashActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.fatsecret.android.ui.activity.SearchableActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/fatsecret" android:name="com.facebook.FacebookActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="android.app.default_searchable" android:value="com.fatsecret.android.ui.activity.SearchableActivity"/>
+        <provider android:authorities="com.fatsecret.android.provider.RecipeJournalProvider" android:name="com.fatsecret.android.provider.RecipeJournalProvider"/>
+        <provider android:authorities="com.fatsecret.android.provider.FoodProvider" android:name="com.fatsecret.android.provider.FoodProvider"/>
+        <receiver android:exported="true" android:name="com.fatsecret.android.CampaignBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="@string/root_title" android:name="com.fatsecret.android.widget.CalorieWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.fatsecret.android.WIDGET_FORCE_UPDATE"/>
+                <action android:name="com.fatsecret.android.WIDGET_NEXT_DATE"/>
+                <action android:name="com.fatsecret.android.WIDGET_PREV_DATE"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget"/>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.google.android.gms.analytics.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="@string/maps_api_key_v2"/>
+        <service android:name="com.fatsecret.android.service.FoodJournalSyncService"/>
+        <service android:name="com.fatsecret.android.service.CalorieWidgetService"/>
+        <service android:name="com.fatsecret.android.service.FitSyncService"/>
+        <service android:name="com.fatsecret.android.service.ProductPackageImageUploadService"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+    </application>
+</manifest>

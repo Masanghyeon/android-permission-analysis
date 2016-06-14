@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.shcard.smartpay" platformBuildVersionCode="19" platformBuildVersionName="4.4.2-1456859">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.shcard.smartpay.DEFAULT_PERMISSION"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.VIBRATE"/> //bluetooth 결제 완료화면사용
+<permission android:name="com.shcard.smartpay.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.shcard.smartpay.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.nfc" android:required="false"/>
+    <permission android:description="@string/app_name" android:label="@string/app_name" android:name="com.shcard.smartpay.SMART_CONSUMER"/>
+    <permission android:description="@string/app_name" android:label="@string/app_name" android:name="com.shcard.smartpay.DEFAULT_PERMISSION"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="com.samsung.accessory.permission.ACCESSORY_FRAMEWORK"/>
+    <uses-permission android:name="com.samsung.WATCH_APP_TYPE.Companion"/>
+    <uses-permission android:name="com.samsung.wmanager.ENABLE_NOTIFICATION"/>
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    <uses-permission android:name="org.fidoalliance.uaf.permissions.FIDO_CLIENT"/>
+    <uses-permission android:name="com.sec.android.fido.uaf.asm.permissions.FIDO_UAF_ASM"/>
+    <application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="com.shcard.smartpay.SHSmartPay" android:theme="@style/my_theme">
+        <activity android:exported="true" android:name="com.shcard.smartpay.activity.IntroActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="com.shcard.smartpay.register"/>
+                <action android:name="com.shcard.smartpay.card"/>
+                <action android:name="com.shcard.smartpay.cert"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="shinhan-sr-ansimclick"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="socar" android:scheme="shinhan-sr-ansimclick"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="shinhan-appcard"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="srpay"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="wallet_otc" android:scheme="shinhan-appcard_wallet"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="bluetooth-otc" android:scheme="shinhan-appcard"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.PaymentInfoPrepaidActivity_" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.NewMainActivity_" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="kr.co.seeroo.smartpay.common.SecureActivity_" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.renewal.dialog.PromotionDialog" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="true" android:name="com.shcard.smartpay.activity.shortloan.ShortLoanActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:exported="true" android:name="com.shcard.smartpay.activity.AppCardOnLineAuth_" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:exported="true" android:name="com.shcard.smartpay.activity.PaymentRemoteActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.PaymentUniversityActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.gspop.GsPoPSelectCardFromListActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.gspop.GsPopServiceActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.gspop.GsPoPCancleActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.bluetooth.BluetoothPaySignActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.bluetooth.BluetoothPaymentInfoActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.allthatsopping.AllThatSopping" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:name="com.shcard.smartpay.activity.SigninRegisterTouchOnCardAuthActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:exported="true" android:name="com.shcard.smartpay.activity.SigninRegisterTouchOnActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing">
+            <intent-filter>
+                <action android:name="android.nfc.action.TECH_DISCOVERED"/>
+            </intent-filter>
+            <meta-data android:name="android.nfc.action.TECH_DISCOVERED" android:resource="@xml/nfc_tech"/>
+        </activity>
+        <activity android:exported="true" android:name="com.shcard.smartpay.activity.SigninRegisterTermsNewActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing">
+            <intent-filter>
+                <action android:name="android.nfc.action.TECH_DISCOVERED"/>
+            </intent-filter>
+            <meta-data android:name="android.nfc.action.TECH_DISCOVERED" android:resource="@xml/nfc_tech"/>
+        </activity>
+        <activity android:exported="true" android:name="com.shcard.smartpay.activity.CardManagePWActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:exported="true" android:name="com.shcard.smartpay.activity.NonPlateInfoActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:name="com.shcard.smartpay.activity.SigninRegisterIDActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:name="com.shcard.smartpay.activity.SigninRegisterCertActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:name="com.shcard.smartpay.activity.ServiceTermActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:name="com.shcard.smartpay.activity.PaymentOneClickAuth_" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:name="com.shcard.smartpay.activity.PaymentCreatePassWordActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:name="com.shcard.smartpay.activity.OverseasDirectActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:name="com.shcard.smartpay.activity.NewEventActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.TodayFavorActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.NewCertExportActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.NewCertDetailActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.NewCertPaymentListActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.NewCertPassActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.NewCertListActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.NewCertImportActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.NewCertManageActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.NewJoinCertPassActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.ARSInfoActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.AppcardFriendActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="@string/kakaolink_host" android:scheme="@string/kakao_scheme"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kakao_app_key"/>
+        <activity android:exported="true" android:name="com.shcard.smartpay.activity.PushPopupActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.SignInRegisterSelectAuthCardActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.SignInRegisterMobileActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.SignInRegisterCardActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.SignInSelectCardFromListActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.SignInUsableCardListActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.SignInRegisterCardByTmActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.SignInEnterPWAndSignByTmActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.ChangePasswordMainActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.ChangePWByVerifiedCardActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.MainActivity_" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.MainAllMenuActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.PaymentQRCodeActivity_" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.PaymentPayCodeActivity_" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:exported="false" android:name="com.shcard.smartpay.renewal.dialog.CardPasswordDialog_" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="adjustUnspecified|stateUnspecified">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="jeju" android:scheme="shinhan-appcard_jeju"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:name="com.shcard.smartpay.renewal.dialog.CommonDialogActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:theme="@android:style/Theme.WallpaperSettings"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:exported="false" android:name="com.shcard.smartpay.renewal.dialog.PaymentPasswordForWidgetDialog" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent" android:windowSoftInputMode="adjustUnspecified|stateUnspecified"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:exported="false" android:name="com.shcard.smartpay.renewal.dialog.SmartPayIdInputDialog" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent" android:windowSoftInputMode="adjustUnspecified|stateUnspecified"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:exported="false" android:name="com.shcard.smartpay.renewal.dialog.AuthCertInputDialog" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent" android:windowSoftInputMode="stateAlwaysVisible"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:exported="false" android:name="com.shcard.smartpay.renewal.dialog.AuthPasswordInputDialog" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent" android:windowSoftInputMode="adjustUnspecified|stateUnspecified"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:exported="false" android:name="com.shcard.smartpay.renewal.dialog.PayOnInputDialog" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent" android:windowSoftInputMode="adjustUnspecified|stateUnspecified"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.PaymentOneTimeCodeActivity_" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.PaymentOneTimeCodeForHomePlusActivity_" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.PaymentQuickSignActivity_" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.PaymentInfoAuthActivity_" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.PaymentProcessResultActivity_" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.PaymentHistoryActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.ServiceActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.TutorialActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.MobileTmoneyGuideServiceActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.MobileTmoneyApplyActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.EventNotiActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.EventActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.NotiListActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.NotiDetailActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.PushListActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.PushDetailActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.ServiceErrorActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.CustomerSeviceCenterActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.SettingActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.CardManageActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.CertManageActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.SignatureManageActivity_" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.PaymentExpirateTimeManagerActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.CommonWebViewActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:theme="@style/webview_theme"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.sally.SallyWebViewActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.web.WebActivity_" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:theme="@style/webview_theme">
+            <intent-filter>
+                <action android:name="android.nfc.action.TECH_DISCOVERED"/>
+            </intent-filter>
+            <meta-data android:name="android.nfc.action.TECH_DISCOVERED" android:resource="@xml/nfc_tech"/>
+        </activity>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.SideMenuActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="com.nshc.nfilter.NFilterChar" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="com.nshc.nfilter.NFilterNum" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="com.shcard.smartpay.activity.NFilterPKIActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.FromExternalAccessActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.SigninRegisterTMoneyActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.TMoneyServiceActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.TMoneyPaymentCardChangeActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.TMoneyPromotionActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.TMoneyManagerActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.socar.SigninRegisterSocarActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.socar.SocarManagerActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.socar.SocarCardManagerActivity_" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.socar.SocarAgreeCompleteActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:name="com.shcard.smartpay.renewal.dialog.PushMsgDialog" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="com.google.zxing.client.android.encode.EncodeActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <service android:exported="false" android:name="com.shcard.smartpay.noticebanner.BannerIntentService">
+            <intent-filter>
+                <action android:name="com.SHSmartPay.service.BANNER"/>
+                <category android:name="com.SHSmartPay"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.shcard.smartpay.service.EventIntentService">
+            <intent-filter>
+                <action android:name="com.shcard.smartpay.service.EVENT"/>
+                <category android:name="com.shcard.smartpay"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.shcard.smartpay.service.NotificationIntentService">
+            <intent-filter>
+                <action android:name="com.shcard.smartpay.service.NOTIFICATION"/>
+                <category android:name="com.shcard.smartpay"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.shcard.smartpay.service.ImagePopupDownloadIntentService">
+            <intent-filter>
+                <action android:name="com.shcard.smartpay.service.IMAGE_POPUP"/>
+                <category android:name="com.shcard.smartpay"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.shcard.smartpay.service.RootingCheck">
+            <intent-filter>
+                <action android:name="com.shcard.smartpay.service.action.RootingCheck"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.google.android.gcm.GCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.shcard.smartpay"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.shcard.smartpay"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.shcard.smartpay.GCMIntentService"/>
+        <receiver android:name="com.shcard.smartpay.widget.AppCardWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.shcard.smartpay.widget.action.click_refresh"/>
+                <action android:name="com.shcard.smartpay.widget.action.click_barcode"/>
+                <action android:name="com.shcard.smartpay.widget.action.click_qrcode"/>
+                <action android:name="com.shcard.smartpay.widget.action.click_register_card"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_app_card_info"/>
+        </receiver>
+        <service android:name="com.shcard.smartpay.widget.AppCardWidgetProvider$UpdateService"/>
+        <service android:name="com.shcard.smartpay.wearable.SHSmartPayWearableListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.BIND_LISTENER"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.shcard.smartpay.wearable.tizen.SHSmartPayTizenProviderService"/>
+        <receiver android:name="com.samsung.android.sdk.accessory.ServiceConnectionIndicationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.accessory.service.action.ACCESSORY_SERVICE_CONNECTION_IND"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.samsung.android.sdk.accessory.RegisterUponInstallReceiver">
+            <intent-filter>
+                <action android:name="android.accessory.device.action.REGISTER_AFTER_INSTALL"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="GearAppType" android:value="wgt"/>
+        <meta-data android:name="AccessoryServicesLocation" android:value="/res/xml/accessoryservices.xml"/>
+        <meta-data android:name=" gear_app_packagename " android:value="gvxSGu8mgd"/>
+        <meta-data android:name=" gear_app_min_version " android:value="1.0.0"/>
+        <service android:name="com.shcard.smartpay.wearable.lg.SHSmartPayWearableLGListenerService">
+            <intent-filter>
+                <action android:name="com.lge.watch.BIND_LISTENER"/>
+            </intent-filter>
+        </service>
+        <activity android:excludeFromRecents="true" android:exported="false" android:launchMode="singleInstance" android:name="com.shcard.smartpay.vcp.ServiceDummyActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:taskAffinity="" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.VcpCardManagerActivity_" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.VcpPaymentMethodSelectorActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.VcpUserAgreeActivity_" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.SignInVCPPayMentSelectorActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.PaymentNFCActivity_" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.fido.FidoBase_" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.fido.FidoSettingActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.fido.FidoRegActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <service android:exported="false" android:name="com.shcard.smartpay.service.VCPSupplementIntentService">
+            <intent-filter>
+                <action android:name="com.shcard.smartpay.service.VCP_SUPPLY"/>
+                <category android:name="com.shcard.smartpay"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.shcard.smartpay.vcp.VCPCSService" android:permission="android.permission.BIND_NFC_SERVICE">
+            <intent-filter>
+                <action android:name="android.nfc.cardemulation.action.HOST_APDU_SERVICE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.nfc.cardemulation.host_apdu_service" android:resource="@xml/apduservice"/>
+        </service>
+        <activity android:exported="false" android:label="@string/title_activity_tmoney_prepaid_gift" android:name="com.shcard.smartpay.activity.tmoney.TmoneyPrepaidGiftActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:exported="false" android:label="@string/TmoneyPaymentProcessResultActivity" android:name="com.shcard.smartpay.activity.tmoney.TmoneyPaymentProcessResultActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:label="@string/title_activity_kyobo_barcode" android:name="com.shcard.smartpay.activity.kyobobook.KyoboBarcodeActivity_" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:label="@string/title_activity_kyobo_book" android:name="com.shcard.smartpay.activity.kyobobook.KyoboBookActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_kyobo_agree_complete" android:name="com.shcard.smartpay.activity.kyobobook.KyoboAgreeCompleteActivity_" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_kyobo_membership" android:name="com.shcard.smartpay.activity.kyobobook.KyoboMembershipActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_kyobo_list" android:name="com.shcard.smartpay.activity.kyobobook.KyoboListActivity_" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_kyobo_multiple_pay" android:name="com.shcard.smartpay.activity.kyobobook.KyoboMultiplePayActivity_" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.certiservice.CertiServiceListActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.certiservice.CertiServiceTouchOnActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.nfc.action.TECH_DISCOVERED"/>
+            </intent-filter>
+            <meta-data android:name="android.nfc.action.TECH_DISCOVERED" android:resource="@xml/nfc_tech"/>
+        </activity>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.certiservice.CertiServiceTouchOnCompleteActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.certiservice.CertiServiceOtpPwInputActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.certiservice.CertiServiceNotiActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.certiservice.CertiServiceAgreeActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.certiservice.CertiServiceOtpCompleteActivity" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:exported="false" android:name="com.shcard.smartpay.activity.PaymentOneTimeCodeBigViewActivity_" android:permission="com.shcard.smartpay.DEFAULT_PERMISSION" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:label="@string/op_app_name" android:name="com.raonsecure.touchen.onepass.sdk.OPMainActivity" android:screenOrientation="portrait" android:theme="@style/OP.Theme.Transparent"/>
+        <activity android:label="@string/op_title_activity_client_list" android:name="com.raonsecure.touchen.onepass.sdk.OPClientListActivity" android:screenOrientation="portrait" android:theme="@style/OP.Theme.Transparent"/>
+        <activity android:label="@string/op_title_activity_discovery" android:name="com.raonsecure.touchen.onepass.sdk.OPDiscoveryActivity" android:screenOrientation="portrait" android:theme="@style/OP.Theme.Transparent"/>
+        <activity android:label="@string/op_app_name" android:name="com.raon.fido.client.process.UAFClient" android:screenOrientation="portrait" android:theme="@style/OP.Theme.Transparent"/>
+        <activity android:label="AsmListActivity" android:name="com.raon.fido.client.asm.ui.AsmListActivity" android:screenOrientation="portrait" android:theme="@style/OP.Theme.Transparent"/>
+        <meta-data android:name="com.google.android.wearable.beta.app" android:resource="@xml/android_wear_micro_apk"/>
+    </application>
+</manifest>

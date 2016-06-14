@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.linecorp.b612.android" platformBuildVersionCode="23" platformBuildVersionName="6.0-2704002">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="false"/>
+    <uses-feature android:name="android.hardware.location" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-feature android:name="android.hardware.microphone" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <permission android:name="com.linecorp.b612.android.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.linecorp.b612.android.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <application android:allowBackup="false" android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher" android:label="B612" android:largeHeap="true" android:name="com.linecorp.b612.android.B612Application" android:theme="@style/AppTheme">
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="B612" android:launchMode="singleTop" android:name="com.linecorp.b612.android.activity.ActivityCamera" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleInstance" android:name="com.linecorp.b612.android.activity.SchemeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="com.linecorp.b612.android"/>
+                <data android:scheme="b612"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="b612.line.me" android:scheme="http"/>
+                <data android:pathPrefix="/go"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="false" android:name="com.linecorp.b612.android.activity.tolot.TolotThumbnailFragmentActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="orientation" android:exported="false" android:name="com.linecorp.b612.android.activity.tolot.TolotWebViewActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:label="@string/app_name" android:name="com.linecorp.b612.android.activity.ActivityCameraForOtherApp" android:process=":forCamera" android:screenOrientation="portrait" android:taskAffinity="com.mycompany.mymainapp.ActivityCameraForOtherApp" android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.media.action.STILL_IMAGE_CAMERA"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.linecorp.b612.android"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.media.action.IMAGE_CAPTURE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.linecorp.b612.android"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="com.linecorp.b612.android.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/filepaths"/>
+        </provider>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="jp.naver.common.android.notice.notification.NoticeNotificationActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="jp.naver.common.android.notice.board.NoticeBoardActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="com.linecorp.b612.android.activity.DebugActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:exported="false" android:label="@string/sns_title" android:launchMode="singleTop" android:name="com.linecorp.b612.sns.activity.SnsMainActivity" android:screenOrientation="portrait" android:theme="@style/SNSTheme" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:exported="false" android:name="com.linecorp.b612.sns.activity.PostActivity" android:screenOrientation="portrait" android:theme="@style/SNSTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:exported="false" android:name="com.linecorp.b612.sns.activity.SnsThumbnailActivity" android:screenOrientation="portrait" android:theme="@style/SNSTheme" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:exported="false" android:name="com.linecorp.b612.sns.activity.CropActivity" android:screenOrientation="portrait" android:theme="@style/SNSTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:name="com.linecorp.b612.android.activity.ApplyFilterToPhotoActivity" android:screenOrientation="portrait" android:theme="@style/SNSTheme"/>
+        <activity android:exported="false" android:name="com.linecorp.b612.sns.activity.SearchActivity" android:screenOrientation="portrait" android:theme="@style/SNSTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:name="com.linecorp.b612.sns.activity.FollowerListActivity" android:screenOrientation="portrait" android:theme="@style/SNSTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:name="com.linecorp.b612.sns.activity.FollowingListActivity" android:screenOrientation="portrait" android:theme="@style/SNSTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:name="com.linecorp.b612.sns.activity.LikeListActivity" android:screenOrientation="portrait" android:theme="@style/SNSTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:name="com.linecorp.b612.sns.activity.UserActivity" android:screenOrientation="portrait" android:theme="@style/SNSTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:name="com.linecorp.b612.sns.activity.TagActivity" android:screenOrientation="portrait" android:theme="@style/SNSTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:name="com.linecorp.b612.sns.activity.StoryEndActivity" android:screenOrientation="portrait" android:theme="@style/SNSTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:exported="false" android:name="com.linecorp.b612.sns.activity.LoginActivity" android:screenOrientation="portrait" android:theme="@style/SNSTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:name="com.linecorp.b612.sns.activity.LoginWithEmailActivity" android:screenOrientation="portrait" android:theme="@style/SNSTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:name="com.linecorp.b612.sns.activity.SignUpWithEmailActivity" android:screenOrientation="portrait" android:theme="@style/SNSTheme" android:windowSoftInputMode="adjustResize"/>
+        <activity android:exported="false" android:name="com.linecorp.b612.sns.activity.SettingActivity" android:screenOrientation="portrait" android:theme="@style/SNSTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:name="com.linecorp.b612.sns.activity.ChangePasswordActivity" android:screenOrientation="portrait" android:theme="@style/SNSTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:name="com.linecorp.b612.sns.activity.VerifyEmailActivity" android:screenOrientation="portrait" android:theme="@style/SNSTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:name="com.linecorp.b612.sns.activity.ChangeEmailActivity" android:screenOrientation="portrait" android:theme="@style/SNSTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:name="com.linecorp.b612.sns.activity.FindPasswordActivity" android:screenOrientation="portrait" android:theme="@style/SNSTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:name="com.linecorp.b612.sns.activity.EditProfileActivity" android:screenOrientation="portrait" android:theme="@style/SNSTheme" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="false" android:name="com.linecorp.b612.sns.activity.NotificationActivity" android:screenOrientation="portrait" android:theme="@style/SNSTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:name="com.linecorp.b612.sns.activity.ReportActivity" android:screenOrientation="portrait" android:theme="@style/SNSTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:name="com.linecorp.b612.sns.activity.LikePostsActivity" android:screenOrientation="portrait" android:theme="@style/SNSTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:name="com.linecorp.b612.sns.activity.StreamViewActivity" android:screenOrientation="portrait" android:theme="@style/SNSTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:exported="false" android:name="com.linecorp.b612.sns.activity.SnsWebViewActivity" android:screenOrientation="portrait" android:theme="@style/SNSTheme" android:windowSoftInputMode="adjustPan"/>
+        <receiver android:exported="true" android:name="com.tune.TuneTracker">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="jp.line.android.sdk.activity.LineAuthCompleteActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="com.linecorp.b612.android"/>
+                <data android:scheme="line.1457460923"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:launchMode="singleTop" android:name="jp.line.android.sdk.activity.WebLoginActivity" android:screenOrientation="portrait"/>
+        <meta-data android:name="jp.line.sdk.ChannelId" android:value="1457460923"/>
+        <meta-data android:name="jp.line.sdk.AuthScheme" android:value="line.1457460923"/>
+        <meta-data android:name="jp.line.sdk.Phase" android:value="REAL"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="gcm_sender_id" android:value="gcm.52099697918"/>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <receiver android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.linecorp.b612.android.imageloader.B612GlideModule" android:value="GlideModule"/>
+        <provider android:authorities="com.facebook.app.FacebookContentProvider1665622637007821.com.linecorp.b612.android" android:exported="true" android:name="com.facebook.FacebookContentProvider"/>
+        <receiver android:exported="true" android:name="com.linecorp.b612.android.push.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.linecorp.b612.android"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.linecorp.b612.android.push.GcmIntentService"/>
+        <service android:exported="false" android:name="com.linecorp.b612.sns.service.UploadAndCallApiService">
+            <intent-filter>
+                <category android:name="com.linecorp.b612.android"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.linecorp.b612.sns.service.DownloadAndObsUploadService">
+            <intent-filter>
+                <category android:name="com.linecorp.b612.android"/>
+            </intent-filter>
+        </service>
+        <provider android:authorities="com.linecorp.b612.android.google_measurement_service" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+    </application>
+</manifest>

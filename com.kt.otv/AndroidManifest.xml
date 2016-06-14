@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.kt.otv" platformBuildVersionCode="23" platformBuildVersionName="6.0-2438415">
+    <application android:debuggable="false" android:icon="@drawable/icon" android:label="@string/app_name" android:largeHeap="true">
+        <activity android:label="@string/app_name" android:name="com.kt.otv.HomeLauncher" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="com.kt.otv.ui.activity.HomeMenuActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="com.kt.otv.ui.activity.AppLauncherActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <data android:scheme="ktolleh00078"/>
+                <data android:scheme="KTolleh00078"/>
+                <data android:scheme="schemeSearch"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="com.kt.otv.ui.activity.QrScannerActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:excludeFromRecents="true" android:name="com.kt.otv.ui.dialog.PushPopupDialog" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/custom_popup_theme"/>
+        <receiver android:enabled="true" android:name="com.kt.otv.receiver.ConnectivityReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.kt.otv.receiver.RingerModeReceiver">
+            <intent-filter>
+                <action android:name="android.media.RINGER_MODE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.kt.otv.receiver.SmsReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.kt.otv.receiver.PhoneStateReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.kt.otv.receiver.BackGroundPlayReceiver">
+            <intent-filter>
+                <action android:name="com.kt.otv.receiver.BackGroundPlayReceiver.start"/>
+                <action android:name="com.kt.otv.receiver.BackGroundPlayReceiver.pause"/>
+                <action android:name="com.kt.otv.receiver.BackGroundPlayReceiver.clear"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.pms.sdk.push.PushReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.kt.otv"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.kt.otv.receiver.NotificationReceiver">
+            <intent-filter>
+                <action android:name="com.pms.receiver.NotificationReceiver"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="PMS_SET_ICON" android:resource="@drawable/statusbar_icons"/>
+        <meta-data android:name="PMS_NOTI_CONTENT" android:value="두손가락을 이용해 아래로 당겨주세요."/>
+        <meta-data android:name="PMS_APP_KEY" android:value="7f300c7a856c4a1eae19"/>
+        <meta-data android:name="PMS_MQTT_FLAG" android:value="N"/>
+        <meta-data android:name="PMS_API_SERVER_URL" android:value="http://otmpush.ktmediahub.com/msgApi/"/>
+        <meta-data android:name="tnkad_app_id" android:value="9000a020-40c1-e414-414e-1c040108040a"/>
+        <service android:name="com.kt.otv.service.PopupPlayService">
+            <intent-filter>
+                <action android:name="android.intent.action.CONFIGURATION_CHANGED"/>
+            </intent-filter>
+            <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+        </service>
+    </application>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.ACCESS_SURFACE_FLINGER"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <permission android:name="com.kt.otv.broadcast.permission" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.kt.otv.broadcast.permission"/>
+    <permission android:name="com.kt.otv.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.kt.otv.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="com.kt.olleh.permission.DOWNLOAD"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.any" android:required="false"/>
+</manifest>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.kbstar.starpush" platformBuildVersionCode="19" platformBuildVersionName="4.4.2-1456859">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <permission android:name="com.kbstar.starpush.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.kbstar.starpush.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.portrait" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="com.kbstar.kbbank.base.application.CommonApplication" android:supportsRtl="true" android:theme="@style/KBAppBaseTheme">
+        <activity android:excludeFromRecents="true" android:name="com.kbstar.starpush.view.PushMsgActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:excludeFromRecents="true" android:name="com.kbstar.starpush.view.PushMsgPickingActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:excludeFromRecents="true" android:name="com.kbstar.starpush.view.PushMsgPopupActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:excludeFromRecents="true" android:name="com.kbstar.starpush.view.PushMsgMemoActivity" android:theme="@android:style/Theme.Translucent" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:excludeFromRecents="true" android:name="com.kbstar.starpush.view.PushMsgWebviewActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="com.kbstar.starpush.view.Intro" android:theme="@style/KBAppBaseThemeWithSplash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="kakaolink" android:scheme="kakaofbb00dd40200e2d123112d9bde29d259"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="call" android:scheme="kbpush"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.kbstar.starpush.action"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.kbstar.kbbank.view.HandMainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTask" android:name="com.kbstar.kbbank.view.TabletMainActivity" android:screenOrientation="landscape" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/nfilter_lable" android:name="com.nshc.nfilter.NFilterChar" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/nfilter_lable" android:name="com.nshc.nfilter.NFilterNum" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/nfilter_lable" android:name="com.nshc.nfilter.NFilterSerialNum" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.kbstar.kbbank.view.mobileweb.MobileWebActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.kbstar.kbbank.view.test.TestMainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.kbstar.starpush.view.TutorialActivity"/>
+        <receiver android:name="com.kbstar.kbbank.common.receive.SMSReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+                <category android:name="com.kbstar.starpush"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kakao_app_key"/>
+        <receiver android:name="com.google.android.gcm.GCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.kbstar.starpush"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.kbstar.starpush.GCMIntentService"/>
+        <receiver android:label="LocalPushTimerReceiver" android:name="com.kbstar.kbbank.common.receive.LocalPushTimerReceiver">
+            <intent-filter>
+                <action android:name="com.kbstar.starpush.localpush"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:exported="false" android:label="BootCompletedReceiver" android:name="com.kbstar.kbbank.common.receive.BootCompletedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.kbstar.starpush.FLKPushAgentReceiver">
+            <intent-filter>
+                <action android:name="com.kbbank.pushagent.RECEIVED_APP_REG_ID"/>
+                <action android:name="com.kbbank.pushagent.RECEIVED_APP_MSG_INFO"/>
+                <action android:name="com.kbbank.pushagent.RECEIVED_REG_PARAM_ERROR"/>
+                <action android:name="com.kbbank.pushagent.RECEIVED_REG_RESULT_ERROR"/>
+                <action android:name="com.kbbank.pushagent.RECEIVED_APP_READ_MSG_ACK"/>
+                <action android:name="com.kbbank.pushagent.RECEIVED_SESSION_SETTING_RESULT"/>
+                <data android:host="kbbank" android:scheme="kbbank_push"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.kbbank.pushagent.REQUEST_READY_FOR_AGENT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.kbbank.pushagent.service.PushAgentServiceManager" android:process=":agent">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.kbbank.pushagent.APP_REGISTRATION"/>
+                <action android:name="com.kbbank.pushagent.RESPONSE_READ_MSG"/>
+                <action android:name="com.kbbank.pushagent.AGENT_SESSION_SETTING"/>
+                <data android:host="kbbank_pushagent_uri" android:scheme="kbbank_push"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.kbbank.pushagent.SERVICE_START"/>
+                <action android:name="com.kbbank.pushagent.AGENT_PAUSE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.kbbank.pushagent.service.NetworkStateMonitor" android:process=":agent">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.kbbank.pushagent.service.PushAgentAlarmManager" android:process=":agent">
+            <intent-filter>
+                <action android:name="com.kbbank.pushagent.action.checkprocess"/>
+                <action android:name="com.kbbank.pushagent.action.delayprocess"/>
+                <action android:name="com.kbbank.pushagent.action.repeatprocess"/>
+                <action android:name="com.kbbank.pushagent.action.force"/>
+                <action android:name="com.kbbank.pushagent.action.socket"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.kbbank.pushagent.service.PushAgentServiceAlarmManager" android:process=":agent">
+            <intent-filter>
+                <action android:name="com.kbbank.pushagent.service.postdelayed"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:name="com.kbbank.pushagent.service.PushAgentService" android:process=":agent"/>
+        <activity android:clearTaskOnLaunch="true" android:excludeFromRecents="true" android:launchMode="singleTask" android:name="com.kbbank.pushagent.popup.WakeUpActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="stateAlwaysHidden"/>
+    </application>
+</manifest>

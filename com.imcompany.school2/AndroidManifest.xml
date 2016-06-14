@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.imcompany.school2" platformBuildVersionCode="23" platformBuildVersionName="6.0-2704002">
+    <permission android:name="com.imcompany.school2.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.imcompany.school2.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <supports-screens android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-feature android:glEsVersion="0x20000" android:required="true"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT"/>
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE"/>
+    <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="com.imcompany.school2.GlobalApplication_" android:theme="@style/AppTheme">
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kakao_app_key"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="@string/google_map_key"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="jp.line.sdk.ChannelId" android:value="1453731231"/>
+        <meta-data android:name="jp.line.sdk.AuthScheme" android:value="line.1453731231"/>
+        <activity android:configChanges="keyboard|orientation" android:exported="true" android:label="@string/app_name" android:name="jp.line.android.sdk.activity.LineAuthCompleteActivity" android:screenOrientation="sensor">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="line.1453731231"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|orientation" android:exported="false" android:name="jp.line.android.sdk.activity.WebLoginActivity" android:screenOrientation="sensor"/>
+        <activity android:label="@string/app_name" android:name="com.imcompany.school2.SplashActivity_" android:screenOrientation="portrait" android:theme="@style/NoActionBar.FullScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="yozio" android:path="/" android:scheme="iamschoollink"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="deeplink.yozio.com" android:pathPrefix="@string/yozio_prefix" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="r.iamschool.net" android:scheme="http"/>
+                <data android:host="r.iamschool.net" android:scheme="https"/>
+                <data android:host="l.iamschool.net" android:scheme="http"/>
+                <data android:host="l.iamschool.net" android:scheme="https"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="deeplink.yoz.io" android:pathPrefix="@string/yozio_prefix" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="deeplink.yozio.com" android:pathPrefix="/" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="com.imcompany.school2.main.activity.MainActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Main"/>
+        <activity android:label="@string/activity_title_alarm" android:name="com.imcompany.school2.alarm.activity.AlarmActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar"/>
+        <activity android:hardwareAccelerated="true" android:name="com.imcompany.school2.auth.activity.AuthActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="line3rdp" android:scheme="iamschool"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.imcompany.school2.landing.activity.LandingPageActivity_" android:screenOrientation="portrait"/>
+        <activity android:label="@string/activity_title_card_detail" android:name="com.imcompany.school2.card.activity.CommonDetailActivity_" android:parentActivityName="com.imcompany.school2.main.activity.MainActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar" android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".main.activity.MainActivity_"/>
+        </activity>
+        <activity android:label="@string/activity_title_organization_profile_description" android:name="com.imcompany.school2.organization.activity.DescriptionActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar"/>
+        <activity android:name="com.imcompany.school2.organization.activity.GroupMoreActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar"/>
+        <activity android:name="com.imcompany.school2.organization.activity.TeacherMoreActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar"/>
+        <activity android:name="com.imcompany.school2.card.activity.ImageViewerActivity_" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.imcompany.school2.organization.activity.OrganizationProfileActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.OrganizationProfile"/>
+        <activity android:label="@string/activity_title_calendar" android:name="com.imcompany.school2.organization.activity.CalendarActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar"/>
+        <activity android:label="@string/org_profile_map" android:name="com.imcompany.school2.organization.activity.MapActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar"/>
+        <activity android:name="com.imcompany.school2.organization.activity.OrganizationSettingActivity_" android:parentActivityName="com.imcompany.school2.organization.activity.OrganizationSettingActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".organization.activity.OrganizationProfileActivity_"/>
+        </activity>
+        <activity android:name="com.imcompany.school2.organization.activity.GroupFeedsActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar"/>
+        <activity android:name="com.imcompany.school2.organization.activity.TeacherActivity_" android:parentActivityName="com.imcompany.school2.organization.activity.TeacherActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".organization.activity.OrganizationProfileActivity_"/>
+        </activity>
+        <activity android:name="com.imcompany.school2.organization.activity.OrganizationLoadingActivity_" android:screenOrientation="portrait" android:theme="@style/NoActionBar.FullScreen"/>
+        <activity android:label="@string/fragment_title_event_detail" android:name="com.imcompany.school2.event.activity.EventDetailActivity_" android:parentActivityName="com.imcompany.school2.main.activity.MainActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".main.activity.MainActivity_"/>
+        </activity>
+        <activity android:label="@string/activity_title_register_school" android:name="com.imcompany.school2.setting.activity.RegisterSchoolActivity_" android:parentActivityName="com.imcompany.school2.main.activity.MainActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".main.activity.MainActivity_"/>
+        </activity>
+        <activity android:label="@string/activity_title_application_setting" android:name="com.imcompany.school2.setting.activity.SettingApplicationActivity_" android:parentActivityName="com.imcompany.school2.main.activity.MainActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".main.activity.MainActivity_"/>
+        </activity>
+        <activity android:label="@string/fragment_title_scrap" android:name="com.imcompany.school2.setting.activity.ScrapActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar"/>
+        <activity android:label="@string/fragment_title_phone_change" android:name="com.imcompany.school2.setting.activity.ChangePhoneActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar"/>
+        <activity android:label="@string/activity_title_account" android:name="com.imcompany.school2.setting.activity.AccountActivity_" android:parentActivityName="com.imcompany.school2.main.activity.MainActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".main.activity.MainActivity_"/>
+        </activity>
+        <activity android:label="@string/fragment_title_setting_email_register" android:name="com.imcompany.school2.setting.activity.EmailRegisterActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar"/>
+        <activity android:label="@string/fragment_title_setting_email_change" android:name="com.imcompany.school2.setting.activity.EmailInfoActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar"/>
+        <activity android:label="@string/fragment_title_email_password_change" android:name="com.imcompany.school2.setting.activity.EmailPasswordChangeActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar"/>
+        <activity android:label="@string/fragment_title_setting_email_change" android:name="com.imcompany.school2.setting.activity.EmailChangeActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar"/>
+        <activity android:label="@string/fragment_title_term" android:name="com.imcompany.school2.main.activity.PolicyAgreeActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar"/>
+        <activity android:label="@string/activity_title_invitation" android:name="com.imcompany.school2.main.activity.InvitationActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar"/>
+        <activity android:label="@string/label_forgot_email" android:name="com.imcompany.school2.auth.activity.FindAccountActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar"/>
+        <activity android:name="com.imcompany.school2.setting.activity.NoticeActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar"/>
+        <activity android:label="@string/activity_title_notice_detail" android:name="com.imcompany.school2.setting.activity.NoticeDetailActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar"/>
+        <activity android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:label="OAuth2.0 In-app" android:name="com.nhn.android.naverlogin.ui.OAuthLoginInAppBrowserActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.imcompany.school2.magazine.activity.RecyclerCategoryDetailActivity_" android:parentActivityName="com.imcompany.school2.main.activity.MainActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".main.activity.MainActivity_"/>
+        </activity>
+        <activity android:name="com.imcompany.school2.magazine.activity.PackageActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.OrganizationProfile"/>
+        <activity android:label="@string/activity_title_help_group_not_found" android:name="com.imcompany.school2.organization.activity.HelpGroupNotFoundActivity_" android:parentActivityName="com.imcompany.school2.organization.activity.OrganizationProfileActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".organization.activity.OrganizationProfileActivity_"/>
+        </activity>
+        <activity android:name="com.imcompany.school2.feed.activity.ZoomableWebViewActivity_" android:screenOrientation="portrait" android:theme="@style/AppTheme.Default.ToolBar"/>
+        <activity android:launchMode="singleTask" android:name="com.imcompany.school2.PushActivity_" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:exported="true" android:name="com.google.android.gms.gcm.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.imcompany.school2"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.imcompany.school2.gms.MyGcmListenerService_">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.imcompany.school2.gms.MyInstanceIDListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.imcompany.school2.gms.RegistrationIntentService"/>
+        <service android:exported="false" android:name="com.imcompany.school2.log.LogIntentService_"/>
+        <receiver android:exported="true" android:name="com.imcompany.school2.analytics.MasterInstallReferrerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.google.android.gms.analytics.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.gms.analytics.globalConfigResource" android:resource="@xml/app_tracker"/>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="bff84eb4f8531136f2435d1163d053b21df6cd16"/>
+        <meta-data android:name="YozioAppKey" android:value="@string/yozio_app_key"/>
+        <meta-data android:name="YozioSecretKey" android:value="@string/yozio_secret_key"/>
+        <meta-data android:name="YozioNewInstallMetaDataCallback" android:value="com.imcompany.school2.yozio.YozioNewInstallMetaDataCallback"/>
+        <provider android:authorities="com.imcompany.school2.google_measurement_service" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+    </application>
+</manifest>

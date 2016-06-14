@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="kr.psynet.yhnews" platformBuildVersionCode="21" platformBuildVersionName="5.0.1-1624448">
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <permission android:name="kr.psynet.yhnews.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="kr.psynet.yhnews.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROC2ESSES"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.samsung.wmanager.ENABLE_NOTIFICATION"/>
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
+    <application android:allowBackup="true" android:icon="@drawable/icon" android:label="@string/app_name" android:largeHeap="true" android:name="kr.j2s.yhnews.activity.MainApplication" android:screenOrientation="portrait" android:theme="@style/LiveoActionBarTheme">
+        <activity android:name="kr.j2s.yhnews.activity.IntroActivity" android:screenOrientation="sensorPortrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity-alias android:name="kr.psynet.yhnews.Intro" android:targetActivity="kr.j2s.yhnews.activity.IntroActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity-alias>
+        <activity android:label="@string/app_name" android:name="kr.j2s.yhnews.activity.ScrNewsMainActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:name="kr.j2s.yhnews.activity.CoachMarkActivity" android:screenOrientation="sensorPortrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:label="@string/app_name" android:name="kr.j2s.yhnews.activity.NoticeListActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:label="@string/app_name" android:name="kr.j2s.yhnews.activity.AppInfoActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:label="@string/app_name" android:name="kr.j2s.yhnews.activity.NoticeDetailActivity" android:screenOrientation="sensorPortrait"/>
+        <receiver android:name="kr.j2s.yhnews.activity.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="kr.psynet.yhnews"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <service android:name="kr.j2s.yhnews.activity.GcmIntentService"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="kr.j2s.yhnews.activity.PushDialogActivity" android:screenOrientation="sensorPortrait" android:taskAffinity="kr.psynet.yhnews.dialog" android:theme="@style/ActivityDialog" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/app_name" android:name="kr.j2s.yhnews.activity.SettingAlarmActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:label="@string/app_name" android:name="kr.j2s.yhnews.activity.SettingMainActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:label="@string/app_name" android:name="kr.j2s.yhnews.activity.SettingDesignActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:label="@string/app_name" android:name="kr.j2s.yhnews.activity.SuggestionListActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="kr.j2s.yhnews.activity.SuggestionDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:name="kr.j2s.yhnews.activity.TmpActivity" android:screenOrientation="sensorPortrait" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name="kr.j2s.yhnews.activity.WebViewActivity" android:screenOrientation="portrait"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:screenOrientation="sensorPortrait" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="net.daum.adam.publisher.impl.AdInterstitialActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="Ad Activity" android:name="com.skplanet.tad.AdActivity" android:screenOrientation="sensorPortrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="mediba.ad.sdk.android.openx.MasAdClickWebview" android:screenOrientation="sensorPortrait"/>
+        <activity android:name="com.nbpcorp.mobilead.sdk.MobileAdBrowserActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:name="com.inmobi.androidsdk.IMBrowserActivity" android:screenOrientation="sensorPortrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.sec.android.ad.AdActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="com.millennialmedia.android.MMActivity" android:screenOrientation="sensorPortrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.yna.yonhapnews.ui.search.SearchMainActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:hardwareAccelerated="true" android:name="kr.j2s.yhnews.activity.ArticleDetailActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:name="kr.j2s.yhnews.activity.GraphicDetailActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:name="kr.j2s.yhnews.activity.IssueDetailActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:name="kr.j2s.yhnews.activity.IssueDetail2Activity" android:screenOrientation="sensorPortrait"/>
+        <activity android:name="kr.j2s.yhnews.activity.MpicDetailActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:name="kr.j2s.yhnews.activity.PhotoDetailActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:name="kr.j2s.yhnews.activity.PhotoGalleryDetailActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:name="kr.j2s.yhnews.activity.DesignPreviewActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:name="com.yna.yonhapnews.ui.scrap.ScrapMainActivity" android:screenOrientation="sensorPortrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="kr.j2s.yhnews.activity.VideoViewActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <receiver android:exported="true" android:label="@string/smart_bulletin_name" android:name="kr.j2s.yhnews.smartwidget.SmartWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="kr.psynet.yhnews.smartbulletin.update"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/smart_bullentin_provider_info"/>
+        </receiver>
+        <receiver android:exported="true" android:name="kr.j2s.yhnews.smartwidget.SmartWidgetActionReceiver">
+            <intent-filter>
+                <action android:name="com.lge.launcher2.smartbulletin.action.ENABLED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.lge.launcher2.smartbulletin.action.DISABLED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.lge.launcher2.smartbulletin.action.RESUMED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.lge.launcher2.smartbulletin.action.PAUSED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:label="@string/widget_name_card" android:name="kr.j2s.yhnews.widget.StackWidgetProvider">
+            <intent-filter>
+                <action android:name="com.stackwidgetapp.DATA_STACK_FETCHED_ERROR"/>
+                <action android:name="com.stackwidgetapp.DATA_STACK_FETCHED"/>
+                <action android:name="com.stackwidgetapp.DATA_STACK_RETRY"/>
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_DELETED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/stackwidgetinfo"/>
+        </receiver>
+        <service android:name="kr.j2s.yhnews.widget.StackWidgetService" android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <service android:name="kr.j2s.yhnews.widget.StackWidgetFetchDataService"/>
+        <receiver android:exported="true" android:label="@string/widget_name_list" android:name="kr.j2s.yhnews.widget.ListWidgetProvider">
+            <intent-filter>
+                <action android:name="com.listwidgetapp.DATA_LIST_FETCHED"/>
+                <action android:name="com.listwidgetapp.DATA_LIST_RETRY"/>
+                <action android:name="com.listwidgetapp.DATA_LIST_FETCHED_ERROR"/>
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_DELETED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/listwidgetinfo"/>
+        </receiver>
+        <service android:name="kr.j2s.yhnews.widget.ListWidgetService" android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <service android:name="kr.j2s.yhnews.widget.ListWidgetFetchDataService"/>
+        <receiver android:exported="true" android:label="@string/widget_name_list_5x3" android:name="kr.j2s.yhnews.widget.ListWidgetProvider_5x3">
+            <intent-filter>
+                <action android:name="com.listwidgetapp.DATA_LIST_FETCHED"/>
+                <action android:name="com.listwidgetapp.DATA_LIST_RETRY"/>
+                <action android:name="com.listwidgetapp.DATA_LIST_FETCHED_ERROR"/>
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_DELETED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/listwidgetinfo_5x3"/>
+        </receiver>
+        <service android:name="kr.j2s.yhnews.widget.ListWidgetService" android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <service android:name="kr.j2s.yhnews.widget.ListWidgetFetchDataService"/>
+    </application>
+</manifest>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="internalOnly" package="com.toast.comico" platformBuildVersionCode="23" platformBuildVersionName="6.0-2704002">
+    <supports-screens android:anyDensity="true"/>
+    <supports-screens android:smallScreens="true"/>
+    <supports-screens android:normalScreens="true"/>
+    <supports-screens android:largeScreens="true"/>
+    <supports-screens android:xlargeScreens="true"/>
+    <permission android:name="com.toast.comico.permission.NNI_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.toast.comico.permission.NNI_MESSAGE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <permission android:name="com.toast.comico.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.toast.comico.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <application android:allowBackup="false" android:hardwareAccelerated="true" android:icon="@drawable/ic_comico" android:label="@string/app_name" android:largeHeap="true" android:name="com.toast.comico.ComicoApplication" android:theme="@style/AppTheme">
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="@string/twitter_consumer_key"/>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kakao_app_key"/>
+        <meta-data android:name="igaworks_app_key" android:value="529667921"/>
+        <meta-data android:name="igaworks_hash_key" android:value="f6937cbb444044b7"/>
+        <meta-data android:name="igaworks_market_info" android:value="Google"/>
+        <meta-data android:name="igaworks_reward_server_type" android:value="server"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:launchMode="singleTop" android:name="com.toast.comico.activity.SplashActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="execute" android:scheme="comico"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="com.toast.comico" android:scheme="content"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.toast.comico.activity.TutorialActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.toast.comico.activity.MainHomeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.toast.comico.activity.SubHomeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.toast.comico.activity.ArticleListActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="locale|keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:name="com.toast.comico.activity.ContentViewerActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.toast.comico.activity.CommentListActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.toast.comico.activity.BookShelfActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.toast.comico.activity.RegistrationActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.toast.comico.activity.MyHomeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.toast.comico.activity.MyHomeSubActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.toast.comico.activity.CoinActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.toast.comico.activity.CouponActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.toast.comico.activity.CoinHistoryActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.toast.comico.activity.CoinPurchaseActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.toast.comico.activity.ToastWebActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.toast.comico.activity.SearchActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.igaworks.adpopcorn.activity.ApOfferWallActivity_NT" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.igaworks.adpopcorn.activity.ApCSActivity_NT" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.igaworks.adpopcorn.activity.ApVideoAdActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.igaworks.displayad.activity.InterstitialActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.toast.android.paycoid.auth.AuthActivity" android:screenOrientation="portrait" android:theme="@style/com_toast_android_paycoid_theme_paycoid"/>
+        <activity android:name="com.toast.android.paycoid.auth.LogoutActivity" android:screenOrientation="portrait" android:theme="@style/com_toast_android_paycoid_theme_paycoid"/>
+        <activity android:name="com.toast.android.paycoid.account.AuthenticatorActivity" android:screenOrientation="portrait" android:theme="@style/com_toast_android_paycoid_theme_paycoid"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.toast.comico.activity.SimpleListActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:name="com.toast.android.paycoid.account.AuthenticationService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/com_toast_android_paycoid_authenticator"/>
+        </service>
+        <receiver android:exported="true" android:name="com.toast.android.analytics.InstallReferrerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+            <meta-data android:name="forward1" android:value="com.toast.comico.InstallReferrerReceiver"/>
+            <meta-data android:name="forward2" android:value="com.igaworks.IgawReceiver"/>
+            <meta-data android:name="forward3" android:value="com.AdX.tag.AdXAppTracker"/>
+            <meta-data android:name="forward4" android:value="com.mobileapptracker.Tracker"/>
+        </receiver>
+        <receiver android:exported="true" android:name="com.toast.android.analytics.ExecutionReferrerReceiver">
+            <intent-filter>
+                <action android:name="com.toast.android.analytics.toastpromotion.EXECUTION"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.toast.comico.service.DownloadService" android:process=":remote"/>
+        <receiver android:name="com.nhn.npush.NPushBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.nhn.nni.intent.RECEIVE"/>
+                <action android:name="com.nhn.nni.intent.REGISTRATION"/>
+                <action android:name="com.nhn.nni.intent.EVENT"/>
+                <category android:name="com.toast.comico"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.GTALK_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <data android:pathPattern="com.toast.comico" android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.google.android.gms.gcm.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.toast.comico"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:label="NHN Notification Infra" android:name="com.nhn.nni.NNIMessageService" android:process="com.nhn.nni">
+            <intent-filter android:priority="1">
+                <action android:name="com.nhn.nni.intent.REGISTER"/>
+                <action android:name="com.nhn.nni.intent.UNREGISTER"/>
+                <action android:name="com.nhn.nni.intent.GET_STATE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.nhn.npush.gcm.GcmService">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.nhn.npush.gcm.GcmInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.toast.comico.NPushIntentService"/>
+        <meta-data android:name="com.toast.android.analytics.appstore" android:value="Google"/>
+        <provider android:authorities="com.facebook.app.FacebookContentProvider827737443954455" android:exported="true" android:name="com.facebook.FacebookContentProvider"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:label="@string/app_name" android:name="com.nhnent.bill.iaplib.NEResultRcvActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="paysample"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="com.nhnent.bill.iaplib.NEIapActivity"/>
+        <receiver android:name="com.toast.comico.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.toast.comico"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.toast.comico.GcmIntentService"/>
+        <activity android:exported="false" android:name="com.twitter.sdk.android.tweetcomposer.ComposerActivity" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <service android:enabled="true" android:exported="false" android:name="com.twitter.sdk.android.tweetcomposer.TweetUploadService"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:exported="false" android:name="com.twitter.sdk.android.core.identity.OAuthActivity"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:exported="false" android:icon="@drawable/tw__transparent" android:label="@string/kit_name" android:name="com.twitter.sdk.android.core.identity.ShareEmailActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+        <provider android:authorities="com.toast.comico.google_measurement_service" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+    </application>
+</manifest>

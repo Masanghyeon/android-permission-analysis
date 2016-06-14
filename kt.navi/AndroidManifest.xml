@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="kt.navi" platformBuildVersionCode="23" platformBuildVersionName="6.0-2438415">
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.RECORD_VIDEO"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.SET_TIME_ZONE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="com.thinkware.i3dlite.inavilauncher.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="kt.navi.permission.ACCEPT_RECEIVER"/>
+    <uses-permission android:name="kt.navi.permission.USE_PERMISSION"/>
+    <permission android:name="com.thinkware.i3dlite.inavilauncher.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <permission android:name="android.permission.CAMERA" android:protectionLevel="dangerous"/>
+    <permission android:name="android.permission.ACCESS_FINE_LOCATION" android:protectionLevel="dangerous"/>
+    <permission android:name="android.permission.ACCESS_COARSE_LOCATION" android:protectionLevel="dangerous"/>
+    <permission android:name="android.permission.RECORD_AUDIO" android:protectionLevel="dangerous"/>
+    <permission android:name="android.permission.READ_PHONE_STATE" android:protectionLevel="dangerous"/>
+    <permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:protectionLevel="dangerous"/>
+    <permission android:name="kt.navi.permission.ACCEPT_RECEIVER" android:protectionLevel="normal"/>
+    <permission android:label="@string/usepermission_user_label" android:name="kt.navi.permission.USE_PERMISSION"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:xlargeScreens="true"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-feature android:glEsVersion="0x20000" android:required="true"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="false" android:icon="@drawable/air_main_icon" android:label="@string/app_name" android:largeHeap="true" android:name="kt.navi.AppController" android:theme="@android:style/Theme.NoTitleBar">
+        <provider android:authorities="kt.navi.preference" android:name="com.inaviair.kt.userpoint.PreferenceProvider" android:readPermission="kt.navi.permission.USE_PERMISSION"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:label="@string/app_name" android:launchMode="singleTop" android:name="kt.navi.UIActivity" android:screenOrientation="sensor" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="tws.air.inaviair.navigation.start"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="com.inaviair.activities.hud.HudActy" android:screenOrientation="sensor" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="com.inaviair.activities.route.RouteActivity" android:screenOrientation="sensor"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="com.inaviair.activities.userpoints.UserPointEditActivity" android:screenOrientation="sensor" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="com.inaviair.activities.userpoints.UserPointNameEditActivity" android:screenOrientation="sensor" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="com.inaviair.activities.userpoints.FragActyUserPointList" android:screenOrientation="sensor" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="com.inaviair.activities.userpoints.ViewPositionActivity" android:screenOrientation="sensor" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="tws.air.inaviair.download.frame.pre.ActyMapPreDownload" android:screenOrientation="sensor" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="com.inaviair.activities.search.FragActySearch" android:screenOrientation="sensor" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="com.inaviair.activities.search.ActyCateEntry" android:screenOrientation="sensor" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="com.inaviair.activities.search.ActySearchEntry" android:screenOrientation="sensor" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="com.inaviair.activities.search.FragActyAddr" android:screenOrientation="sensor" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="com.inaviair.activities.setting.ActySettingEntry" android:screenOrientation="sensor" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="com.inaviair.activities.setting.ActySettingCheckList" android:screenOrientation="sensor" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="com.inaviair.activities.setting.ActySettingClause" android:screenOrientation="sensor" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="com.inaviair.activities.setting.ActySettingWebView" android:screenOrientation="sensorPortrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="com.inaviair.activities.setting.ActySettingMapDown" android:screenOrientation="sensor" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="com.inaviair.activities.setting.ActySettingPlaneText" android:screenOrientation="sensor" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="com.inaviair.activities.map.adapter.ActyRecentDestEdit" android:screenOrientation="sensor" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="com.inaviair.activities.map.adapter.FragActyRecentDestList" android:screenOrientation="sensor"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="com.inaviair.activities.bbx.view.BBXVideoListActivity" android:screenOrientation="sensor" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="com.inaviair.activities.bbx.view.BBXPlayHorizontalActivity" android:screenOrientation="sensorLandscape" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="com.inaviair.activities.bbx.view.BBXPlayVerticalActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="tws.air.inaviair.download.frame.init.AirMapmodeSettingActivity" android:screenOrientation="sensor" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:launchMode="singleTask" android:name="tws.air.inaviair.external.ActyExternal" android:screenOrientation="sensor" android:theme="@style/Theme.Transparent">
+            <intent-filter>
+                <action android:name="com.thinkware.externallib.start"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.thinkware.inaviair.INSTALL_SHORTCUT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.inaviair.activities.extern.ActyRecvShortCutAction" android:screenOrientation="sensor" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.DEFAULT"/>
+                <data android:scheme="autorunollehinavi"/>
+                <data android:scheme="ollehnavi"/>
+                <data android:scheme="geo"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="action.notistart.ollehinavi"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="navi.action.routeplan"/>
+                <action android:name="navi.action.calllist"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.appwidget.action.ACTION_GOTO_APP"/>
+            </intent-filter>
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="kt.navi.run.launcher"/>
+            </intent-filter>
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="kt.navi.old.intent"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:launchMode="singleTask" android:name="kt.navi.activity.Intro_Activity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|layoutDirection|orientation|screenSize|uiMode" android:name="com.inaviair.appwidget.WidgetDestList" android:screenOrientation="sensor" android:theme="@android:style/Theme.NoTitleBar"/>
+        <receiver android:name="tws.air.inaviair.gcm.GCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.thinkware.i3dlite.inavilauncher"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="tws.air.inaviair.gcm.GCMService"/>
+        <service android:name="com.inaviair.kt.NaviKTSDMUploadService" android:permission="kt.navi.permission.USE_PERMISSION">
+            <intent-filter>
+                <action android:name="kt.navi"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.service.ExtraService" android:stopWithTask="false"/>
+        <receiver android:exported="false" android:label="@string/widget_name" android:name="com.inaviair.appwidget.WidgetMain" android:permission="kt.navi.permission.ACCEPT_RECEIVER">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.appwidget.action.ACTION_GOTO_APP"/>
+                <action android:name="android.appwidget.action.ACTION_GOTO_HOME"/>
+                <action android:name="android.appwidget.action.ACTION_GOTO_BOOKMARK"/>
+                <action android:name="android.appwidget.action.ACTION_GOTO_RECENT"/>
+                <action android:name="android.appwidget.action.ACTION_GOTO_OFTEN"/>
+                <action android:name="android.appwidget.action.ACTION_UPDATE_HOME"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="kt.navi.category.appwidget"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_configuration"/>
+        </receiver>
+        <receiver android:name="com.inaviair.appwidget.ExternalReceiver" android:permission="kt.navi.permission.ACCEPT_RECEIVER">
+            <intent-filter>
+                <action android:name="navi.action.routeplan"/>
+                <action android:name="navi.action.calllist"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="kt.navi.receiver.NaviReceiver">
+            <intent-filter>
+                <action android:name="kt.navi.OLLEH_NAVIGATION"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="kt.navi.NetworkChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="io.fabric.ApiKey" android:value="c06052c28349ee342d59c0506a42878f67f19b93"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="kt.navi.google_measurement_service" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+    </application>
+</manifest>

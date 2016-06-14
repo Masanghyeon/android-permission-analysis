@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.joysoft.wordBook" platformBuildVersionCode="23" platformBuildVersionName="6.0-2704002">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <application android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:theme="@style/AppTheme">
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:label="@string/title_activity_test" android:name="com.joysoft.wordBook.TestActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/app_name" android:name="com.joysoft.wordBook.SplashWindowActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/app_name" android:name="com.joysoft.wordBook.RootActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity"/>
+        <activity android:label="@string/title_activity_settings" android:name="com.joysoft.wordBook.SettingsActivity"/>
+        <activity android:label="@string/title_activity_settings_preference" android:name="com.joysoft.wordBook.SettingsPreferenceActivity"/>
+        <activity android:label="@string/title_activity_search" android:name="com.joysoft.wordBook.SearchActivity"/>
+        <activity android:label="@string/title_activity_history" android:name="com.joysoft.wordBook.HistoryActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/title_activity_my_folder" android:name="com.joysoft.wordBook.MyFolderActivity"/>
+        <activity android:label="@string/title_activity_word_web" android:name="com.joysoft.wordBook.WordWebActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/title_activity_flash_card" android:name="com.joysoft.wordBook.FlashCardActivity"/>
+        <activity android:label="@string/title_activity_folder_select" android:name="com.joysoft.wordBook.FolderSelectActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/title_activity_my_folder_view" android:name="com.joysoft.wordBook.MyFolderViewActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/title_activity_quiz" android:name="com.joysoft.wordBook.QuizActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/title_activity_daum_word_book" android:name="com.joysoft.wordBook.DaumWordBookActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/title_activity_daum_word_book" android:name="com.joysoft.wordBook.StudyBankActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/title_activity_quizlet" android:name="com.joysoft.wordBook.QuizletActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/title_activity_quizlet_view" android:name="com.joysoft.wordBook.QuizletViewActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/title_activity_pair_game" android:name="com.joysoft.wordBook.PairGameActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/title_activity_spelling_game" android:name="com.joysoft.wordBook.SpellingGameActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_favorites" android:name="com.joysoft.wordBook.FavoritesActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.joysoft.wordBook.WebActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.joysoft.wordBook.FaqActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.joysoft.wordBook.FullAdActivity" android:screenOrientation="portrait"/>
+    </application>
+</manifest>

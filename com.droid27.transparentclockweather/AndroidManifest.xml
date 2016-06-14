@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.droid27.transparentclockweather" platformBuildVersionCode="23" platformBuildVersionName="6.0-2704002">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true"/>
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-feature android:glEsVersion="0x20000" android:required="true"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/app_name" android:theme="@style/Theme.MaterialTheme">
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCw0pp71Xh2PxrjS0dMepWJJUzJugmKeh4"/>
+        <activity android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/forecast_name" android:name="com.droid27.weatherinterface.MapActivity" android:noHistory="false" android:theme="@style/Theme.WeatherForecast"/>
+        <activity android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/forecast_name" android:name="com.droid27.weatherinterface.MyLocationActivity" android:noHistory="false" android:theme="@style/Theme.WeatherForecast"/>
+        <meta-data android:name="com.google.android.gms.analytics.globalConfigResource" android:resource="@xml/global_tracker"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.droid27.transparentclockweather.LauncherActivity" android:noHistory="true" android:theme="@style/Theme.FullScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.droid27.apputilities.DebugLogViewerActivity" android:theme="@android:style/Theme.Black.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/clock_theme_selection_name" android:name="com.droid27.transparentclockweather.skinning.themes.WidgetThemeSelectionActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/clock_theme_selection_name" android:name="com.droid27.transparentclockweather.skinning.weatherbackgrounds.WeatherBackgroundThemeSelectionActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/clock_theme_selection_name" android:name="com.droid27.transparentclockweather.skinning.customize.CustomThemeActivity" android:theme="@style/Theme.CustomWidget"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.droid27.transparentclockweather.BatteryInfoActivity" android:noHistory="true"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.droid27.apputilities.SettingsSelectionActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/location_info_name" android:name="com.droid27.transparentclockweather.LocationSetupActivity">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/selectLocation_name" android:name="com.droid27.weatherinterface.AddLocationActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/external_theme_selection_name" android:name="com.droid27.transparentclockweather.skinning.externalthemes.ExternalThemeSelectionActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/font_selection_name" android:name="com.droid27.transparentclockweather.skinning.fonts.FontSelectionActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/weather_icons_theme_selection_name" android:name="com.droid27.transparentclockweather.skinning.weathericons.WeatherIconsThemeSelectionActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/app_icon_selection_title_name" android:name="com.droid27.transparentclockweather.skinning.appicons.AppIconsThemeSelectionActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/battery_icon_selection_title_name" android:name="com.droid27.transparentclockweather.skinning.batteryicons.BatteryIconsThemeSelectionActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/my_weather_locations_name" android:name="com.droid27.weatherinterface.MyWeatherLocationsActivity" android:noHistory="true"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.droid27.weatherinterface.OverlayInfoActivity" android:noHistory="true" android:theme="@style/Theme.Transparent"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/forecast_name" android:name="com.droid27.weatherinterface.WeatherForecastActivityLauncher" android:noHistory="false" android:theme="@style/Theme.Launcher"/>
+        <activity android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/forecast_name" android:launchMode="singleTask" android:name="com.droid27.weatherinterface.WeatherForecastActivity" android:noHistory="false" android:theme="@style/Theme.WeatherForecast"/>
+        <activity android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/forecast_name" android:name="com.droid27.weatherinterface.WeatherFutureForecastActivity" android:noHistory="false" android:theme="@style/Theme.WeatherForecast"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/about_name" android:name="com.droid27.transparentclockweather.About" android:noHistory="false"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/application_selection_name" android:name="com.droid27.transparentclockweather.ApplicationSelectionActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name="com.droid27.transparentclockweather.ViewHtmlActivity" android:noHistory="true" android:theme="@style/Theme.AppTheme.NoActionBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/quick_setup_category" android:name="com.droid27.transparentclockweather.preferences.QuickPreferencesActivity">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/app_name" android:name="com.droid27.transparentclockweather.preferences.PreferencesActivity"/>
+        <receiver android:label="@string/widget_2x1" android:name="com.droid27.transparentclockweather.Widget_2x1">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.droid27.tcw.ACTION_TIME_TICK"/>
+                <action android:name="com.droid27.tcw.ACTION_UPDATE"/>
+                <action android:name="android.intent.action.TIME_CHANGED"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.droid27.tcw.WEATHER_UPDATED"/>
+                <action android:name="com.droid27.tcw.LOCATION_UPDATED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_2x1"/>
+        </receiver>
+        <receiver android:label="@string/widget_4x1" android:name="com.droid27.transparentclockweather.Widget_4x1">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.droid27.tcw.ACTION_TIME_TICK"/>
+                <action android:name="com.droid27.tcw.ACTION_UPDATE"/>
+                <action android:name="android.intent.action.TIME_CHANGED"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.droid27.tcw.WEATHER_UPDATED"/>
+                <action android:name="com.droid27.tcw.LOCATION_UPDATED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x1"/>
+        </receiver>
+        <receiver android:label="@string/widget_4x1_1" android:name="com.droid27.transparentclockweather.Weather_4x1_1">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.droid27.tcw.ACTION_TIME_TICK"/>
+                <action android:name="com.droid27.tcw.ACTION_UPDATE"/>
+                <action android:name="android.intent.action.TIME_CHANGED"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.droid27.tcw.WEATHER_UPDATED"/>
+                <action android:name="com.droid27.tcw.LOCATION_UPDATED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/weather_4x1_1"/>
+        </receiver>
+        <receiver android:label="@string/widget_4x1_2" android:name="com.droid27.transparentclockweather.Weather_4x1_2">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.droid27.tcw.ACTION_TIME_TICK"/>
+                <action android:name="com.droid27.tcw.ACTION_UPDATE"/>
+                <action android:name="android.intent.action.TIME_CHANGED"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.droid27.tcw.WEATHER_UPDATED"/>
+                <action android:name="com.droid27.tcw.LOCATION_UPDATED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/weather_4x1_2"/>
+        </receiver>
+        <receiver android:label="@string/widget_4x2" android:name="com.droid27.transparentclockweather.Widget_4x2">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.droid27.tcw.ACTION_TIME_TICK"/>
+                <action android:name="com.droid27.tcw.ACTION_UPDATE"/>
+                <action android:name="android.intent.action.TIME_CHANGED"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.droid27.tcw.WEATHER_UPDATED"/>
+                <action android:name="com.droid27.tcw.LOCATION_UPDATED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x2"/>
+        </receiver>
+        <receiver android:label="@string/widget_4x2_b" android:name="com.droid27.transparentclockweather.Widget_4x2_b">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.droid27.tcw.ACTION_TIME_TICK"/>
+                <action android:name="com.droid27.tcw.ACTION_UPDATE"/>
+                <action android:name="android.intent.action.TIME_CHANGED"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.droid27.tcw.WEATHER_UPDATED"/>
+                <action android:name="com.droid27.tcw.LOCATION_UPDATED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x2_b"/>
+        </receiver>
+        <receiver android:label="@string/widget_4x3_c" android:name="com.droid27.transparentclockweather.Widget_4x3_c">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.droid27.tcw.ACTION_TIME_TICK"/>
+                <action android:name="com.droid27.tcw.ACTION_UPDATE"/>
+                <action android:name="android.intent.action.TIME_CHANGED"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.droid27.tcw.WEATHER_UPDATED"/>
+                <action android:name="com.droid27.tcw.LOCATION_UPDATED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x3_c"/>
+        </receiver>
+        <receiver android:label="@string/widget_4x3_d" android:name="com.droid27.transparentclockweather.Widget_4x3_d">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.droid27.tcw.ACTION_TIME_TICK"/>
+                <action android:name="com.droid27.tcw.ACTION_UPDATE"/>
+                <action android:name="android.intent.action.TIME_CHANGED"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.droid27.tcw.WEATHER_UPDATED"/>
+                <action android:name="com.droid27.tcw.LOCATION_UPDATED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x3_d"/>
+        </receiver>
+        <receiver android:label="@string/widget_4x2_c" android:name="com.droid27.transparentclockweather.Widget_4x2_c">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.droid27.tcw.ACTION_TIME_TICK"/>
+                <action android:name="com.droid27.tcw.ACTION_UPDATE"/>
+                <action android:name="android.intent.action.TIME_CHANGED"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.droid27.tcw.WEATHER_UPDATED"/>
+                <action android:name="com.droid27.tcw.LOCATION_UPDATED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x2_c"/>
+        </receiver>
+        <receiver android:label="@string/widget_4x2_d" android:name="com.droid27.transparentclockweather.Widget_4x2_d">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.droid27.tcw.ACTION_TIME_TICK"/>
+                <action android:name="com.droid27.tcw.ACTION_UPDATE"/>
+                <action android:name="android.intent.action.TIME_CHANGED"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.droid27.tcw.WEATHER_UPDATED"/>
+                <action android:name="com.droid27.tcw.LOCATION_UPDATED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x2_d"/>
+        </receiver>
+        <receiver android:label="@string/widget_5x2" android:name="com.droid27.transparentclockweather.Widget_5x2">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.droid27.tcw.ACTION_TIME_TICK"/>
+                <action android:name="com.droid27.tcw.ACTION_UPDATE"/>
+                <action android:name="android.intent.action.TIME_CHANGED"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.droid27.tcw.WEATHER_UPDATED"/>
+                <action android:name="com.droid27.tcw.LOCATION_UPDATED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_5x2"/>
+        </receiver>
+        <receiver android:label="@string/app_name" android:name="com.droid27.transparentclockweather.receivers.WidgetBroadcastReceiver"/>
+        <receiver android:label="@string/app_name" android:name="com.droid27.transparentclockweather.receivers.ScreenReceiver"/>
+        <receiver android:label="@string/app_name" android:name="com.droid27.transparentclockweather.receivers.HourAlarmReceiver"/>
+        <receiver android:label="@string/app_name" android:name="com.droid27.transparentclockweather.receivers.WeatherUpdateReceiver"/>
+        <service android:enabled="true" android:name="com.droid27.transparentclockweather.services.UpdateService"/>
+        <receiver android:name="com.droid27.transparentclockweather.receivers.BootCompletedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.PACKAGE_RESTARTED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.droid27.ads.WebViewActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:name="com.inmobi.androidsdk.IMBrowserActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:enabled="true" android:name="com.inmobi.commons.analytics.androidsdk.IMAdTrackerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="com.inmobi.share.id"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:name="com.inmobi.commons.internal.ActivityRecognitionManager"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+    </application>
+</manifest>

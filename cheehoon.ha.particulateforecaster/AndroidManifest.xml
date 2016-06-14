@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="cheehoon.ha.particulateforecaster" platformBuildVersionCode="23" platformBuildVersionName="6.0-2438415">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <permission android:name="cheehoon.ha.particulateforecaster.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="cheehoon.ha.particulateforecaster.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="cheehoon.ha.particulateforecaster.application.MiseMiseApplication" android:theme="@style/AppTheme">
+        <activity android:label="@string/app_name" android:name="cheehoon.ha.particulateforecaster.pages.a_welcome.WelcomeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.WelcomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="@string/kakaolink_host" android:scheme="@string/kakao_scheme"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name="cheehoon.ha.particulateforecaster.pages.b_main.MainActivity" android:screenOrientation="portrait" android:theme="@style/Theme.MainActivity"/>
+        <activity android:label="@string/title_activity_search_and_set_location_with_daum" android:name="cheehoon.ha.particulateforecaster.pages.c_search_and_set_location.SearchAndSetLocationWithDaumActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_search_and_set_location_with_daum" android:name="cheehoon.ha.particulateforecaster.pages.c_search_and_set_location.SearchAndSetLocationWithoutDaumActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_information" android:name="cheehoon.ha.particulateforecaster.pages.s_social.SocialActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_do_you_like_mise_mise" android:name="cheehoon.ha.particulateforecaster.pages.t_do_you_like_misemise.DoYouLikeMiseMise" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_setting" android:name="cheehoon.ha.particulateforecaster.pages.u_upgrade_to_paid_version.UpgradeToPaidVersionActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_information" android:name="cheehoon.ha.particulateforecaster.pages.v_information.InformationActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_open_source_license" android:name="cheehoon.ha.particulateforecaster.pages.w_forecast_image.ForecastImageActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_setting" android:name="cheehoon.ha.particulateforecaster.pages.x_settings.SettingActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_open_source_license" android:name="cheehoon.ha.particulateforecaster.toBeDeleted.e_open_source_license.OpenSourceLicenseActivity" android:screenOrientation="portrait"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="c2b5cd15fe3b1dabc6b42e13d90110395702c33e"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kakao_app_key"/>
+        <provider android:authorities="com.facebook.app.FacebookContentProvider879357402111219" android:exported="true" android:name="com.facebook.FacebookContentProvider"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.analytics.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <receiver android:name="com.mixpanel.android.mpmetrics.GCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="cheehoon.ha.particulateforecaster"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="cheehoon.ha.particulateforecaster.notification.AlarmReceiver">
+            <intent-filter>
+                <action android:name="android.media.action.DISPLAY_NOTIFICATION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:name="cheehoon.ha.particulateforecaster.notification.DeviceBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.mixpanel.android.mpmetrics.InstallReferrerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="cheehoon.ha.particulateforecaster.widget.two_by_one_free.TwoByOneWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_two_by_one_free"/>
+        </receiver>
+        <service android:name="cheehoon.ha.particulateforecaster.widget.two_by_one_free.TwoByOneWidgetService"/>
+        <activity android:name="cheehoon.ha.particulateforecaster.widget.two_by_one_free.ConfigureActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name="cheehoon.ha.particulateforecaster.widget.two_by_one_paid_ver1.WidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_two_by_one_paid_ver1"/>
+        </receiver>
+        <service android:name="cheehoon.ha.particulateforecaster.widget.two_by_one_paid_ver1.WidgetService"/>
+        <activity android:name="cheehoon.ha.particulateforecaster.widget.two_by_one_paid_ver1.ConfigureActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name="cheehoon.ha.particulateforecaster.widget.two_by_one_paid_ver2.WidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_two_by_one_paid_ver2"/>
+        </receiver>
+        <service android:name="cheehoon.ha.particulateforecaster.widget.two_by_one_paid_ver2.WidgetService"/>
+        <activity android:name="cheehoon.ha.particulateforecaster.widget.two_by_one_paid_ver2.ConfigureActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.SwipeTouchListenerTestActivity"/>
+        <activity android:name="com.nhaarman.listviewanimations.itemmanipulation.dragdrop.DynamicListViewTestActivity"/>
+    </application>
+</manifest>

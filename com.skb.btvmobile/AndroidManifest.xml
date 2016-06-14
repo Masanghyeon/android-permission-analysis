@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.skb.btvmobile" platformBuildVersionCode="23" platformBuildVersionName="6.0-2704002">
+    <permission android:name="com.skb.btvmobile.permission.signature" android:protectionLevel="signature"/>
+    <permission android:name="com.skb.btvmobile.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.skb.btvmobile.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission-sdk-m android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission-sdk-m android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.skb.btvmobile.btvtracer.READ"/>
+    <uses-permission android:name="com.skb.btvmobile.btvtracer.WRITE"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="true" android:icon="@mipmap/launcher" android:label="@string/app_name" android:largeHeap="true" android:name="com.skb.btvmobile.global.Btvmobile" android:theme="@style/AppTheme">
+        <receiver android:name="com.google.android.gms.gcm.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.skb.btvmobile"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="m.client.push.library.service.GCMIntentService">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="m.client.push.library.service.GCMInstanceIDListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.skb.btvmobile.gcm.receiver.GCMMessageArrivedReceiver">
+            <intent-filter>
+                <action android:name="com.skb.btvmobile.UPNS_MESSAGE_ARRIVED"/>
+                <action android:name="com.skb.btvmobile.GCM_MESSAGE_ARRIVED"/>
+                <action android:name="com.skb.btvmobile.REG_PUSHSERVICE_COMPLETELED"/>
+                <action android:name="com.skb.btvmobile.UNREG_PUSHSERVICE_COMPLETELED"/>
+                <action android:name="com.skb.btvmobile.REG_USER_COMPLETELED"/>
+                <action android:name="com.skb.btvmobile.UNREG_USER_COMPLETELED"/>
+                <action android:name="com.skb.btvmobile.SEND_MESSAGE_COMPLETELED"/>
+                <action android:name="com.skb.btvmobile.READ_CONFIRM_COMPLETELED"/>
+                <action android:name="com.skb.btvmobile.GCM_INTENT_RECEIVE_PROCESS_MESSAGE"/>
+                <category android:name="com.skb.btvmobile"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="m.client.push.library.receiver.GcmActionReceiver">
+            <intent-filter>
+                <action android:name="com.skb.btvmobile.GCM_REG_PUSHSERVICE"/>
+                <action android:name="com.skb.btvmobile.GCM_REG_SERVICE_AND_USER"/>
+                <action android:name="com.skb.btvmobile.GCM_UNREG_PUSHSERVICE"/>
+                <action android:name="com.skb.btvmobile.GCM_UPDATE_PUSHSERVICE_DATE"/>
+                <action android:name="com.skb.btvmobile.GCM_REG_USER"/>
+                <action android:name="com.skb.btvmobile.GCM_UNREG_USER"/>
+                <action android:name="com.skb.btvmobile.GCM_SEND_MESSAGE"/>
+                <action android:name="com.skb.btvmobile.GCM_READ_CONFIRM"/>
+                <action android:name="com.skb.btvmobile.GCM_RECEIVE_CONFIRM"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="MEZZO_WINDOW_ID" android:value="banner"/>
+        <meta-data android:name="GPS_USE" android:value="0"/>
+        <meta-data android:name="com.skb.btvmobile.util.CustomGlideModule" android:value="GlideModule"/>
+        <activity android:allowTaskReparenting="true" android:alwaysRetainTaskState="true" android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.skb.btvmobile.activity.MTVIntroActivity" android:screenOrientation="portrait" android:theme="@style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.skb.btvmobile.activity.MTVNewIntroActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.skb.btvmobile.ui.search.SearchActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:alwaysRetainTaskState="true" android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.skb.btvmobile.ui.main.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.skb.btvmobile.ui.benefit.BenefitActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:alwaysRetainTaskState="true" android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.skb.btvmobile.ui.media.MediaActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.skb.btvmobile.ui.home.setting.CastSettingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.skb.btvmobile.ui.media.MediaVerticalActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.skb.btvmobile.ui.schedule.ScheduleActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.skb.btvmobile.ui.person.PersonActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/> /&gt;
+<activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.skb.btvmobile.ui.setting.SettingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.skb.btvmobile.ui.setting.NoticeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.skb.btvmobile.ui.setting.FaqActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.skb.btvmobile.ui.setting.OpenSourceLicense" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.skb.btvmobile.ui.setting.PairingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.skb.btvmobile.ui.event.EventActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.skb.btvmobile.ui.personalization.MyChannelActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.skb.btvmobile.ui.personalization.MyVodActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:allowTaskReparenting="true" android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="false" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.skb.btvmobile.entry.ExternalEntryActivity" android:screenOrientation="portrait" android:theme="@style/Theme.NoDisplay" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="btvmobile"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:name="com.skb.btvmobile.ui.popup.PopupButton" android:screenOrientation="unspecified" android:theme="@style/Theme.CustomDialog"/>
+        <activity android:name="com.skb.btvmobile.ui.popup.PopupReservation" android:screenOrientation="unspecified" android:taskAffinity="com.skb.btvmobile.popup.reservation" android:theme="@style/Theme.CustomDialog"/>
+        <activity android:name="com.skb.btvmobile.ui.popup.PopupReservationDuplication" android:screenOrientation="unspecified" android:taskAffinity="com.skb.btvmobile.popup.reservation" android:theme="@style/Theme.CustomDialog"/>
+        <activity android:name="com.skb.btvmobile.ui.popup.PopupList" android:screenOrientation="unspecified" android:theme="@style/Theme.CustomDialog"/>
+        <activity android:name="com.skb.btvmobile.ui.popup.Popup1lineInput" android:screenOrientation="unspecified" android:theme="@style/Theme.CustomDialog" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:name="com.skb.btvmobile.ui.popup.Popup2lineInput" android:screenOrientation="unspecified" android:theme="@style/Theme.CustomDialog" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.skb.btvmobile.ui.browser.WebBrowserActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.skb.btvmobile.ui.browser.WebViewESS" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.skb.btvmobile.ui.browser.WebViewPCS_Purchase" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.skb.btvmobile.ui.browser.WebViewPCS_Point" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.skb.btvmobile.temp.TempActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="com.skb.btvmobile.ui.base.activity.BlankActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/title_activity_login" android:name="com.skb.btvmobile.ui.login.LoginActivity" android:theme="@style/LoginTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.skb.btvmobile.ui.download.DownloadBoxActivity" android:screenOrientation="portrait"/>
+        <service android:exported="false" android:name="com.skb.btvmobile.ui.player.core.AudioService"/>
+        <service android:exported="false" android:name="com.skb.btvmobile.popupplay.PopUpPlayService">
+            <intent-filter>
+                <action android:name="com.skb.btvmobile.popuplayservice.STARTPOPUPPLAY"/>
+                <action android:name="com.skb.btvmobile.popuplayservice.RETURNPOPUPPLAY"/>
+                <action android:name="com.skb.btvmobile.popuplayservice.CLOSEPOPUPPLAY"/>
+                <action android:name="com.skb.btvmobile.popuplayservice.UI_SHOW_RESIZEBTN"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="false" android:name="com.skb.btvmobile.util.MTVReservationReceiver" android:permission="com.skb.btvmobile.permission.signature">
+            <intent-filter>
+                <action android:name="BTVMOBILE_INTENT_RESERVATION"/>
+                <action android:name="BTVMOBILE_INTENT_OTP_TIMER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="com.skb.btvmobile.logger.LoggerReceiver" android:permission="com.skb.btvmobile.permission.signature">
+            <intent-filter>
+                <action android:name="com.skb.btvmobile.logger.SEND_LOG_TRIGGER"/>
+                <action android:name="com.skb.btvmobile.logger.SEND_LOG_MENU"/>
+                <action android:name="com.skb.btvmobile.logger.SEND_LOG_DATA"/>
+                <action android:name="com.skb.btvmobile.CLOG_SEND_PLAY_TIME"/>
+                <action android:name="com.skb.btvmobile.VCNT_SEND_VIEWCOUNT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.skb.btvmobile.util.tracer.ManagementToolEventReceiver">
+            <intent-filter>
+                <action android:name="btv.intent.action.SERVER_INFO_CHANGED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="btv.intent.action.LOG_INFO_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="io.fabric.ApiKey" android:value="b280edaf057b50f9f174c0b4bb28a2336b0f89df"/>
+        <meta-data android:name="DATABASE" android:value="download.db"/>
+        <meta-data android:name="VERSION" android:value="1"/>
+        <meta-data android:name="QUERY_LOG" android:value="true"/>
+        <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.skb.btvmobile.downloader"/>
+        <service android:name="com.skb.btvmobile.downloader.service.DownloaderService">
+            <intent-filter>
+                <action android:name="com.skb.btvmobile.downloader.service.DownloaderService"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.skb.btvmobile.downloader.DownloadNotificationClickReceiver">
+            <intent-filter>
+                <action android:name="com.skb.btvmobile.downloader.service.BROADCAST_ACTION_DOWNLOAD_NOTIFICATION_CLICKED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+    </application>
+</manifest>

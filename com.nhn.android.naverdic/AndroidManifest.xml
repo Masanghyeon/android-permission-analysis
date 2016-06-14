@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.nhn.android.naverdic" platformBuildVersionCode="23" platformBuildVersionName="6.0-2438415">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <application android:allowBackup="false" android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:name="com.nhn.android.naverdic.BaseApplication" android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <meta-data android:name="com.samsung.android.sdk.multiwindow.enable" android:value="true"/>
+        <meta-data android:name="com.samsung.android.sdk.multiwindow.multiinstance.enable" android:value="true"/>
+        <meta-data android:name="com.sec.android.support.multiwindow" android:value="true"/>
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_W" android:resource="@dimen/app_defaultsize_w"/>
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_H" android:resource="@dimen/app_defaultsize_h"/>
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_W" android:resource="@dimen/app_minimumsize_w"/>
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_H" android:resource="@dimen/app_minimumsize_h"/>
+        <activity android:label="@string/app_name" android:name="com.nhn.android.naverdic.WelcomeActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:path="com.nhn.android.naverdic" android:scheme="naverdic"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="com.nhn.android.naverdic.DicWebviewActivity" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <data android:host="photoUpload" android:scheme="naversearchapp"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.nhn.android.naverdic.TALKTALK_IMAGE_UPLOAD"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.nhn.android.naverdic.SettingActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:name="com.nhn.android.naverdic.HwInputDicWebviewActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.nhn.android.naverdic.HwInputSimpleWebviewActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:icon="@drawable/webtrans_icon" android:label="@string/webtrans_name" android:launchMode="singleTask" android:name="com.nhn.android.naverdic.WebTransDetailWebviewActivity" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.nhn.android.naverdic.SettingAppInfoActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.nhn.android.naverdic.SpeechPracticeWebviewActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Transparent"/>
+        <activity android:label="@string/nloginresource_activityname_onetimeloginnum_view" android:name="com.nhn.android.login.ui.NLoginGlobalOneTimeLoginNumViewActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/nloginresource_activityname_onetimeloginnum_help" android:name="com.nhn.android.login.ui.NLoginGlobalOneTimeLoginNumHelpActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/nloginresource_activityname_signin_info" android:name="com.nhn.android.login.ui.NLoginGlobalSignInInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/nloginresource_activityname_normal_signin" android:name="com.nhn.android.login.ui.NLoginGlobalNormalSignInActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/nloginresource_activityname_simple_signin" android:name="com.nhn.android.login.ui.NLoginGlobalSimpleSignInActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/nloginresource_activityname_add_simple_id" android:name="com.nhn.android.login.ui.NLoginGlobalSimpleIdAddActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/nloginresource_activityname_inappbrowser" android:name="com.nhn.android.login.ui.webview.NLoginInAppBrowserActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.nhn.android.login.account.AuthenticatorActivity" android:theme="@android:style/Theme.Dialog"/>
+        <service android:exported="false" android:name="com.nhn.android.login.account.AuthenticationService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/nloginglobal_authenticator"/>
+        </service>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.nhn.android.navernotice.NaverNoticeBrowser"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.nhn.android.minibrowser.MiniWebBrowser"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.nhn.android.navernotice.NaverNoticeArchiveActivity"/>
+        <provider android:authorities="com.nhn.android.naverdic.google_measurement_service" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+    </application>
+</manifest>

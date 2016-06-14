@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:hardwareAccelerated="true" android:windowSoftInputMode="adjustPan" package="kr.co.kbs.news301" platformBuildVersionCode="21" platformBuildVersionName="5.0.1-1624448">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="false" android:xlargeScreens="true"/>
+    <application android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/app_name" android:largeHeap="true" android:name="kr.co.kbs.news301.application.KbsNewsAppApplication" android:theme="@style/Theme.Castvideo">
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:configChanges="locale|keyboard|keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTask" android:name="KbsNews3" android:theme="@android:style/Theme.Black.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="kbsnewsapp" android:scheme="kbs"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="locale|keyboard|keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="ArticleActivity" android:theme="@android:style/Theme.Black.NoTitleBar">
+            <intent-filter>
+                <action android:name="kr.co.kbs.news301.ArticleActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTop" android:name="JeboAppActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Black.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTop" android:name="JeboGuideActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Black.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTop" android:name="JeboMyActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Black.NoTitleBar"/>
+        <activity android:launchMode="singleTask" android:name="SplashActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Black.NoTitleBar"/>
+        <activity android:launchMode="singleTask" android:name="MainSupport" android:screenOrientation="portrait" android:theme="@android:style/Theme.Black.NoTitleBar"/>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTask" android:name="kr.co.kbsi.kbsinews2.player.MediaPlayer" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter/>
+        </activity>
+        <activity android:name="kr.co.kbsi.kbsinews2.Receiver.AlertPush" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:name="kr.co.kbsi.kbsinews2.Receiver.AlertPushWallPaper" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <receiver android:name="com.google.android.gcm.GCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="kr.co.kbs.news301"/>
+            </intent-filter>
+        </receiver>
+        <service android:name=".GCMIntentService"/>
+        <activity android:name="kr.co.kbsi.kbsinews2.online.OnlinePushSelect"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:label="@string/app_name" android:name="com.google.sample.cast.refplayer.VideoBrowserActivity" android:screenOrientation="portrait">
+            <intent-filter/>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.google.sample.cast.refplayer.mediaplayer.LocalPlayerActivity" android:theme="@style/Theme.CastVideoOverlayYellow">
+            <intent-filter> &gt;
+</intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="com.google.sample.castcompanionlibrary.cast.player.VideoCastControllerActivity" android:parentActivityName="com.google.sample.cast.refplayer.VideoBrowserActivity" android:screenOrientation="portrait" android:theme="@style/Theme.CastVideoOverlayYellow">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.google.sample.cast.refplayer.VideoBrowserActivity"/>
+            <intent-filter/>
+        </activity>
+        <activity android:label="@string/action_settings" android:name="com.google.sample.cast.refplayer.settings.CastPreference">
+            <intent-filter/>
+        </activity>
+        <activity android:label="@string/action_settings" android:name="com.google.sample.castcompanionlibrary.cast.tracks.CaptionsPreferenceActivity">
+            <intent-filter/>
+        </activity>
+        <receiver android:name="com.google.sample.castcompanionlibrary.remotecontrol.VideoIntentReceiver">
+            <intent-filter>
+                <action android:name="android.media.AUDIO_BECOMING_NOISY"/>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+                <action android:name="com.google.sample.castcompanionlibrary.action.toggleplayback"/>
+                <action android:name="com.google.sample.castcompanionlibrary.action.stop"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.google.sample.castcompanionlibrary.notification.VideoCastNotificationService">
+            <intent-filter>
+                <action android:name="com.google.sample.castcompanionlibrary.action.toggleplayback"/>
+                <action android:name="com.google.sample.castcompanionlibrary.action.stop"/>
+                <action android:name="com.google.sample.castcompanionlibrary.action.notificationvisibility"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.google.sample.castcompanionlibrary.cast.reconnection.ReconnectionService"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity"/>
+    </application>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="kr.co.kbs.news301.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="kr.co.kbs.news301.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+</manifest>

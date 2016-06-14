@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="kvp.jjy.MispAndroid320" platformBuildVersionCode="19" platformBuildVersionName="4.4.2-1456859">
+    <application android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name=".MispAppInfo" android:theme="@style/AppTheme">
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/app_name" android:name=".MispAndroid320" android:screenOrientation="portrait" android:theme="@style/Theme.Transparent">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="ispmobile"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="jjy.kvp.misp"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="silver.kvp.misp"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <meta-data android:name="android.nfc.action.TECH_DISCOVERED" android:resource="@xml/nfc_tech_filter"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.softsecurity.transkey.TransKeyActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="N-Filter" android:name="com.nshc.nfilter.NFilterNum" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="N-Filter" android:name="com.nshc.nfilter.NFilterChar" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.nshc.nfilter.NFilter" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="NFilterKeyPad" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="certCopy" android:name=".certCopy" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="jjy_certCopy"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="certList" android:name=".certList" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="jjy_certList"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name=".C2DMReceiver">
+            <intent-filter>
+                <action android:name="misp.Alarm"/>
+                <category android:name="kvp.jjy.MispAndroid320"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".GCM.PushList" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".SecurityCard.Securitycard" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".SecurityCard.CameraPreview" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="kvp.jjy.MispAndroid320.TranceDialog" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="MispPrefer" android:name=".MispPrefer" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="MispPrefer"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".barcord.BarcodeMain" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name=".WebViewActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".Setup.MispSetup_Push" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <receiver android:name="com.google.android.gcm.GCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="kvp.jjy.MispAndroid320"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="kvp.jjy.MispAndroid320.GCMIntentService"/>
+        <receiver android:name=".GCM.AllimTalkReceiver">
+            <intent-filter>
+                <action android:name="com.allimtalk.lib.intent.RECEIVE"/>
+                <category android:name="kvp.jjy.MispAndroid320"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.allimtalk.lib.ALLIMService">
+            <intent-filter>
+                <action android:name="com.allimtalk.lib_PUSH_SERVICE_START"/>
+                <action android:name="com.allimtalk.lib_PUSH_SERVICE_STOP"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.allimtalk.lib.receiver.DeviceEventReceiver">
+            <intent-filter android:priority="400">
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.CLOSE_SYSTEM_DIALOGS"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.intent.action.SIM_STATE_CHANGED"/>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+            <intent-filter android:priority="400">
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_CHANGED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.PACKAGE_RESTARTED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.allimtalk.lib.receiver.PushEventReceiver">
+            <intent-filter android:priority="400">
+                <action android:name="com.allimtalk.lib_PUSH_SERVICE_RESTART"/>
+                <action android:name="com.allimtalk.lib_PUSH_SERVICE_OBSERVER"/>
+                <action android:name="ALLIMTALK_vp.PUSH.IPC.BR.MSG_kvp.jjy.MispAndroid320"/>
+                <action android:name="ALLIMTALK_vp.PUSH.IPC.BR.CLOSETIME"/>
+                <action android:name="ALLIMTALK_vp.PUSH.IPC.BR.CLOSED"/>
+                <action android:name="ALLIMTALK_vp.PUSH.IPC.BR.CONNECT"/>
+                <action android:name="ALLIMTALK_vp.PUSH.IPC.BR.SAVEDEVICEID"/>
+                <action android:name="com.allimtalk_vp.agent.CLIENT_WAKEUP"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.allimtalk.lib.intent.SEND"/>
+                <category android:name="kvp.jjy.MispAndroid320"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="kvp.jjy.MispAndroid320_SPNS" android:name=".GCM.AllimTalkProvider"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".GCM.PushDialogActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name=".LocalPushDialogActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name=".tapsign.TapSignMainActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.TouchEn.mVaccine.b2b2c.activity.ScanActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.TouchEn.mVaccine.b2b2c.activity.BackgroundScanActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:label="@string/app_name" android:name="com.TouchEn.mVaccine.b2b2c.activity.ResultLogActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.TouchEn.mVaccine.b2b2c.activity.BackgroundScan" android:theme="@android:style/Theme.Translucent"/>
+        <receiver android:name="com.TouchEn.mVaccine.b2b2c.receiver.ScanReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <action android:name="android.intent.action.PACKAGE_INSTALL"/>
+                <action android:name="android.intent.action.PACKAGE_CHANGED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="kvp.jjy.MispAndroid320.vaccine.CodeReceiver">
+            <intent-filter>
+                <action android:name="com.TouchEn.mVaccine.b2b2c.FIRE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="kvp.jjy.MispAndroid320.newly.issue.IspIssueActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="kvp.jjy.MispAndroid320.newly.main.MainMenuActivity" android:screenOrientation="portrait" android:theme="@style/AppCompatTheme"/>
+        <activity android:name="kvp.jjy.MispAndroid320.newly.fingerprint.FingerprintActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <service android:name="com.bccard.mobilecard.hce.BCHostApduService" android:permission="android.permission.BIND_NFC_SERVICE">
+            <intent-filter>
+                <action android:name="android.nfc.cardemulation.action.HOST_APDU_SERVICE"/>
+            </intent-filter>
+            <meta-data android:name="android.nfc.cardemulation.host_apdu_service" android:resource="@xml/apduservice"/>
+        </service>
+        <activity android:name="kvp.jjy.MispAndroid320.newly.mobileexclusive.MobileExclusiveActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="kvp.jjy.MispAndroid320.newly.timelock.TimeLockActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <receiver android:name=".GCM.WakeAlarmReceiver"/>
+        <activity android:name="kvp.jjy.MispAndroid320.ocr.SaveServiceActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="kvp.jjy.MispAndroid320.ocr.SaveServiceCameraActivity2" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar"/>
+    </application>
+    <permission android:name="kvp.jjy.MispAndroid320.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="kvp.jjy.MispAndroid320.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.DELETE_PACKAGES"/>
+    <uses-permission android:name="android.permission.ADD_SYSTEM_SERVICE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.hardware.camera"/>
+    <uses-permission android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="com.pantech.fingerprint.security"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_SETTINGS"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <supports-screens android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+</manifest>

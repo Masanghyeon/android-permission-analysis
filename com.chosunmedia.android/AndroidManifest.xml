@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.chosunmedia.android" platformBuildVersionCode="19" platformBuildVersionName="4.4.2-1456859">
+    <application android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/app_name" android:largeHeap="true" android:theme="@style/Theme.Styled">
+        <activity android:configChanges="orientation" android:label="@string/app_name" android:name="MainActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation" android:name="MobileMoveIntroActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:logo="@drawable/section_blank_logo" android:name="SectionView" android:screenOrientation="portrait"/>
+        <activity android:hardwareAccelerated="true" android:logo="@android:color/transparent" android:name="ArticleView" android:screenOrientation="portrait"/>
+        <activity android:logo="@drawable/etc_logo" android:name="EnglishView" android:screenOrientation="portrait"/>
+        <activity android:logo="@drawable/etc_logo" android:name="SettingInfo" android:screenOrientation="portrait"/>
+        <activity android:logo="@drawable/etc_logo" android:name="SearchView" android:screenOrientation="portrait"/>
+        <activity android:logo="@drawable/etc_logo" android:name="BreakNewsView" android:noHistory="false" android:screenOrientation="portrait"/>"
+<activity android:name="PhotoListView" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:hardwareAccelerated="true" android:name="PhotoDetailView" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="FullDialog" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="PdfView" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:logo="@drawable/etc_logo" android:name="ScrapView" android:screenOrientation="portrait"/>
+        <activity android:name="PdfAdView" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="InfographicsView" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="CustomDialog" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="EventView" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="SectionMainImageView" android:screenOrientation="portrait" android:theme="@style/Theme.Styled"/>
+        <activity android:label="@string/app_name" android:name="TwitterView" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="twitter" android:scheme="chosun"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="TwitterLoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="FacebookView" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".c2dm.ShowBreakingNews" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name=".c2dm.GoBreakingNews" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:name=".c2dm.C2DMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.chosunmedia.android"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.chosunmedia.android"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/app_name" android:name="com.facebook.LoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <activity android:hardwareAccelerated="false" android:name="com.chosunmedia.android.ArticleWebView" android:noHistory="false" android:screenOrientation="portrait" android:theme="@style/Theme.Styled"/>
+        <activity android:logo="@drawable/etc_logo" android:name="com.chosunmedia.android.LoginDialog" android:screenOrientation="portrait" android:theme="@style/Theme.Styled"/>
+        <activity android:logo="@drawable/etc_logo" android:name="com.chosunmedia.android.CategoryEditActivity" android:screenOrientation="portrait"/>
+        <activity android:logo="@drawable/etc_logo" android:name="GoogleSearchActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:host="chosunmedia.com" android:pathPrefix="/googleArticle" android:scheme="http"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:hardwareAccelerated="false" android:name="AppFinishAd" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:logo="@drawable/etc_logo" android:name="KakaoActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:host="@string/kakaolink_host" android:scheme="@string/kakao_scheme"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="FrontAdActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <receiver android:name="AutoUpdateReceiver"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize|smallestScreenSize" android:name="com.inmobi.androidsdk.IMBrowserActivity"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.inmobi.commons.analytics.androidsdk.IMAdTrackerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="Ad Activity" android:name="com.skplanet.tad.AdActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="com.mocoplex.adlib.AdlibDialogActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="com.mocoplex.adlib.AdlibWebBrowserActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="com.mocoplex.adlib.AdlibVideoPlayer" android:theme="@android:style/Theme.NoTitleBar"/>
+        <service android:name="com.adrra.gapping.service.ServiceGapping" android:process=":remote">
+            <intent-filter>
+                <action android:name="com.adrra.gapping.service.IRemoteInterface"/>
+                <action android:name="com.adrra.gapping.service.ServiceGapping"/>
+            </intent-filter>
+        </service>
+        <receiver android:enabled="true" android:exported="true" android:name="com.adrra.gapping.service.ServiceGappingBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kakao_app_key"/>
+    </application>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="com.chosunmedia.android.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <permission android:name="com.chosunmedia.android.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+</manifest>

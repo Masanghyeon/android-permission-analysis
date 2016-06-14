@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.nhn.android.naverplayer" platformBuildVersionCode="23" platformBuildVersionName="6.0-2438415">
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.BATTERY_STATS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="com.nhn.android.naverplayer.GlobalApplication" android:theme="@style/AppTheme">
+        <receiver android:enabled="true" android:name="com.google.android.gms.analytics.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <receiver android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <meta-data android:name="com.sec.android.support.multiwindow" android:value="true"/>
+        <activity android:name="com.nhn.android.naverplayer.activity.SplashActivitiy" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="naverplayer"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.nhn.android.naverplayer.activity.ChannelHomeActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.nhn.android.naverplayer.activity.TempActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:launchMode="singleTask" android:name="com.nhn.android.naverplayer.main.activity.MainPageActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.nhn.android.naverplayer.activity.LauncherActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.nhn.android.naverplayer.dev.DevActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <receiver android:name="com.nhn.android.naverplayer.home.playlist.live.alarm.AlarmReceiver" android:process=":remote"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.nhn.android.naverplayer.home.playlist.live.alarm.NmpBootCompleted">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.nhn.android.naverplayer.activity.LiveScheduleActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.nhn.android.naverplayer.activity.VersionInfoActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.nhn.android.naverplayer.activity.NmpActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.nhn.android.naverplayer.activity.DecoderActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.nhn.android.naverplayer.activity.ContinuationPlaySettingActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.nhn.android.naverplayer.activity.TodayShowedClipActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:name="com.nhn.android.naverplayer.activity.LegalNotificationActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:name="com.nhn.android.naverplayer.dialog.PlayerChoiceDialogActivity" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:name="com.nhn.android.naverplayer.dialog.DialogActivity" android:theme="@android:style/Theme.Dialog"/>
+        <service android:exported="false" android:name="com.nhncorp.ncast.LiveCastService">
+            <intent-filter>
+                <action android:name="com.nhncorp.ncast.SERVICE_ACTION_START"/>
+                <action android:name="com.nhncorp.ncast.SERVICE_ACTION_STOP"/>
+            </intent-filter>
+        </service>
+        <service android:exported="true" android:name="com.nhn.android.naverplayer.popupplay.PopupPlayerService" android:permission="android.permission.SYSTEM_ALERT_WINDOW"/>
+        <service android:name="com.nhn.android.naverplayer.service.BatteryManageService"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.nhn.android.browser.WebBrowserActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.nhn.android.navernotice.NaverNoticeBrowser"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.nhn.android.minibrowser.MiniWebBrowser"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.nhn.android.navernotice.NaverNoticeArchiveActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.nhn.android.navernotice.NaverNoticeArchiveDetailActivity"/>
+        <activity android:label="@string/nloginresource_activityname_onetimeloginnum_view" android:name="com.nhn.android.login.ui.NLoginGlobalOneTimeLoginNumViewActivity"/>
+        <activity android:label="@string/nloginresource_activityname_onetimeloginnum_help" android:name="com.nhn.android.login.ui.NLoginGlobalOneTimeLoginNumHelpActivity"/>
+        <activity android:label="@string/nloginresource_activityname_signin_info" android:name="com.nhn.android.login.ui.NLoginGlobalSignInInfoActivity"/>
+        <activity android:label="@string/nloginresource_activityname_normal_signin" android:name="com.nhn.android.login.ui.NLoginGlobalNormalSignInActivity"/>
+        <activity android:label="@string/nloginresource_activityname_simple_signin" android:name="com.nhn.android.login.ui.NLoginGlobalSimpleSignInActivity"/>
+        <activity android:label="@string/nloginresource_activityname_add_simple_id" android:name="com.nhn.android.login.ui.NLoginGlobalSimpleIdAddActivity"/>
+        <activity android:label="@string/nloginresource_activityname_inappbrowser" android:name="com.nhn.android.login.ui.webview.NLoginInAppBrowserActivity"/>
+        <activity android:name="com.nhn.android.naverplayer.activity.SearchActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity android:name="com.nhn.android.login.account.AuthenticatorActivity" android:theme="@android:style/Theme.Dialog"/>
+        <service android:name="com.nhn.android.login.account.AuthenticationService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/nloginglobal_authenticator"/>
+        </service>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+    </application>
+</manifest>

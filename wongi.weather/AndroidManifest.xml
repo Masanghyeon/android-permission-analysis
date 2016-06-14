@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="wongi.weather" platformBuildVersionCode="23" platformBuildVersionName="6.0-2704002">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-feature android:glEsVersion="0x20000" android:required="true"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="true" android:icon="@drawable/app_icon" android:label="@string/app_name" android:largeHeap="true" android:name="wongi.weather.WongiApplication" android:theme="@style/AppTheme">
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="Ad Activity" android:name="com.skplanet.tad.AdActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <receiver android:name="com.skplanet.tad.SyrupAdReceiver">
+            <intent-filter>
+                <action android:name="com.skplanet.syrupad.action.SAID_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:launchMode="singleTask" android:name="wongi.weather.activity.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="wongi.weather.activity.SetFavoriteActivity" android:screenOrientation="portrait"/>
+        <activity android:name="wongi.weather.activity.SetAlarmActivity" android:screenOrientation="portrait"/>
+        <activity android:name="wongi.weather.activity.SetDustAlarmActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/setting" android:name="wongi.weather.activity.SettingActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/setting_change_weather_icon_title" android:name="wongi.weather.activity.SetIconActivity" android:screenOrientation="portrait"/>
+        <activity android:name="wongi.weather.activity.widget.TouchActionActivity" android:theme="@style/AppTheme.Translucent"/>
+        <activity android:name="wongi.weather.activity.widget.CheckUpdateTimeActivity" android:theme="@style/AppTheme.Translucent"/>
+        <activity android:name="wongi.weather.activity.widget.ChangeFavoriteActivity" android:theme="@style/AppTheme.Translucent"/>
+        <service android:enabled="true" android:name="wongi.weather.update.WeatherUpdateService"/>
+        <service android:enabled="true" android:name="wongi.weather.yesterday.YesterdayService"/>
+        <service android:enabled="true" android:name="wongi.weather.widget.clock.WidgetClockService"/>
+        <service android:enabled="true" android:name="wongi.weather.warning.WarningService"/>
+        <service android:enabled="true" android:name="wongi.weather.alarm.service.AlarmService1"/>
+        <service android:enabled="true" android:name="wongi.weather.alarm.service.AlarmService2"/>
+        <service android:enabled="true" android:name="wongi.weather.alarm.service.AlarmService3"/>
+        <service android:enabled="true" android:name="wongi.weather.alarm.service.AlarmService4"/>
+        <service android:enabled="true" android:name="wongi.weather.alarm.service.AlarmService5"/>
+        <service android:enabled="true" android:name="wongi.weather.dust.alarm.service.DustAlarmService1"/>
+        <service android:enabled="true" android:name="wongi.weather.dust.alarm.service.DustAlarmService2"/>
+        <service android:enabled="true" android:name="wongi.weather.dust.alarm.service.DustAlarmService3"/>
+        <service android:enabled="true" android:name="wongi.weather.dust.alarm.service.DustAlarmService4"/>
+        <service android:enabled="true" android:name="wongi.weather.dust.alarm.service.DustAlarmService5"/>
+        <receiver android:name="wongi.weather.data.BootCompletedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="wongi.weather.data.WeatherReceiver">
+            <intent-filter>
+                <action android:name="wongi.weather.RESULT_WEATHER_DATA_UPDATE_START"/>
+                <action android:name="wongi.weather.RESULT_WEATHER_DATA_UPDATE_SUCCESS"/>
+                <action android:name="wongi.weather.RESULT_WEATHER_DATA_UPDATE_FAIL"/>
+                <action android:name="wongi.weather.RESULT_DUST_UPDATE_SUCCESS"/>
+                <action android:name="wongi.weather.RESULT_DUST_UPDATE_PART_SUCCESS"/>
+                <action android:name="wongi.weather.RESULT_DUST_UPDATE_FAIL"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="wongi.weather.widget.clock.WidgetClockReceiver">
+            <intent-filter>
+                <action android:name="wongi.weather.ACTION_UPDATE_CLOCK_APPWIDGET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="wongi.weather.activity.widget.configure.WidgetConfigure1x1Now" android:theme="@style/AppTheme.Translucent">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="wongi.weather.activity.widget.configure.WidgetConfigure2x1Now" android:theme="@style/AppTheme.Translucent">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="wongi.weather.activity.widget.configure.WidgetConfigure4x1Clock" android:theme="@style/AppTheme.Translucent">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="wongi.weather.activity.widget.configure.WidgetConfigure4x1Hour" android:theme="@style/AppTheme.Translucent">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="wongi.weather.activity.widget.configure.WidgetConfigure4x1Week" android:theme="@style/AppTheme.Translucent">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="wongi.weather.activity.widget.configure.WidgetConfigure4x2ClockHour" android:theme="@style/AppTheme.Translucent">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="wongi.weather.activity.widget.configure.WidgetConfigure4x2ClockWeek" android:theme="@style/AppTheme.Translucent">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="wongi.weather.activity.widget.configure.WidgetConfigure4x2Hour" android:theme="@style/AppTheme.Translucent">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="wongi.weather.activity.widget.configure.WidgetConfigure4x2Mix" android:theme="@style/AppTheme.Translucent">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="wongi.weather.activity.widget.configure.WidgetConfigure4x3ClockMix" android:theme="@style/AppTheme.Translucent">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="wongi.weather.activity.widget.configure.WidgetConfigure4x3Mix" android:theme="@style/AppTheme.Translucent">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <receiver android:label="@string/widget_1x1_now" android:name="wongi.weather.widget.provider.WidgetProvider1x1Now">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_provider_1x1_now"/>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="@string/widget_2x1_now" android:name="wongi.weather.widget.provider.WidgetProvider2x1Now">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_provider_2x1_now"/>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="@string/widget_4x1_clock" android:name="wongi.weather.widget.provider.WidgetProvider4x1Clock">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_provider_4x1_clock"/>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="@string/widget_4x1_hour" android:name="wongi.weather.widget.provider.WidgetProvider4x1Hour">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_provider_4x1_hour"/>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="@string/widget_4x1_week" android:name="wongi.weather.widget.provider.WidgetProvider4x1Week">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_provider_4x1_week"/>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="@string/widget_4x2_clock_hour" android:name="wongi.weather.widget.provider.WidgetProvider4x2ClockHour">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_provider_4x2_clock_hour"/>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="@string/widget_4x2_clock_week" android:name="wongi.weather.widget.provider.WidgetProvider4x2ClockWeek">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_provider_4x2_clock_week"/>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="@string/widget_4x2_hour" android:name="wongi.weather.widget.provider.WidgetProvider4x2Hour">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_provider_4x2_hour"/>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="@string/widget_4x2_mix" android:name="wongi.weather.widget.provider.WidgetProvider4x2Mix">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_provider_4x2_mix"/>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="@string/widget_4x3_clock_mix" android:name="wongi.weather.widget.provider.WidgetProvider4x3ClockMix">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_provider_4x3_clock_mix"/>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="@string/widget_4x3_mix" android:name="wongi.weather.widget.provider.WidgetProvider4x3Mix">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_provider_4x3_mix"/>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+    </application>
+</manifest>

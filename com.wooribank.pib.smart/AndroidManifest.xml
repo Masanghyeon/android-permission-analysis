@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.wooribank.pib.smart" platformBuildVersionCode="19" platformBuildVersionName="4.4.2-1456859">
+    <permission android:name="com.wooribank.pib.smart.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <permission android:name="com.wooribank.pib.smart.permission.INNER_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.wooribank.pib.smart.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="com.wooribank.pib.smart.permission.INNER_MESSAGE"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.nfc" android:required="false"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-feature android:glEsVersion="0x20000" android:required="true"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="com.softforum.xecure.XApplication" android:theme="@style/AppTheme">
+        <activity android:label="@string/app_name" android:name=".ui.GateActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="wooribank"/>
+                <data android:host="com.wooribank.pib.smart"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".ui.RCWidgetActivity" android:taskAffinity="rc.task" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name=".ui.POTInstallGuide" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.ImageNotice" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.AppGuide" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.PopupWebActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.login.LoginSelect" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent"/>
+        <activity android:name=".ui.login.IDLogin" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name=".ui.transkey.CustomTransKeyActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.transkey.SecurityCardTransKeyActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wooribank.pib.smart.cashbee.ui.CashBeeInAppActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.wooribank.pib.smart.cashbee.ui.CashBeeAgreeWebActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.cert.CertSimpleListScreen" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.cert.ImportCertByQRCodeGuide" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.cert.ImportCertByQRCodeScreen" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.cert.ImportCertByAuthCodeScreen" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.cert.ImportCertByRegNumAuthScreen" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.cert.ExportCertViewScreen" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name=".ui.cert.CertListViewScreen" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.cert.CertDetailViewScreen" android:screenOrientation="portrait"/>
+        <activity android:name="com.google.zxing.client.android.CaptureActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="com.google.zxing.client.android.SCAN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:name=".ui.PushPopup" android:screenOrientation="portrait" android:taskAffinity="com.wooribank.pot.smart.ui.PushPopup" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="btworks.codeguard.agent.AgentActivity" android:screenOrientation="portrait"/>
+        <service android:enabled="true" android:name="btworks.codeguard.engine.MainService" android:process=":engine">
+            <intent-filter>
+                <action android:name="btworks.codeguard.action.Service.Start"/>
+                <action android:name="btworks.codeguard.action.Service.Bind"/>
+                <action android:name="btworks.codeguard.action.Service.Unbind"/>
+                <action android:name="btworks.codeguard.action.Service.Stop"/>
+                <category android:name="CATEGORY_WOORIBANK_PIB_SMART"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.google.android.gcm.GCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.wooribank.pib.smart"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name=".common.util.BTW_DeviceInfoReceiver">
+            <intent-filter>
+                <action android:name="kr.co.btworks.BTW_CheckDeviceInfo"/>
+            </intent-filter>
+        </receiver>
+        <service android:name=".GCMIntentService"/>
+        <receiver android:name=".common.util.PackageInstallReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name=".ui.account.AccountGuideActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.account.AccountBankbookNormalActivity" android:screenOrientation="portrait" android:theme="@style/AppFullScreenTheme"/>
+        <activity android:name=".ui.account.AccountBankbookCoverActivity" android:screenOrientation="portrait" android:theme="@style/AppFullScreenTheme"/>
+        <activity android:name=".ui.account.AccountBankbookCoverSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.account.AccountBankbookFlipActivity" android:screenOrientation="portrait" android:theme="@style/AppFullScreenTheme"/>
+        <activity android:name=".ui.transfer.TransferStep1" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.transfer.WithdrawAccntListPopup" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.transfer.BookmarkTransferPopup" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.transfer.DepositAccountSelectPopup" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.transfer.TransferStep2" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.transfer.TransferStep3" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.transfer.BankListPopup" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.transfer.TransferStep4" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name=".ui.transfer.TransferStep5" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.transfer.TransferStep6" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".ui.transfer.TransferStep7" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.transfer.TransferStep8" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.setting.SettingStartActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.setting.SettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.setting.SettingVersionActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.setting.SettingSNSActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.setting.SettingAlimActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.setting.SettingKeypadActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.setting.SettingPhoneManageActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.myqr.MyQRCodeActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.NfcTagActivity" android:screenOrientation="portrait" android:theme="@style/Transparent"/>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kakao_app_key"/>
+        <activity android:label="@string/app_name" android:name="com.facebook.LoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name=".common.sns.SnsPopupTwitterLogin" android:screenOrientation="portrait"/>
+        <activity android:name=".game.findpearl.GameMainActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.map.WrMapViewerActivity" android:screenOrientation="portrait"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyDLXrCJlhzl8FLYsmUD4XqluvyQAbA6Nfc"/>
+        <receiver android:name="com.wooribank.pib.smart.common.util.PIBAppWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info"/>
+        </receiver>
+        <receiver android:name="com.wooribank.pib.smart.common.util.RCAppWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.wooribank.pib.smart.REDRAW_REMOTE_WIDGET"/>
+                <action android:name="com.wooribank.pib.smart.DRAW_READY_WIDGET"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_rc_info"/>
+        </receiver>
+        <receiver android:name="com.wooribank.pib.smart.common.util.RCAppWidgetIntProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.wooribank.pib.smart.REDRAW_REMOTE_WIDGET"/>
+                <action android:name="com.wooribank.pib.smart.DRAW_READY_WIDGET"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_rc_int_info"/>
+        </receiver>
+        <receiver android:name="com.wooribank.pib.smart.common.util.RCAppWidgetSmtProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.wooribank.pib.smart.REDRAW_REMOTE_WIDGET"/>
+                <action android:name="com.wooribank.pib.smart.DRAW_READY_WIDGET"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_rc_smt_info"/>
+        </receiver>
+        <receiver android:name="com.wooribank.pib.smart.common.util.RCAppWidgetTeleProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.wooribank.pib.smart.REDRAW_REMOTE_WIDGET"/>
+                <action android:name="com.wooribank.pib.smart.DRAW_READY_WIDGET"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_rc_tele_info"/>
+        </receiver>
+        <receiver android:name="com.wooribank.pib.smart.common.util.RCAppWidgetAtmProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.wooribank.pib.smart.REDRAW_REMOTE_WIDGET"/>
+                <action android:name="com.wooribank.pib.smart.DRAW_READY_WIDGET"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_rc_atm_info"/>
+        </receiver>
+        <receiver android:name="com.wooribank.pib.smart.common.util.RCAppWidgetCmdReceiver">
+            <intent-filter>
+                <action android:name="com.wooribank.pib.smart.INQ_REMOTE_STATE"/>
+                <action android:name="com.wooribank.pib.smart.CHANGE_REMOTE_STATE_INT"/>
+                <action android:name="com.wooribank.pib.smart.CHANGE_REMOTE_STATE_SMT"/>
+                <action android:name="com.wooribank.pib.smart.CHANGE_REMOTE_STATE_TELE"/>
+                <action android:name="com.wooribank.pib.smart.CHANGE_REMOTE_STATE_ATM"/>
+                <action android:name="com.wooribank.pib.smart.STOP_V3"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.wooribank.pib.smart.common.watch.WatchPushSendService"/>
+    </application>
+</manifest>

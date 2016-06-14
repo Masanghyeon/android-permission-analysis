@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.devexpert.weather">
+    <permission android:name="com.devexpert.weather.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
+    <uses-feature android:glEsVersion="0x20000" android:required="true"/>
+    <uses-permission android:name="com.devexpert.weather.permission.MAPS_RECEIVE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="com.google.android.permission.PROVIDE_BACKGROUND"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:name="com.devexpert.weather.controller.AppRef" android:theme="@style/AppTheme">
+        <meta-data android:name="com.google.android.wearable.beta.app" android:resource="@xml/wearable_app_desc"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyA3KWesgFhQ0lxdDdpCR-xjxsk1Gs-_qOY"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <service android:name="com.devexpert.weather.controller.AWListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.BIND_LISTENER"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.devexpert.weather.controller.PackageReceiver" android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="@string/wgt_name_s3" android:name="com.devexpert.weather.view.WidgetWeather2x1">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.WIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.ROTATE_CITY"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_2x1"/>
+        </receiver>
+        <receiver android:label="@string/wgt_name_s2" android:name="com.devexpert.weather.view.WidgetWeather4x1">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.WIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.ROTATE_CITY"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x1"/>
+        </receiver>
+        <receiver android:label="@string/wgt_name_s2_cur" android:name="com.devexpert.weather.view.WidgetWeather4x1Cur">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.WIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.ROTATE_CITY"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x1_cur"/>
+        </receiver>
+        <receiver android:label="@string/wgt_name_s2_cal" android:name="com.devexpert.weather.view.WidgetWeather4x1Cal">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.WIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.ROTATE_CITY"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x1_cal"/>
+        </receiver>
+        <receiver android:label="@string/wgt_name_s2_5_cur" android:name="com.devexpert.weather.view.WidgetWeather5x1Cur">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.WIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.ROTATE_CITY"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_5x1_cur"/>
+        </receiver>
+        <receiver android:label="@string/wgt_name_s2_5_cal" android:name="com.devexpert.weather.view.WidgetWeather5x1Cal">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.WIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.ROTATE_CITY"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_5x1_cal"/>
+        </receiver>
+        <receiver android:label="@string/wgt_name_s1" android:name="com.devexpert.weather.view.WidgetWeather">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.WIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.ROTATE_CITY"/>
+                <action android:name="com.devexpert.weather.pfx.ENFORCE_WIDGET_UPDATE"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP_ONCE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x2"/>
+        </receiver>
+        <receiver android:label="@string/wgt_name_s2_lc" android:name="com.devexpert.weather.view.WidgetWeather4x2LC">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.WIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.ROTATE_CITY"/>
+                <action android:name="com.devexpert.weather.pfx.ENFORCE_WIDGET_UPDATE"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x2_lc"/>
+        </receiver>
+        <receiver android:label="@string/wgt_name_s3_4" android:name="com.devexpert.weather.view.WidgetWeather4x3">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.WIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.ROTATE_CITY"/>
+                <action android:name="com.devexpert.weather.pfx.ENFORCE_WIDGET_UPDATE"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x3"/>
+        </receiver>
+        <receiver android:label="@string/wgt_name_s3_4_cal" android:name="com.devexpert.weather.view.WidgetWeather4x3Cal">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.WIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.ROTATE_CITY"/>
+                <action android:name="com.devexpert.weather.pfx.ENFORCE_WIDGET_UPDATE"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x3_cal"/>
+        </receiver>
+        <receiver android:label="@string/wgt_name_s1_5" android:name="com.devexpert.weather.view.WidgetWeather5x2">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.WIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.ROTATE_CITY"/>
+                <action android:name="com.devexpert.weather.pfx.ENFORCE_WIDGET_UPDATE"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_5x2"/>
+        </receiver>
+        <receiver android:label="@string/wgt_name_s2_5_lc" android:name="com.devexpert.weather.view.WidgetWeather5x2LC">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.WIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.ROTATE_CITY"/>
+                <action android:name="com.devexpert.weather.pfx.ENFORCE_WIDGET_UPDATE"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_5x2_lc"/>
+        </receiver>
+        <receiver android:label="@string/wgt_name_s2_5" android:name="com.devexpert.weather.view.WidgetWeather5x1">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.WIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.ROTATE_CITY"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_5x1"/>
+        </receiver>
+        <receiver android:label="@string/wgt_name_s2_5_cal" android:name="com.devexpert.weather.view.WidgetWeather5x1Cal">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.WIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.ROTATE_CITY"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_5x1_cal"/>
+        </receiver>
+        <receiver android:label="@string/wgt_name_s3_5" android:name="com.devexpert.weather.view.WidgetWeather5x3">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.WIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.ROTATE_CITY"/>
+                <action android:name="com.devexpert.weather.pfx.ENFORCE_WIDGET_UPDATE"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_5x3"/>
+        </receiver>
+        <receiver android:label="@string/wgt_name_s3_5_cal" android:name="com.devexpert.weather.view.WidgetWeather5x3Cal">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.WIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.ROTATE_CITY"/>
+                <action android:name="com.devexpert.weather.pfx.ENFORCE_WIDGET_UPDATE"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_5x3_cal"/>
+        </receiver>
+        <receiver android:label="@string/wgt_name_s2_4_fct_cal" android:name="com.devexpert.weather.view.WidgetWeather4x2FctCal">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.WIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.ROTATE_CITY"/>
+                <action android:name="com.devexpert.weather.pfx.ENFORCE_WIDGET_UPDATE"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x2_fct_cal"/>
+        </receiver>
+        <receiver android:label="@string/wgt_name_s2_5_fct_cal" android:name="com.devexpert.weather.view.WidgetWeather5x2FctCal">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.WIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.ROTATE_CITY"/>
+                <action android:name="com.devexpert.weather.pfx.ENFORCE_WIDGET_UPDATE"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_5x2_fct_cal"/>
+        </receiver>
+        <receiver android:label="@string/wgt_name_s2_4_fct" android:name="com.devexpert.weather.view.WidgetWeather4x2Fct">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.WIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.ROTATE_CITY"/>
+                <action android:name="com.devexpert.weather.pfx.ENFORCE_WIDGET_UPDATE"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x2_fct"/>
+        </receiver>
+        <receiver android:label="@string/wgt_name_s2_5_fct" android:name="com.devexpert.weather.view.WidgetWeather5x2Fct">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.WIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.ROTATE_CITY"/>
+                <action android:name="com.devexpert.weather.pfx.ENFORCE_WIDGET_UPDATE"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_5x2_fct"/>
+        </receiver>
+        <receiver android:label="@string/wgt_name_s2_4_cal" android:name="com.devexpert.weather.view.WidgetWeather4x2Cal">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.WIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.ROTATE_CITY"/>
+                <action android:name="com.devexpert.weather.pfx.ENFORCE_WIDGET_UPDATE"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x2_cal"/>
+        </receiver>
+        <receiver android:label="@string/wgt_name_s2_5_cal" android:name="com.devexpert.weather.view.WidgetWeather5x2Cal">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.WIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.ROTATE_CITY"/>
+                <action android:name="com.devexpert.weather.pfx.ENFORCE_WIDGET_UPDATE"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_5x2_cal"/>
+        </receiver>
+        <receiver android:label="@string/wgt_name_s3_4_lc_fct" android:name="com.devexpert.weather.view.WidgetWeather4x3LCFct">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.WIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.ROTATE_CITY"/>
+                <action android:name="com.devexpert.weather.pfx.ENFORCE_WIDGET_UPDATE"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x3_lc_fct"/>
+        </receiver>
+        <receiver android:label="@string/wgt_name_s3_5_lc_fct" android:name="com.devexpert.weather.view.WidgetWeather5x3LCFct">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.WIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.ROTATE_CITY"/>
+                <action android:name="com.devexpert.weather.pfx.ENFORCE_WIDGET_UPDATE"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_5x3_lc_fct"/>
+        </receiver>
+        <receiver android:label="@string/wgt_name_s3_4_lc_cal" android:name="com.devexpert.weather.view.WidgetWeather4x3LCCal">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.WIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.ROTATE_CITY"/>
+                <action android:name="com.devexpert.weather.pfx.ENFORCE_WIDGET_UPDATE"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x3_lc_cal"/>
+        </receiver>
+        <receiver android:label="@string/wgt_name_s3_5_lc_cal" android:name="com.devexpert.weather.view.WidgetWeather5x3LCCal">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.WIDGET_UPDATE"/>
+                <action android:name="com.devexpert.weather.pfx.ROTATE_CITY"/>
+                <action android:name="com.devexpert.weather.pfx.ENFORCE_WIDGET_UPDATE"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.devexpert.weather.pfx.WAKEUP"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_5x3_lc_cal"/>
+        </receiver>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <meta-data android:name="com.appodeal.framework" android:value="android"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.appodeal.ads.AppodealPackageAddedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="orientation|screenSize" android:name="com.appodeal.ads.InterstitialActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.appodeal.ads.VideoActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.appodeal.ads.LoaderActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MoPubActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.common.MoPubBrowser"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidVideoPlayerActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="org.nexage.sourcekit.mraid.MRAIDBrowser" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.amazon.device.ads.AdActivity"/>
+        <activity android:name="org.nexage.sourcekit.vast.activity.VASTActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name="org.nexage.sourcekit.vast.activity.VPAIDActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.appodeal.ads.networks.vpaid.VPAIDActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.appodeal.ads.networks.SpotXActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.flurry.android.FlurryFullscreenTakeoverActivity"/>
+        <activity android:name="com.smaato.soma.ExpandedBannerActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.appbrain.AppBrainActivity"/>
+        <service android:name="com.appbrain.AppBrainService"/>
+        <receiver android:exported="true" android:name="com.appbrain.ReferrerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/app_name" android:name="com.devexpert.weather.view.HomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/weather" android:name="com.devexpert.weather.view.MainActivity"/>
+        <activity android:label="@string/option_menu_setting" android:name="com.devexpert.weather.view.AppPreferences" android:theme="@style/PrefTheme"/>
+        <activity android:label="@string/title_widget_settings_cat" android:name="com.devexpert.weather.view.AppWidgetPreferences" android:theme="@style/PrefTheme"/>
+        <activity android:label="@string/strAboutTitle" android:name="com.devexpert.weather.view.AboutActivity"/>
+        <activity android:label="@string/title_my_location_cat" android:name="com.devexpert.weather.view.MyLocationActivity"/>
+        <activity android:label="@string/map" android:name="com.devexpert.weather.view.WeatherMapActivity"/>
+        <activity android:label="@string/weather" android:name="com.devexpert.weather.view.AnonyMainActivity"/>
+        <activity android:label="@string/title_cities" android:name="com.devexpert.weather.view.CityListActivity"/>
+    </application>
+</manifest>

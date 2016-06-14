@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="internalOnly" package="mobi.infolife.ezweather" platformBuildVersionCode="22" platformBuildVersionName="5.1.1-1819727">
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="mobi.infolife.taskmanager.RPC"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <permission android:name="mobi.infolife.ezweather.WRITE_DATABASE" android:protectionLevel="signature"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="false"/>
+    <application android:allowBackup="true" android:icon="@drawable/appicon" android:label="@string/app_name" android:largeHeap="true" android:name="mobi.infolife.store.activity.UILApplication" android:supportsRtl="true">
+        <receiver android:name="mobi.infolife.ezweather.widgetscommon.AlarmReceiver"/>
+        <receiver android:label="@string/app_name_4_2" android:name="mobi.infolife.ezweather.FourTwoWidget">
+            <intent-filter>
+                <action android:name="update_weather_data"/>
+                <action android:name="switch_forest_type"/>
+                <action android:name="show_new_widget_view"/>
+                <action android:name="back_to_widget"/>
+                <action android:name="click_store_button"/>
+                <action android:name="click_settings_button"/>
+                <action android:name="click_weather_button"/>
+                <action android:name="click_address_button"/>
+                <action android:name="click_refresh_button"/>
+                <action android:name="click_calendar_button"/>
+                <action android:name="click_clock_button"/>
+                <action android:name="click_game_button"/>
+                <action android:name="click_ad_button"/>
+                <action android:name="update_the_app_action"/>
+                <action android:name="com.intent.action_fourtwo_clock_textsize"/>
+                <action android:name="com.intent.action_remove_clock_zero"/>
+                <action android:name="click_not_now_button"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="click_nothing"/>
+                <action android:name="click_lottery"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/cw_widget"/>
+        </receiver>
+        <receiver android:label="@string/app_name_1_1" android:name="mobi.infolife.ezweather.OneOneWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/oo_widget"/>
+        </receiver>
+        <receiver android:label="@string/app_name_4_1" android:name="mobi.infolife.ezweather.FourOneWidget">
+            <intent-filter>
+                <action android:name="back_to_widget_41"/>
+                <action android:name="start_new_window_41"/>
+                <action android:name="click_nothing"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/fo_widget"/>
+        </receiver>
+        <activity android:name="mobi.infolife.weatheralert.AddSevereAlertRuleActivity" android:theme="@style/Transparent"/>
+        <activity android:name="mobi.infolife.ezweather.SwitchNotificationIconSetActivity" android:theme="@style/Transparent"/>
+        <activity android:name="mobi.infolife.ezweather.ShareAlertMessageActivity" android:theme="@style/Transparent"/>
+        <activity android:name="mobi.infolife.ezweather.widgetscommon.WidgetSettingActivity" android:theme="@style/Theme.Preview">
+            <intent-filter>
+                <action android:name="android.intent.action.WIDGETSETTING"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="mobi.infolife.ezweather.WorldClockActivity" android:theme="@style/Theme.AmberDialog"/>
+        <activity android:name="mobi.infolife.ezweather.NotificationSettingActivity" android:theme="@style/Theme.Preview"/>
+        <activity android:name="mobi.infolife.store.activity.WidgetSubscriptionActivity" android:theme="@style/DialogWithDialog"/>
+        <activity android:name="mobi.infolife.ezweather.PressureSensorActivity" android:theme="@style/Theme.AmberDialog"/>
+        <activity android:name="mobi.infolife.ezweather.widgetscommon.SwitchWidgetIconActivity" android:theme="@style/Transparent"/>
+        <activity android:name="mobi.infolife.ezweather.widget.fontset.SwitchWidgetFontActivity" android:theme="@style/Transparent"/>
+        <activity android:name="mobi.infolife.ezweather.widgetscommon.SetWidgetClockFontSizeActivity" android:theme="@style/Transparent"/>
+        <activity android:name="mobi.infolife.ezweather.HistoryWeatherDataActivity" android:theme="@style/Theme.AmberDialog"/>
+        <activity android:name="mobi.infolife.ezweather.NewMessageActivity" android:theme="@style/Transparent"/>
+        <activity android:name="mobi.infolife.datasource.DataSourceInfomationActivity" android:theme="@style/Transparent"/>
+        <activity android:label="@string/feedback_title" android:name="mobi.infolife.ezweather.FeedBackActivity" android:screenOrientation="portrait" android:theme="@style/Transparent"/>
+        <activity android:name="mobi.infolife.ezweather.widgetscommon.SettingCalendarAndClockAppListActivity" android:theme="@style/Transparent.NoGrayBackground"/>
+        <activity android:name="mobi.infolife.ezweather.livewallpaper.NoWeatherDataActivity" android:theme="@style/Theme.AppCompat"/>
+        <activity android:label="@string/advanced_setting" android:name="mobi.infolife.ezweather.AdvancedSettingActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Amber"/>
+        <activity android:label="@string/about" android:name="mobi.infolife.ezweather.AboutActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Amber"/>
+        <activity android:name="mobi.infolife.ezweather.LabAboutActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AmberDialog"/>
+        <activity android:label="@string/setting" android:name="mobi.infolife.ezweather.SettingActivity" android:screenOrientation="portrait" android:theme="@style/Transparent"/>
+        <activity android:label="@string/setting_data_source_title" android:name="mobi.infolife.datasource.DataSourceActivity" android:theme="@style/Theme.Amber"/>
+        <activity android:name="mobi.infolife.weatheralert.SevereAlertDialog" android:theme="@style/Transparent"/>
+        <activity android:name="mobi.infolife.weatheralert.SmartAlertDialog" android:theme="@style/Transparent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="mobi.infolife.ezweather.WeatherDetailActivity" android:theme="@style/Theme.EZWTheme1.ToolBarNotSelect" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:hardwareAccelerated="true" android:name="mobi.infolife.ezweather.widgetscommon.WidgetSelectActivity" android:screenOrientation="portrait" android:theme="@style/PreviewTheme">
+            <intent-filter>
+                <action android:name="mobi.infolife.ezweather.PREFS"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/acknowledgements" android:name="mobi.infolife.common.sherlock.TranslateActivity" android:theme="@style/Theme.AppCompat"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="true" android:name="mobi.infolife.ezweather.InitialProgressActivity" android:theme="@style/Transparent2"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:label="@string/setting_title_license" android:name="mobi.infolife.common.sherlock.LicenseActivity" android:theme="@style/Theme.AppCompat"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="mobi.infolife.invite.InvitationTipsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="mobi.infolife.gallery.HandleFotorActivity" android:screenOrientation="portrait" android:theme="@style/Transparent"/>
+        <activity android:hardwareAccelerated="true" android:name="mobi.infolife.ezweather.ShareWeatherInfoActivity" android:screenOrientation="portrait" android:theme="@style/Transparent"/>
+        <receiver android:exported="true" android:name="com.appsflyer.MultipleInstallBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="mobi.infolife.ezweather.BootCompletedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="mobi.infolife.ezweather.AppInstalledReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="mobi.infolife.ezweather.TimeTickerService"/>
+        <service android:name="mobi.infolife.ezweather.service.UpdateViewService"/>
+        <service android:exported="true" android:name="mobi.infolife.ezweather.UpdateDataService">
+            <intent-filter>
+                <action android:name="start.ezweather.update.data.service"/>
+            </intent-filter>
+        </service>
+        <service android:name="mobi.infolife.ezweather.GPSService"/>
+        <service android:name="mobi.infolife.ezweather.EmptyService" android:process=":startWeatherServiceProcess"/>
+        <service android:enabled="true" android:exported="true" android:name="mobi.infolife.ezweather.WeatherService">
+            <intent-filter>
+                <action android:name="start.ezweather.weather.service"/>
+            </intent-filter>
+        </service>
+        <service android:name="mobi.infolife.ezweather.NotificationService"/>
+        <meta-data android:name="USE_API_LEVEL" android:value="3"/>
+        <service android:icon="@drawable/dc_ic" android:label="@string/app_name" android:name="mobi.infolife.ezweather.DashclockExtension" android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA">
+            <intent-filter>
+                <action android:name="com.google.android.apps.dashclock.Extension"/>
+            </intent-filter>
+            <meta-data android:name="protocolVersion" android:value="2"/>
+            <meta-data android:name="worldReadable" android:value="true"/>
+            <meta-data android:name="description" android:value="@string/dashclock_setting_desc"/>
+            <meta-data android:name="settingsActivity" android:value=".DashClockSettingActivity"/>
+        </service>
+        <activity android:exported="true" android:label="@string/app_name" android:name="mobi.infolife.ezweather.DashClockSettingActivity"/>
+        <service android:name="mobi.infolife.ezweather.datasource.common.FetchWeatherDataService"/>
+        <activity android:name="mobi.infolife.weatheralert.RulesListActivity" android:theme="@style/Transparent"/>
+        <activity android:name="mobi.infolife.weatheralert.AddSmartAlertRuleActivity" android:theme="@style/Theme.AmberDialog"/>
+        <meta-data android:name="WEATHER_DATA_FETCHER_CLASS" android:value="mobi.infolife.datasource.WeatherDataFetcher"/>
+        <meta-data android:name="WEATHER_API_LEVEL" android:value="2"/>
+        <meta-data android:name="WIDGET_API_LEVEL" android:value="6"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:label="@string/laboratory" android:name="mobi.infolife.ezweather.LabActivity" android:screenOrientation="portrait" android:theme="@style/Transparent"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="true" android:name="mobi.infolife.ezweather.livewallpaper.LWPSettingActivity" android:theme="@style/Theme.EZWTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <service android:enabled="true" android:name="mobi.infolife.ezweather.livewallpaper.LWPService" android:permission="android.permission.BIND_WALLPAPER">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService"/>
+            </intent-filter>
+            <meta-data android:name="android.service.wallpaper" android:resource="@xml/livewallpaper"/>
+        </service>
+        <activity android:name="mobi.infolife.store.activity.JoinExperienceImprovmentActivity" android:theme="@style/Theme.AmberDialog"/>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <receiver android:exported="true" android:name="mobi.infolife.invite.ManyInstallTrackersReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="mobi.infolife.invite.InvitationFAQActivity" android:theme="@style/AddRuleDialog"/>
+        <service android:name="mobi.infolife.invite.CheckInviteCountService"/>
+        <service android:name="mobi.infolife.invite.AddCountService"/>
+        <service android:name="mobi.infolife.ezweather.storecache.UpdateJsonService"/>
+        <provider android:authorities="mobi.infolife.ezweather.provider.WeatherProvider" android:exported="true" android:name="mobi.infolife.ezweather.provider.WeatherProvider" android:writePermission="mobi.infolife.ezweather.WRITE_DATABASE"/>
+        <meta-data android:name="com.amap.api.v2.apikey" android:value="6306b50974f0c50081e035b4e6ca6503"/>
+        <activity android:name="mobi.infolife.ezweather.widgetscommon.BuyWidgetActivity" android:theme="@style/Transparent"/>
+        <activity android:name="mobi.infolife.ezweather.ShowFeatrueAppsActivity" android:screenOrientation="portrait" android:theme="@style/Transparent"/>
+        <activity android:name="mobi.infolife.ezweather.InfoCenterActivity" android:screenOrientation="portrait" android:theme="@style/Transparent"/>
+        <receiver android:name="com.xinmei365.fontsdk.receiver.ChangeFontBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.xinmei365.fontsdk.change"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="mobi.infolife.ezweather.FAQWebViewActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Amber"/>
+        <service android:exported="true" android:name="mobi.infolife.ezweather.LocateAndDownloadWeatherDataService">
+            <intent-filter>
+                <action android:name="mobi.infolife.ezweather.ACTION_WIDGET_LOCATE_AND_DOWNLOAD_DATA"/>
+            </intent-filter>
+        </service>
+        <activity android:label="@string/reportbug_title" android:name="mobi.infolife.ezweather.ReportBugActivity" android:screenOrientation="portrait" android:theme="@style/Transparent"/>
+        <activity android:label="@string/LikeAmberWeather_title" android:name="mobi.infolife.ezweather.LikeAmberWeatherActivity" android:screenOrientation="portrait" android:theme="@style/Transparent"/>
+        <receiver android:name="mobi.infolife.store.activity.PluginInstalledReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="mobi.infolife.gallery.ThumbnailsActivity"/>
+        <service android:name="mobi.infolife.gallery.DownloadSplashImageService"/>
+        <receiver android:name="mobi.infolife.receiver.WifiStateReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="mobi.infolife.receiver.CancelNotificationReceiver">
+            <intent-filter>
+                <action android:name="mobi.infolife.ezweather.cancel_notification"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="mobi.infolife.weatheralert.CheckWeatherAlertService"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="mobi.infolife.invite.InviteProgressActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.facebook.ads.InterstitialAdActivity"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <activity android:name="mobi.infolife.commentguide.EvaluateDialog" android:theme="@style/Transparent"/>
+        <receiver android:name="mobi.infolife.ezweather.DeviceStatusReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+        <activity android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="mobi.infolife.store.activity.StoreActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Amber"/>
+        <activity android:launchMode="singleTask" android:name="mobi.infolife.store.activity.StoreDetailActivity" android:theme="@style/Transparent"/>
+        <service android:name="mobi.infolife.ezweather.storecache.UpdateStoreJsonService"/>
+        <service android:name="com.pingstart.adsdk.OptimizeService"/>
+        <receiver android:name="com.pingstart.adsdk.OptimizeReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="mobi.infolife.store.drawablecache.CopyDrawableService" android:process=":remote"/>
+        <activity android:name="mobi.infolife.ads.ApplySuccessActivity" android:screenOrientation="portrait" android:theme="@style/Transparent"/>
+        <activity android:exported="true" android:name="mobi.infolife.store.activity.WidgetHelperActivity"/>
+        <activity android:label="@string/about" android:name="mobi.infolife.lottery.LotteryActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Amber">
+            <intent-filter>
+                <action android:name="start_lottery_activity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:exported="true" android:launchMode="singleTask" android:name="mobi.infolife.store.activity.MedalWallActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name="mobi.infolife.ezweather.DiyWidgetActivity" android:screenOrientation="portrait" android:theme="@style/Transparent"/>
+        <activity android:name="mobi.infolife.ezweather.StartPageActivity" android:theme="@style/Theme.AppStartLoadTranslucent">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:excludeFromRecents="true" android:label="" android:name="mobi.infolife.smartreport.SmartReportMainActivity" android:theme="@style/SmartReportDialog.Dialog"/>
+        <service android:enabled="true" android:name="mobi.infolife.ezweather.service.ResultAdPreLoadService"/>
+        <activity android:name="mobi.infolife.card.news.activity.AllNewsActivity" android:screenOrientation="portrait" android:theme="@style/Transparent"/>
+        <activity android:name="mobi.infolife.card.news.activity.NewsDetailActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Amber"/>
+        <service android:name="mobi.infolife.card.news.service.DownloadNewsDataService"/>
+        <activity android:hardwareAccelerated="true" android:launchMode="singleTask" android:name="mobi.infolife.location.error.LocationErrorActivity" android:theme="@style/Theme.EZWTheme1.ToolBarNotSelect" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="mobi.infolife.smartreport.SmartReportSettingActivity" android:theme="@style/SmartReportDialog.Dialog"/>
+        <meta-data android:name="app_license" android:value="713bcc3806c1e06e321b6c8efc607c28"/>
+        <provider android:authorities="mobi.infolife.ezweather.DuAdCacheProvider" android:exported="false" android:name="com.duapps.ad.stats.DuAdCacheProvider"/>
+        <meta-data android:name="du_lockscreen_action" android:value="com.du.action.public"/>
+        <activity android:excludeFromRecents="true" android:hardwareAccelerated="true" android:launchMode="singleInstance" android:name="com.dianxinos.lockscreen.LockScreenContainer" android:noHistory="true" android:screenOrientation="portrait" android:taskAffinity="" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <receiver android:name="com.duapps.ad.base.PackageAddReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.dianxinos.lockscreen.ad.LockPresentReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

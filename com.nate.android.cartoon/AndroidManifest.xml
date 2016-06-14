@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.nate.android.cartoon" platformBuildVersionCode="22" platformBuildVersionName="5.1.1-1819727">
+    <application android:allowBackup="true" android:anyDensity="true" android:hardwareAccelerated="true" android:icon="@drawable/icon_comics" android:label="@string/app_name" android:largeHeap="true" android:largeScreens="true" android:name="com.nate.android.cartoon.CartoonApplication" android:normalScreens="true" android:smallScreens="true" android:theme="@style/Theme.Sherlock">
+        <activity android:name="com.nate.android.cartoon.Intro" android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="comicapp"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.nate.android.cartoon.IntroGuideActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock.NoActionBar"/>
+        <activity android:name="com.nate.android.cartoon.MainActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock.NoActionBar"/>
+        <activity android:name="com.nate.android.cartoon.SearchActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock.NoActionBar"/>
+        <activity android:name="com.nate.android.cartoon.EventActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock.NoActionBar"/>
+        <activity android:name="com.nate.android.cartoon.WebtoonDetailActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock.NoActionBar"/>
+        <activity android:configChanges="orientation" android:name="com.nate.android.cartoon.WebtoonViewerActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock.NoActionBar"/>
+        <activity android:name="com.nate.android.cartoon.WebtoonCommentListActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock.NoActionBar"/>
+        <activity android:name="com.nate.android.cartoon.WebtoonCommentWriteActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock.NoActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.nate.android.cartoon.WebtoonReCommentListActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock.NoActionBar"/>
+        <activity android:name="com.nate.android.cartoon.CartoonDetailWeb" android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="natecartoon" android:scheme="detail"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.nate.android.cartoon.CartoonDetailActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock.NoActionBar"/>
+        <activity android:configChanges="orientation" android:name="com.nate.android.cartoon.CartoonViewerActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock.NoActionBar"/>
+        <activity android:name="com.nate.android.cartoon.SettingActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock.NoActionBar"/>
+        <activity android:name="com.nate.android.cartoon.webview.CartoonPaymentActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="CartoonPayment"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.nate.android.cartoon.CartoonLoginActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock.NoActionBar"/>
+        <activity android:name="com.nate.android.cartoon.webview.CartoonAdultActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock.NoActionBar"/>
+        <activity android:name="com.nate.android.cartoon.webview.MyPageAdultActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock.NoActionBar"/>
+        <activity android:name="com.nate.android.cartoon.WebDetailActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock.NoActionBar"/>
+        <activity android:name="com.nate.android.cartoon.webview.WebViewAdultActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock.NoActionBar"/>
+        <activity android:name="com.nate.android.cartoon.webview.WebViewPaymentActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="WebViewPayment"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.nate.android.cartoon.WebViewerActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock.NoActionBar"/>
+        <activity android:name="com.nate.android.cartoon.webview.PolicyActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock.NoActionBar"/>
+        <activity android:name="com.skcomms.infra.auth.ui.activity.LoginNateActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock.NoActionBar"/>
+        <activity android:name="com.skcomms.infra.auth.ui.activity.otp.OTPActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:launchMode="standard" android:name="com.skcomms.infra.auth.ui.activity.bfa.BFAActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:launchMode="standard" android:name="com.skcomms.infra.auth.ui.activity.abuse.AbUseActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.skcomms.infra.auth.ui.activity.webview.WebviewActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Sherlock.NoActionBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="Ad Activity" android:name="com.skplanet.tad.AdActivity" android:theme="@style/Theme.Sherlock.NoActionBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="Ad Video Player" android:name="com.skplanet.tad.AdVideoPlayer" android:theme="@style/Theme.Sherlock.NoActionBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@style/Theme.Sherlock.NoActionBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+    </application>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+</manifest>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="kr.co.nowcom.mobile.afreeca" platformBuildVersionCode="23" platformBuildVersionName="6.0-2704002">
+    <supports-screens android:xlargeScreens="true"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
+    <permission android:name="kr.co.nowcom.mobile.afreeca.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="kr.co.nowcom.mobile.afreeca.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false"/>
+    <application android:allowBackup="false" android:icon="@drawable/ic_afreeca_logo" android:label="@string/app_name" android:largeHeap="true" android:name="kr.co.nowcom.mobile.afreeca.AfreecaTvApplication" android:supportsRtl="true" android:theme="@style/CustomActionBarTheme">
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.sec.android.support.multiwindow" android:value="true"/>
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_W" android:value="632.0dip"/>
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_H" android:value="598.0dip"/>
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_W" android:value="300.0dip"/>
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_H" android:value="240.0dip"/>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kakao_app_key"/>
+        <receiver android:name="com.google.android.gcm.GCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="kr.co.nowcom.mobile.afreeca"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboard|orientation|screenSize" android:name="kr.co.nowcom.mobile.afreeca.gamebroadcast.MobileGameBroadcastIntroActivity" android:theme="@style/CustomActionBarTheme2"/>
+        <activity android:configChanges="keyboard|orientation|screenSize" android:name="kr.co.nowcom.mobile.afreeca.gamebroadcast.MobileGameBroadcastGuideActivity" android:theme="@style/CustomActionBarTheme2"/>
+        <activity android:configChanges="keyboard|orientation|screenSize" android:name="kr.co.nowcom.mobile.afreeca.gamebroadcast.MobileGameBroadcastListActivity"/>
+        <activity android:configChanges="keyboard|orientation|screenSize" android:name="kr.co.nowcom.mobile.afreeca.gamebroadcast.MobileGameBroadcastSettingActivity"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:launchMode="singleTask" android:name="kr.co.nowcom.mobile.afreeca.IntroActivity">
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="afreecaitem"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/app_name" android:name="kr.co.nowcom.mobile.afreeca.AfreecaTvMainActivity"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="kr.co.nowcom.mobile.afreeca.content.activity.LiveDetailActivity"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:excludeFromRecents="true" android:name="kr.co.nowcom.mobile.afreeca.push.PushPopupActivity" android:screenOrientation="portrait" android:taskAffinity="kr.co.nowcom.mobile.afreeca.push.popup">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="afreecatv.intent.action.SHOW_POPUP"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="afreecatv.intent.category.afreeca.POPUP"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="fontScale|keyboardHidden|orientation|screenSize" android:name="kr.co.nowcom.mobile.afreeca.event.EventThroughActivity" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/app_name" android:name="kr.co.nowcom.mobile.afreeca.userinfo.UserInfoItemActivity" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="kr.co.nowcom.mobile.afreeca.gamecenter.detail.GamecenterDetailActivity" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="kr.co.nowcom.mobile.afreeca.gamecenter.detail.FullScreenImageActivity" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="kr.co.nowcom.mobile.afreeca.gamecenter.chocolateslot.GifticonPolicyActivity" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="kr.co.nowcom.mobile.afreeca.old.player.vodplayer.VODPlayerActivity" android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:hardwareAccelerated="false" android:name="kr.co.nowcom.mobile.afreeca.old.player.liveplayer.N2MPlayerActivity" android:theme="@style/CustomActionBarTheme2" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="fontScale|keyboardHidden|orientation|uiMode" android:name="kr.co.nowcom.mobile.afreeca.old.LinkageActivty" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="kr.co.nowcom.mobile.afreeca.common.webview.NameCheckWebViewActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="kr.co.nowcom.mobile.afreeca.content.search.UnitedSearchActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="kr.co.nowcom.mobile.afreeca.content.animation.AnimationChildActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="fontScale|keyboardHidden|orientation|uiMode" android:name="kr.co.nowcom.mobile.afreeca.widget.AfWebViewActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="kr.co.nowcom.mobile.afreeca.common.webview.InAppWebViewActivity"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="kr.co.nowcom.mobile.afreeca.setting.BroadNotiActionBarActivity"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="kr.co.nowcom.mobile.afreeca.setting.SettingActionBarActivity"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="kr.co.nowcom.mobile.afreeca.setting.NotiTimeSettingActionBarActivity"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="kr.co.nowcom.mobile.afreeca.setting.GamecenterNotiActionBarActivity"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="kr.co.nowcom.mobile.afreeca.content.AboutAfTVActivity"/>
+        <service android:configChanges="keyboard|orientation" android:enabled="true" android:name="kr.co.nowcom.mobile.afreeca.old.player.liveplayer.N2MPlayerService" android:windowSoftInputMode="stateVisible">
+            <intent-filter>
+                <action android:name="kr.co.nowcom.mobile.afreeca.player.n2mplayerservice"/>
+            </intent-filter>
+        </service>
+        <service android:name="kr.co.nowcom.mobile.afreeca.push.PushImageDownloaderService"/>
+        <service android:enabled="true" android:name="kr.co.nowcom.mobile.afreeca.GCMIntentService"/>
+        <activity android:name="com.igaworks.adpopcorn.activity.ApBridgeActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.igaworks.adpopcorn.activity.ApCSActivity_NT" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:hardwareAccelerated="true" android:name="com.igaworks.adpopcorn.activity.ApVideoAdActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar"/>
+        <meta-data android:name="igaworks_app_key" android:value="929274792"/>
+        <meta-data android:name="igaworks_hash_key" android:value="5b91f0db789c4a62"/>
+        <meta-data android:name="igaworks_market_info" android:value="google"/>
+        <meta-data android:name="igaworks_reward_server_type" android:value="server"/>
+        <receiver android:exported="true" android:name="com.igaworks.IgawReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.igaworks.adpopcorn.activity.ApOfferWallActivity_NT" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="MEZZO_WINDOW_ID" android:value="banner"/>
+        <meta-data android:name="GPS_USE" android:value="0"/>
+        <meta-data android:name="DEBUG_MODE" android:value="0"/>
+        <activity android:name="com.mapps.android.view_old.InterstitialView_old" android:screenOrientation="portrait"/>
+        <activity android:name="com.mapps.android.view_new.InterstitialView_new" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|orientation" android:name="com.mapps.android.view_old.MultimediaView_old"/>
+        <activity android:name="com.mapps.android.view_old.AlertNotiView_old" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name="com.midas.activity.InterstitialView" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboard|orientation" android:name="com.midas.activity.MultimediaView"/>
+        <activity android:name="com.midas.activity.Html5View" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.facebook.ads.InterstitialAdActivity"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="kr.co.nowcom.mobile.afreeca.adviews.AfAdFullScreenActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Black.NoTitleBar"/>
+        <receiver android:name="com.google.sample.castcompanionlibrary.remotecontrol.VideoIntentReceiver">
+            <intent-filter>
+                <action android:name="android.media.AUDIO_BECOMING_NOISY"/>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+                <action android:name="com.google.sample.castcompanionlibrary.action.toggleplayback"/>
+                <action android:name="com.google.sample.castcompanionlibrary.action.stop"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.google.sample.castcompanionlibrary.notification.VideoCastNotificationService">
+            <intent-filter>
+                <action android:name="com.google.sample.castcompanionlibrary.action.toggleplayback"/>
+                <action android:name="com.google.sample.castcompanionlibrary.action.stop"/>
+                <action android:name="com.google.sample.castcompanionlibrary.action.notificationvisibility"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="kr.co.nowcom.mobile.afreeca.studio.old.settings.StudioSettingCategoryActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="kr.co.nowcom.mobile.afreeca.gamecenter.GcAuthActivity"/>
+        <activity android:configChanges="fontScale|keyboardHidden|orientation|screenSize" android:name="kr.co.nowcom.mobile.afreeca.IntentFilterActivity">
+            <intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="afreeca"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="@string/kakaolink_host" android:scheme="@string/kakao_scheme"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="kr.co.nowcom.mobile.afreeca.intro.gausx.GausxAfreecaTvActivity"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="kr.co.nowcom.mobile.afreeca.setting.rtmp.RtmpSettingActionBarActivity"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="kr.co.nowcom.mobile.afreeca.broadcast.BroadCasterActivity" android:screenOrientation="sensorLandscape"/>
+        <activity android:name="kr.co.nowcom.mobile.afreeca.broadcast.recordscreen.NotificationConfirm"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="kr.co.nowcom.mobile.afreeca.broadcast.recordscreen.RecordScreenGuideActivity" android:theme="@style/Theme.Transparent"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="kr.co.nowcom.mobile.afreeca.broadcast.recordscreen.RecordScreenSelectCameraActivity" android:theme="@style/Theme.Transparent"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="kr.co.nowcom.mobile.afreeca.broadcast.recordscreen.RecordScreenIntroActivity" android:theme="@style/Theme.Transparent"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="kr.co.nowcom.mobile.afreeca.broadcast.recordscreen.ui.ScreenRecordCasterUIActivity" android:taskAffinity="" android:theme="@style/Transparent"/>
+        <service android:enabled="true" android:name="kr.co.nowcom.mobile.afreeca.broadcast.recordscreen.ui.ScreenRecordCasterUIService">
+            <intent-filter>
+                <action android:name="recordscreen.ui.ScreenRecordCasterUIService"/>
+                <action android:name="android.intent.action.CONFIGURATION_CHANGED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <service android:name="kr.co.nowcom.mobile.afreeca.broadcast.recordscreen.ui.ScreenRecordNotiService" android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/app_name" android:name="kr.co.nowcom.mobile.afreeca.userinfo.UserInfoAtivity" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="@string/title_activity_freecat_intro" android:name="kr.co.nowcom.mobile.afreeca.setting.rtmp.freecat.FreecatIntroActivity" android:screenOrientation="sensorLandscape" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:configChanges="fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="kr.co.nowcom.mobile.afreeca.setting.rtmp.freecat.FreecatMainActivity" android:screenOrientation="sensorLandscape" android:theme="@style/CustomActionBarTheme"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+    </application>
+</manifest>

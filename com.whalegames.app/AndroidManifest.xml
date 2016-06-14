@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.whalegames.app" platformBuildVersionCode="23" platformBuildVersionName="6.0-2704002">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.whalegames.app.permission.C2D_MESSAGE"/>
+    <permission android:name="com.whalegames.app.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <application android:allowBackup="true" android:icon="@mipmap/icon" android:label="@string/app_name" android:logo="@mipmap/logo" android:name="com.whalegames.app.ApplicationController" android:theme="@style/MyTheme">
+        <meta-data android:name="com.sec.android.support.multiwindow" android:value="true"/>
+        <meta-data android:name="com.sec.minimode.icon.portrait.normal" android:resource="@drawable/icon"/>
+        <meta-data android:name="com.sec.minimode.icon.landscape.normal" android:resource="@drawable/icon"/>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="c17159316636871e42a41cb2538c6d7a"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="igaworks_app_key" android:value="809588615"/>
+        <meta-data android:name="igaworks_hash_key" android:value="65611b90acc44eca"/>
+        <meta-data android:name="igaworks_market_info" android:value="google / naver"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <receiver android:exported="true" android:name="com.igaworks.IgawReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="gcm.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.whalegames.app"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="receiver.NetworkReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="gcm.GcmIntentService"/>
+        <activity android:exported="true" android:name="gcm.GcmActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="com.mocoplex.adlib.AdlibDialogActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="com.mocoplex.adlib.AdlibWebBrowserActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="com.mocoplex.adlib.AdlibVideoPlayer" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <meta-data android:name="MEZZO_WINDOW_ID" android:value="banner"/>
+        <meta-data android:name="GPS_USE" android:value="0"/>
+        <meta-data android:name="DEBUG_MODE" android:value="0"/>
+        <activity android:name="com.mapps.android.view_old.InterstitialView_old" android:screenOrientation="portrait"/>
+        <activity android:name="com.mapps.android.view_new.InterstitialView_new" android:screenOrientation="portrait"/>
+        <activity android:name="com.mapps.android.view_old.MultimediaView_old" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name="com.mapps.android.view_old.AlertNotiView_old" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:name="com.inmobi.rendering.InMobiAdActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="5c09f80451a5fc107c6427097a5c7cb7b8458396"/>
+        <meta-data android:name="ShallWeAd_Application_Key" android:value="1601684355"/>
+        <activity android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.co.shallwead.sdk.activity.ShallWeAdActivity" android:taskAffinity="" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:label="Ad Activity" android:name="com.skplanet.tad.AdActivity" android:theme="@android:style/Theme.NoTitleBar"/>
+        <receiver android:name="com.skplanet.tad.SyrupAdReceiver">
+            <intent-filter>
+                <action android:name="com.skplanet.syrupad.action.SAID_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.whalegames.app.ActivitySplashScreen" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="com.whalegames.app.ActivityMain" android:screenOrientation="portrait"/>
+        <activity android:name="com.whalegames.views.webtoon.ActivityWebtoon" android:screenOrientation="portrait"/>
+        <activity android:name="com.whalegames.views.webtoon.ActivityEpisode" android:screenOrientation="portrait">
+            <intent-filter android:label="웹툰">
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:host="webtoon" android:scheme="battlecomics"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.whalegames.views.webtoon.ActivityEpisodeDetail" android:screenOrientation="unspecified">
+            <intent-filter android:label="에피소드">
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:host="episode" android:scheme="battlecomics"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.whalegames.views.webtoon.ActivityEpisodeComment" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden">
+            <intent-filter android:label="에피소드코멘트">
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:host="comments" android:scheme="battlecomics"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.whalegames.views.webtoon.ActivityWebtoonSearch" android:screenOrientation="portrait"/>
+        <activity android:name="com.whalegames.views.illust.ActivityIllust" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.whalegames.views.illust.ActivityIllustDetail" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden">
+            <intent-filter android:label="팬아트">
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:host="illust" android:scheme="battlecomics"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.whalegames.views.illust.ActivityIllustEdit" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.whalegames.views.board.ActivityBoard" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.whalegames.views.board.ActivityBoardDetail" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden">
+            <intent-filter android:label="커뮤니티">
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:host="board" android:scheme="battlecomics"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.whalegames.views.board.ActivityBoardEdit" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.whalegames.views.board.ActivityBoardComment" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.whalegames.views.reservation.ActivityReservation" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.whalegames.views.reservation.ActivityReservationDetail" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden">
+            <intent-filter android:label="사전예약">
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:host="pre-reservation" android:scheme="battlecomics"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.whalegames.views.common.ActivityZoomImage" android:screenOrientation="portrait"/>
+        <activity android:name="com.whalegames.views.setting.ActivitySetting" android:screenOrientation="portrait"/>
+        <activity android:name="com.whalegames.views.setting.ActivityLoginInfo" android:screenOrientation="portrait"/>
+        <activity android:name="com.whalegames.views.setting.ActivityFAQ" android:screenOrientation="portrait"/>
+        <activity android:name="com.whalegames.views.setting.ActivityFAQDetail" android:screenOrientation="portrait"/>
+        <activity android:name="com.whalegames.views.setting.ActivityNotice" android:screenOrientation="portrait"/>
+        <activity android:name="com.whalegames.views.setting.ActivityNoticeDetail" android:screenOrientation="portrait"/>
+        <activity android:name="com.whalegames.views.setting.ActivityLoginForm" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.whalegames.views.setting.ActivityUpdateNotice" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.whalegames.views.inventory.ActivityInventoryAuth" android:screenOrientation="portrait">
+            <intent-filter android:label="인벤토리">
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:host="inventory" android:scheme="battlecomics"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.whalegames.views.inventory.ActivityInventory" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.whalegames.views.page.ActivityPageMain" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden">
+            <intent-filter android:label="페이지">
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:host="page" android:scheme="battlecomics"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.whalegames.views.page.ActivityPageCollection" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.whalegames.views.page.ActivityPageTag" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.whalegames.views.page.ActivityPageWebtoons" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.whalegames.views.page.ActivityPageComment" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.whalegames.views.page.ActivityPageItemDetail" android:screenOrientation="unspecified">
+            <intent-filter android:label="아이템">
+                <action android:name="android.intent.action.VIEW"/>
+                <data android:host="item" android:scheme="battlecomics"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.whalegames.views.page.ActivityPageEditor" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.whalegames.views.page.ActivityPageCollectionEdit" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+    </application>
+</manifest>

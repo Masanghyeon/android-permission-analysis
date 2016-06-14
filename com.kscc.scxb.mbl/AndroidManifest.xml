@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.kscc.scxb.mbl" platformBuildVersionCode="21" platformBuildVersionName="5.0.1-1624448">
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <permission android:name="com.kscc.scxb.mbl.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.kscc.scxb.mbl.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="com.tmoney.vending.INBILLING"/>
+    <application android:allowBackup="false" android:icon="@drawable/icon_launcher" android:installLocation="auto" android:label="@string/app_name" android:largeHeap="true" android:name="com.kscc.scxb.mbl.XbApplication" android:theme="@style/AppTheme.Transparent">
+        <meta-data android:name="svninfo" android:value="$LastChangedRevision: 26 $"/>
+        <activity android:hardwareAccelerated="false" android:name=".view.IntroView" android:screenOrientation="portrait" android:theme="@style/AppTheme.Black">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:scheme="com.kscc.expbus"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:hardwareAccelerated="false" android:label="@string/app_name" android:name=".view.MainView" android:screenOrientation="portrait" android:theme="@style/AppTheme.White">
+            <intent-filter>
+                <action android:name="com.tmoney.action.PUSHMAIN"/>
+                <action android:name="com.tmoney.action.PUSHREGIST"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="" android:name=".view.DepartArriveInputView" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name=".view.BusListView" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name=".view.CalendarView" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name=".view.SeatSelectionView" android:screenOrientation="portrait"/>
+        <activity android:label="회원가입" android:name=".view.MembershipReqView" android:screenOrientation="portrait"/>
+        <activity android:name=".view.MembershipQuitView" android:screenOrientation="portrait"/>
+        <activity android:label="약관동의" android:name=".view.ContractAgreeView" android:screenOrientation="portrait"/>
+        <activity android:label="본인인증" android:name=".view.MobileAuthReqView" android:screenOrientation="portrait"/>
+        <activity android:label="본인인증" android:name=".view.MobileAuthFrmView" android:screenOrientation="portrait"/>
+        <activity android:label="개인정보입력" android:name=".view.PersonalInfoInputView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <intent-filter>
+                <action android:name="com.tmoney.action.TMONEY_AIDL_SERVICE"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="회원가입완료" android:name=".view.MembershipCompleteView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="로그인" android:launchMode="singleTop" android:name=".view.LoginView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="로그인" android:name=".view.NonMemberReserveView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="아이디 찾기" android:name=".view.IdFindView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="아이디 찾기 결과" android:name=".view.IdFindResultView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="비밀번호 찾기" android:name=".view.PasswordFindView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="비밀번호 변경" android:name=".view.PasswordChangeView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:label="임시 비밀번호 발송" android:name=".view.TempPasswordReqView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.EmailChangeView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="이용안내" android:name=".view.InfoCenterMenuView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.FaqListView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.SetupMainView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.FavoriteCardInputView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.FavoriteCardModifyView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.MyPageMainView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.PayTicketDetailView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.ReservationListView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.ReservationDetailView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.ReservationCancelView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.CustomerCenterInfoView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.LostItemFindView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.TerminalInfoListView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.ExpressInfoListView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.QnaListView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.QnaAddView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.PaymentView" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.tmoney.action.TMONEY_INBILLING_SERVICE"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="" android:name=".view.MobileTicketView" android:screenOrientation="portrait" android:taskAffinity="" android:theme="@style/DialogTheme"/>
+        <activity android:name=".view.ManualTicketCheckView" android:screenOrientation="portrait" android:theme="@style/Alp.42447968.Theme.Custom">
+            <meta-data android:name="maxRetries" android:value="3"/>
+        </activity>
+        <activity android:label="" android:name=".view.NewsAndEventListView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.NewsDetailView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.EventDetailView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.PushSetupView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.TimeTableInputView" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name=".view.TimeTableListView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.TimeTableDetailView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.SimpleReserveListView" android:screenOrientation="portrait" android:theme="@style/DialogTheme" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.SimpleReserveInputView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.CancelTicketChoiceView" android:screenOrientation="portrait" android:theme="@style/DialogTheme" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.SimpleReserveChoiceView" android:screenOrientation="portrait" android:theme="@style/DialogTheme" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.SimpleReserveFindingView" android:screenOrientation="portrait" android:theme="@style/DialogTheme" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.TerminalInfoMapView" android:screenOrientation="portrait" android:theme="@style/AppTheme.White"/>
+        <activity android:label="" android:name=".view.ContractView" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name=".view.CardInfoInputView" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name=".view.ArriveTimeInputView" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name=".view.ArriveTimeResultView" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name=".view.RealTimeArriveInfoView" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name=".view.MyPaymentListView" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name=".view.MyPaymentDetailView" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name=".view.MyPaymentCancelDetailView" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name=".view.FavoriteCardListView" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name=".view.MyMileageView" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name=".view.QnaDetailView" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name=".view.popup.XbWebViewPopup" android:screenOrientation="portrait" android:theme="@style/DialogTheme" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".view.BannerView" android:screenOrientation="portrait" android:theme="@style/DialogTheme"/>
+        <activity android:label="" android:name=".view.ArriveTimeNotiInputView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:label="" android:name=".view.ContractInfoView" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name=".view.popup.ReservationCancelConfirmPopup" android:screenOrientation="portrait" android:theme="@style/DialogTheme"/>
+        <activity android:label="" android:name=".view.popup.PartialCancelPopup" android:screenOrientation="portrait"/>
+        <activity android:label="" android:name=".view.popup.TerminalInfoPopup" android:screenOrientation="portrait" android:theme="@style/DialogTheme"/>
+        <activity android:label="" android:name=".view.popup.CorporateInfoPopup" android:screenOrientation="portrait" android:theme="@style/DialogTheme"/>
+        <activity android:label="" android:name=".common.XbWebView" android:screenOrientation="portrait" android:theme="@style/AppTheme.White"/>
+        <activity android:label="" android:name=".view.XBTabHostActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="" android:name=".XbActivityGroup" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="" android:name=".XbPopupActivity" android:screenOrientation="portrait" android:theme="@style/DialogTheme" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="" android:name=".XbNoUIActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.softsecurity.transkey.TransKeyActivity"/>
+        <receiver android:label="고속버스 모바일 (4x1)" android:name="com.kscc.scxb.mbl.appwidget.XBAppWidgetSize4">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.kscc.scxb.mbl.appwidget.ACTION_EVENT"/>
+                <action android:name="com.kscc.scxb.mbl.appwidget.ACTION_CALL_DEPART_ARRIVE_INPUT_VIEW_4"/>
+                <action android:name="com.kscc.scxb.mbl.appwidget.ACTION_CALL_MOBILE_TICKET_VIEW_4"/>
+                <action android:name="com.kscc.scxb.mbl.appwidget.ACTION_CALL_SIMPLE_RESERVE_LIST_VIEW_4"/>
+                <action android:name="com.kscc.scxb.mbl.appwidget.ACTION_CALL_TIME_TABLE_INPUT_VIEW_4"/>
+                <action android:name="com.kscc.scxb.mbl.appwidget.ACTION_LOGGED_IN"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/xb_widget_size_4"/>
+        </receiver>
+        <receiver android:label="고속버스 모바일 (3x1)" android:name="com.kscc.scxb.mbl.appwidget.XBAppWidgetSize3">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.kscc.scxb.mbl.appwidget.ACTION_EVENT"/>
+                <action android:name="com.kscc.scxb.mbl.appwidget.ACTION_CALL_DEPART_ARRIVE_INPUT_VIEW_3"/>
+                <action android:name="com.kscc.scxb.mbl.appwidget.ACTION_CALL_MOBILE_TICKET_VIEW_3"/>
+                <action android:name="com.kscc.scxb.mbl.appwidget.ACTION_CALL_SIMPLE_RESERVE_LIST_VIEW_3"/>
+                <action android:name="com.kscc.scxb.mbl.appwidget.ACTION_LOGGED_IN"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/xb_widget_size_3"/>
+        </receiver>
+        <activity android:label="" android:name=".appwidget.AppWidgetPopup" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent"/>
+        <receiver android:name="com.financeallsolution.push.GCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.kscc.scxb.mbl"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.financeallsolution.push.GCMIntentService"/>
+        <activity android:launchMode="singleInstance" android:name="com.financeallsolution.push.AgentDialogActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleInstance" android:name="com.kscc.scxb.mbl.view.popup.PushAlarmPopup" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="com.kscc.scxb.mbl.PUSH_POPUP"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <receiver android:exported="true" android:name="com.kscc.scxb.mbl.util.PushAlarmController">
+            <intent-filter>
+                <action android:name="com.kscc.scxb.mbl.LANDING_ACTION"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.kscc.scxb.mbl.util.SMSReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name=".view.custom.AccountPopupView"/>
+        <activity android:label="" android:name=".view.popup.RecieptPopupActivity" android:screenOrientation="portrait" android:theme="@style/DialogTheme" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+    </application>
+</manifest>

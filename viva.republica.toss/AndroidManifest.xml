@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="viva.republica.toss" platformBuildVersionCode="23" platformBuildVersionName="6.0-2704002">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <permission android:name="viva.republica.toss.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="viva.republica.toss.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <application android:allowBackup="false" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:name="viva.republica.toss.main.TossApplication" android:theme="@style/AppBaseTheme">
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kakao_app_key"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_fgoOpIf1HbZXCQhsXRv15dboDAgBq51t"/>
+        <activity android:label="@string/app_name" android:name="viva.republica.toss.splash.SplashActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="send" android:scheme="supertoss"/>
+                <data android:host="pay" android:scheme="supertoss"/>
+                <data android:host="start" android:scheme="supertoss"/>
+                <data android:host="open" android:scheme="supertoss"/>
+                <data android:host="changeBank" android:scheme="supertoss"/>
+                <data android:host="leave" android:scheme="supertoss"/>
+                <data android:host="bankSend" android:scheme="supertoss"/>
+                <data android:host="transferHistory" android:scheme="supertoss"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="viva.republica.toss.guide.GuideActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_account_confirm_guide" android:name="viva.republica.toss.signup.VerifyAccountGuideActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar"/>
+        <activity android:label="@string/title_activity_breakdown" android:name="viva.republica.toss.breakdown.BreakdownActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar"/>
+        <activity android:label="@string/title_activity_receiver" android:name="viva.republica.toss.send.ReceiverActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/title_activity_my_info" android:name="viva.republica.toss.myinfo.MyInfoActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/title_activity_refund" android:name="viva.republica.toss.myinfo.RefundActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/title_activity_faq" android:name="viva.republica.toss.myinfo.FAQActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar"/>
+        <activity android:label="@string/title_activity_password_setting" android:name="viva.republica.toss.password.PasswordSettingActivity" android:screenOrientation="portrait" android:theme="@style/AppDarkTheme"/>
+        <activity android:label="@string/title_activity_password" android:name="viva.republica.toss.password.PasswordActivity" android:screenOrientation="portrait" android:theme="@style/AppDarkTheme"/>
+        <activity android:label="@string/title_activity_welcom" android:name="viva.republica.toss.password.WelcomeActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_reset_info" android:name="viva.republica.toss.password.ResetPasswordActivity" android:screenOrientation="portrait" android:theme="@style/AppDarkTheme"/>
+        <activity android:label="@string/title_activity_cellphone_certification" android:name="viva.republica.toss.phonecertification.CellphoneCertification" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:label="@string/title_activity_verify_cer_code" android:name="viva.republica.toss.phonecertification.VerifyCerCodeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:label="@string/title_activity_sign_up" android:name="viva.republica.toss.signup.SignupActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar" android:windowSoftInputMode="stateHidden"/>
+        <activity android:label="@string/title_activity_account_agreement" android:name="viva.republica.toss.signup.AccountAgreementActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar"/>
+        <activity android:name="viva.republica.toss.main.SuspendingClearWebView" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTask" android:name="viva.republica.toss.send.ProcessActivity" android:screenOrientation="portrait" android:theme="@style/Main.Theme"/>
+        <activity android:label="@string/title_activity_notice" android:name="viva.republica.toss.main.NoticeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar"/>
+        <activity android:name="viva.republica.toss.payment.PaymentActivity" android:screenOrientation="portrait"/>
+        <activity android:name="viva.republica.toss.phonecertification.BlockedInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_agreement_record" android:name="viva.republica.toss.signup.AgreementRecordActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent"/>
+        <activity android:label="@string/title_activity_login" android:name="viva.republica.toss.phonecertification.LoginPasswordActivity" android:screenOrientation="portrait" android:theme="@style/AppDarkTheme"/>
+        <activity android:label="@string/title_activity_receive" android:name="viva.republica.toss.breakdown.ReceiveActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="viva.republica.toss.send.MessageInputActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/title_activity_remittance_input" android:name="viva.republica.toss.send.RemittanceInputActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/title_activity_web_view" android:name="viva.republica.toss.main.WebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_blocked_removal" android:name="viva.republica.toss.phonecertification.BlockedRemovalActivity" android:screenOrientation="portrait" android:theme="@style/AppDarkTheme"/>
+        <activity android:label="@string/title_activity_new_invite" android:name="viva.republica.toss.myinfo.NewInviteActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar" android:windowSoftInputMode="stateHidden"/>
+        <service android:name="viva.republica.toss.push.GcmIntentService"/>
+        <receiver android:name="viva.republica.toss.push.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.anypay.anypay"/>
+            </intent-filter>
+        </receiver>
+;
+<service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <receiver android:exported="true" android:name="com.appsflyer.MultipleInstallBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.google.android.gms.analytics.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:enabled="true" android:exported="false" android:name="viva.republica.toss.main.ClipboardWacherService"/>
+        <service android:enabled="true" android:exported="true" android:name="viva.republica.toss.main.SomethingToTossService"/>
+        <service android:enabled="true" android:exported="true" android:name="viva.republica.toss.push.ExitstAccountService"/>
+        <activity android:label="@string/title_activity_features" android:name="viva.republica.toss.myinfo.FeaturesActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar"/>
+        <activity android:label="@string/title_activity_promotion" android:name="viva.republica.toss.myinfo.PromotionActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/title_activity_leave" android:name="viva.republica.toss.myinfo.LeaveActivity" android:screenOrientation="portrait" android:theme="@style/Leave.Theme"/>
+        <activity android:label="@string/title_activity_status" android:name="viva.republica.toss.main.StatusActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar"/>
+        <activity android:label="@string/title_activity_cash_receipt" android:name="viva.republica.toss.payment.CashReceiptActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar" android:windowSoftInputMode="stateVisible"/>
+        <activity android:label="@string/title_activity_ars_certification" android:name="viva.republica.toss.phonecertification.ArsCertificationActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar"/>
+        <activity android:label="@string/title_activity_new_alarm" android:name="viva.republica.toss.myinfo.NewAlarmActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar"/>
+        <activity android:label="@string/toss_alarm" android:name="viva.republica.toss.myinfo.AlarmListListActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar"/>
+        <activity android:label="@string/app_name" android:name="viva.republica.toss.main.BridgeActivity" android:noHistory="true" android:screenOrientation="portrait"/>
+        <activity android:label="@string/title_activity_bank_send" android:name="viva.republica.toss.send.BankSendActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Bank.ActionBar"/>
+        <activity android:label="@string/title_activity_ars_agreement" android:name="viva.republica.toss.signup.ArsAgreementActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar"/>
+        <activity android:label="@string/title_activity_flow_guide" android:name="viva.republica.toss.signup.FlowGuideActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar"/>
+        <activity android:label="@string/title_activity_toss_lab" android:name="viva.republica.toss.myinfo.LabActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar"/>
+        <activity android:label="@string/title_activity_charge_send" android:name="viva.republica.toss.send.ChargeSendActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/title_activity_security_setting" android:name="viva.republica.toss.myinfo.SecuritySettingActivity" android:screenOrientation="portrait" android:theme="@style/Theme.Toss.Light.ActionBar"/>
+        <service android:name="viva.republica.toss.phonecertification.ArsGuideService"/>
+        <receiver android:enabled="true" android:exported="false" android:name="viva.republica.toss.myinfo.AlarmReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

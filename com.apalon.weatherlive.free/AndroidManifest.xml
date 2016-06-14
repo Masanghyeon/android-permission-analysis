@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:amazon="http://schemas.amazon.com/apk/res/android" xmlns:android="http://schemas.android.com/apk/res/android" package="com.apalon.weatherlive.free" platformBuildVersionCode="23" platformBuildVersionName="6.0-2438415">
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="com.google.android.permission.PROVIDE_BACKGROUND"/>
+ 
+<uses-feature android:glEsVersion="0x10000" android:required="true"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-feature android:name="android.software.leanback" android:required="false"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-feature android:name="android.hardware.location" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.network" android:required="false"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
+    <uses-feature android:glEsVersion="0x20000" android:required="true"/>
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <application android:allowBackup="true" android:banner="@drawable/ic_launcher_banner" android:hardwareAccelerated="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="com.apalon.weatherlive.WeatherApplication" android:supportsRtl="false" android:theme="@style/WeatherLive">
+        <activity android:configChanges="locale|orientation|screenSize" android:finishOnTaskLaunch="true" android:hardwareAccelerated="false" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.apalon.weatherlive.activity.ActivityMain" android:screenOrientation="user" android:theme="@style/WeatherLive.Main" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="weatherlive.info" android:scheme="http"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="forecast" android:scheme="weatherlive"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="map" android:scheme="weatherlive"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyCZZOIHq_c-ZeUKDTGfAwOW9GlKmJ6zyw4"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apalon.weatherlive.forecamap.ForecaMapGoogleActivity" android:screenOrientation="user" android:theme="@style/WeatherLive.Support.Fullscreen"/>
+        <provider android:authorities="com.apalon.weatherlive.free.settingsprovider" android:enabled="true" android:exported="true" android:grantUriPermissions="false" android:name="com.apalon.weatherlive.data.provider.WeatherLiveSettingsProvider"/>
+        <service android:enabled="true" android:label="@string/app_name" android:name="com.apalon.weatherlive.wallpaper.WeatherWallpaperService" android:permission="android.permission.BIND_WALLPAPER">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService"/>
+            </intent-filter>
+            <meta-data android:name="android.service.wallpaper" android:resource="@xml/wallpaper"/>
+        </service>
+        <receiver android:icon="@drawable/widget_2x1_preview" android:label="@string/widget_2_1_title" android:name="com.apalon.weatherlive.widget.weather.WeatherWidgetProvider2x1">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_DELETED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_2x1"/>
+        </receiver>
+        <receiver android:icon="@drawable/widget_text_forecast_preview" android:label="@string/widget_4_2_text_only_title" android:name="com.apalon.weatherlive.widget.weather.WeatherWidgetProviderTextForecastShort">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_DELETED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_text_forecast_short"/>
+        </receiver>
+        <receiver android:icon="@drawable/widget_4x2_with_clock_preview" android:label="@string/widget_4_2_with_clock_title" android:name="com.apalon.weatherlive.widget.weather.WeatherWidgetProvider4x2WithClock">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_DELETED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x2_with_clock"/>
+        </receiver>
+        <receiver android:icon="@drawable/widget_4x3_forecast_short_preview" android:label="@string/widget_4_3_forecast_short_title" android:name="com.apalon.weatherlive.widget.weather.WeatherWidgetProvider4x3ForecastShort">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_DELETED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x3_forecast_short"/>
+        </receiver>
+        <receiver android:icon="@drawable/widget_4x3_forecast_long_preview" android:label="@string/widget_4_3_forecast_long_title" android:name="com.apalon.weatherlive.widget.weather.WeatherWidgetProvider4x3ForecastLong">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_DELETED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x3_forecast_long"/>
+        </receiver>
+        <receiver android:icon="@drawable/widget_4x4_forecast_full_preview" android:label="@string/widget_4_4_forecast_full_title" android:name="com.apalon.weatherlive.widget.weather.WeatherWidgetProvider4x3ForecastFull">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_DELETED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x4_forecast_full"/>
+        </receiver>
+        <receiver android:icon="@drawable/widget_4x3_circle_preview" android:label="@string/widget_4_3_circle_with_clock" android:name="com.apalon.weatherlive.widget.weather.WeatherWidgetProvider4x3CircleWithClock">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_DELETED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x3_circle"/>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MoPubActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.common.MoPubBrowser"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidVideoPlayerActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="com.millennialmedia.android.MMActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation" android:name="com.millennialmedia.android.VideoPlayer"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:name="com.inmobi.androidsdk.IMBrowserActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:name="com.inmobi.rendering.InMobiAdActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver">
+            <intent-filter>
+                <action android:name="com.inmobi.share.id"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:name="com.inmobi.signals.activityrecognition.ActivityRecognitionManager"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.facebook.ads.InterstitialAdActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.amazon.device.ads.AdActivity"/>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <receiver android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.mobileapptracker.Tracker">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.adjust.sdk.AdjustReferrerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <amazon:enable-feature android:name="com.amazon.geo.maps" android:required="false"/>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="d58a87e4592d2f634666dc368af82d259c5d1367"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationName" android:value="@string/app_name"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <provider android:authorities="com.facebook.app.FacebookContentProvider590221971028205" android:exported="true" android:name="com.facebook.FacebookContentProvider"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/share" android:name="com.apalon.weatherlive.activity.ActivityWeatherShare" android:screenOrientation="user" android:theme="@style/WeatherLive.Dialog" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/add_location" android:name="com.apalon.weatherlive.activity.ActivityLocationAdd" android:screenOrientation="user" android:theme="@style/WeatherLive.Support" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/locations_title" android:name="com.apalon.weatherlive.activity.ActivityLocationSelect" android:screenOrientation="user" android:theme="@style/WeatherLive.Support"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/settings_title" android:name="com.apalon.weatherlive.activity.ActivitySettings" android:screenOrientation="user" android:theme="@style/WeatherLive.Support"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/warnings_title" android:name="com.apalon.weatherlive.activity.ActivityAlerts" android:screenOrientation="user" android:theme="@style/WeatherLive.Support"/>
+        <receiver android:exported="true" android:name="com.apalon.weatherlive.notifications.NotificationUpdateReceiver">
+            <intent-filter>
+                <action android:name="com.apalon.weatherlive.free.action.APP_LOCALE_CHANGED"/>
+                <action android:name="com.apalon.weatherlive.free.time.INVALIDATE_DATA"/>
+                <action android:name="com.apalon.weatherlive.free.weatherdataupdater.FIRST_LOCATION_UPDATED"/>
+                <action android:name="com.apalon.weatherlive.free.weatherdataupdater.FIRST_LOCATION_CHANGED"/>
+                <action android:name="com.apalon.weatherlive.free.weatherdataupdater.LOCATIONS_UPDATED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.apalon.weatherlive.notifications.NotificationUpdateService"/>
+        <service android:exported="false" android:name="com.apalon.weatherlive.notifications.WearableNotificationUpdateService"/>
+        <service android:name="com.apalon.weatherlive.notifications.WearableMessagesService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.BIND_LISTENER"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="true" android:name="com.apalon.weatherlive.remote.WeatherDataUpdateReceiver">
+            <intent-filter>
+                <action android:name="com.apalon.weatherlive.action.APP_LOCALE_CHANGED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.apalon.weatherlive.remote.WeatherDataUpdateService"/>
+        <service android:name="com.apalon.weatherlive.slide.MediaFetchService"/>
+        <receiver android:name="com.apalon.weatherlive.widget.weather.WidgetsInvalidateReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="com.apalon.weatherlive.free.action.APP_LOCALE_CHANGED"/>
+                <action android:name="com.apalon.weatherlive.free.time.INVALIDATE_DATA"/>
+                <action android:name="com.apalon.weatherlive.free.weatherdataupdater.FIRST_LOCATION_UPDATED"/>
+                <action android:name="com.apalon.weatherlive.free.weatherdataupdater.LOCATION_UPDATED"/>
+                <action android:name="com.apalon.weatherlive.free.weatherdataupdater.LOCATIONS_UPDATED"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.apalon.weatherlive.widget.weather.WeatherInvalidateService"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.apalon.weatherlive.widget.weather.ActivityWeatherWidgetConfiguration" android:screenOrientation="user" android:taskAffinity="com.apalon.widget" android:theme="@style/WeatherLive.Support.Fullscreen.Wallpaper" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <receiver android:icon="@drawable/widget_1x1_preview" android:label="@string/widget_1_1_title" android:name="com.apalon.weatherlive.widget.weather.WeatherWidgetProvider1x1">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_DELETED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_1x1"/>
+        </receiver>
+        <receiver android:icon="@drawable/widget_4x2_preview" android:label="@string/widget_4_2_title" android:name="com.apalon.weatherlive.widget.weather.WeatherWidgetProvider4x2">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_DELETED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_4x2"/>
+        </receiver>
+        <receiver android:exported="true" android:name="com.apalon.weatherlive.dock.PowerEventReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.apalon.weatherlive.support.PackageInstallationDetector">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.apalon.weatherlive.free.fileprovider" android:exported="true" android:grantUriPermissions="true" android:name="com.apalon.weatherlive.data.provider.WeatherLiveFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/fileprovider_paths"/>
+        </provider>
+        <receiver android:enabled="true" android:exported="false" android:name="com.apalon.weatherlive.receiver.BatteryStatusReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_BATTERY_CHANGED"/>
+                <action android:name="android.intent.action.ACTION_BATTERY_LOW"/>
+                <action android:name="android.intent.action.ACTION_BATTERY_OKAY"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="locale|orientation|screenSize" android:hardwareAccelerated="false" android:name="com.apalon.weatherlive.activity.ActivityHelpMoreBannerWall" android:screenOrientation="user" android:theme="@style/WeatherLive.Support.Fullscreen"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="d58a87e4592d2f634666dc368af82d259c5d1367"/>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTop" android:name="com.apalon.appmessages.AppMessagesActivity" android:theme="@style/Theme.AppMessagesTransparent" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:label="@string/mmadsdk_app_name" android:name="com.millennialmedia.internal.MMActivity" android:theme="@style/Theme.MMTransparent"/>
+        <activity android:label="sdk" android:name="com.millennialmedia.internal.MMIntentWrapperActivity"/>
+        <meta-data android:name="com.google.android.wearable.beta.app" android:resource="@xml/android_wear_micro_apk"/>
+    </application>
+</manifest>

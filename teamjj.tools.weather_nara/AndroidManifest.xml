@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="teamjj.tools.weather_nara" platformBuildVersionCode="22" platformBuildVersionName="5.1.1-1819727">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.SET_DEBUG_APP"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-feature android:glEsVersion="0x20000" android:required="true"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <application android:allowBackup="true" android:icon="@drawable/weather_nara_512" android:label="@string/app_name" android:name="teamjj.tools.weather_nara.Daily" android:theme="@style/AppTheme">
+        <activity android:label="@string/app_name" android:name="teamjj.tools.weather_nara.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:name="teamjj.tools.weather_nara.SelectDong"/>
+        <receiver android:label="날씨나라 현재날씨" android:name="teamjj.tools.weather_nara.widget.Widget2x1_now_Provider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info_2x1_now"/>
+        </receiver>
+        <receiver android:label="날씨나라 영상(레이더)" android:name="teamjj.tools.weather_nara.widget.Widget2x2_radar_Provider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info_2x2_radar"/>
+        </receiver>
+        <receiver android:label="날씨나라 영상(위성)" android:name="teamjj.tools.weather_nara.widget.Widget2x2_satellite_Provider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info_2x2_satellite"/>
+        </receiver>
+        <receiver android:label="날씨나라 주간날씨" android:name="teamjj.tools.weather_nara.widget.Widget4x1_week_Provider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info_4x1_week"/>
+        </receiver>
+        <receiver android:label="날씨나라 시간별날씨" android:name="teamjj.tools.weather_nara.widget.Widget4x1_hour_Provider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info_4x1_hour"/>
+        </receiver>
+        <receiver android:label="날씨나라 미세먼지" android:name="teamjj.tools.weather_nara.widget.Widget4x1_now_dust_Provider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info_4x1_now_dust"/>
+        </receiver>
+        <activity android:label="날씨나라 현재날씨" android:name="teamjj.tools.weather_nara.widget.Widget2x1_now_Configure" android:theme="@style/Translucent_Dialog">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="날씨나라 주간날씨" android:name="teamjj.tools.weather_nara.widget.Widget4x1_week_Configure" android:theme="@style/Translucent_Dialog">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="날씨나라 시간별날씨" android:name="teamjj.tools.weather_nara.widget.Widget4x1_hour_Configure" android:theme="@style/Translucent_Dialog">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="날씨나라 미세먼지" android:name="teamjj.tools.weather_nara.widget.Widget4x1_now_dust_Configure" android:theme="@style/Translucent_Dialog">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="현재날씨(2x1) 메뉴선택" android:name="teamjj.tools.weather_nara.widget.Widget2x1_now_Menu" android:theme="@style/Translucent_Dialog"/>
+        <activity android:label="레이더영상(2x2) 메뉴선택" android:name="teamjj.tools.weather_nara.widget.Widget2x2_radar_Menu" android:theme="@style/Translucent_Dialog"/>
+        <activity android:label="위성영상(2x2) 메뉴선택" android:name="teamjj.tools.weather_nara.widget.Widget2x2_satellite_Menu" android:theme="@style/Translucent_Dialog"/>
+        <activity android:label="주간날씨(4x1) 메뉴선택" android:name="teamjj.tools.weather_nara.widget.Widget4x1_week_Menu" android:theme="@style/Translucent_Dialog"/>
+        <activity android:label="시간별날씨(4x1) 메뉴선택" android:name="teamjj.tools.weather_nara.widget.Widget4x1_hour_Menu" android:theme="@style/Translucent_Dialog"/>
+        <activity android:label="미세먼지(4x1) 메뉴선택" android:name="teamjj.tools.weather_nara.widget.Widget4x1_now_dust_Menu" android:theme="@style/Translucent_Dialog"/>
+        <activity android:label="현재날씨(2x1) 위젯설정" android:name="teamjj.tools.weather_nara.widget.Widget2x1_now_Settings"/>
+        <activity android:label="주간날씨(4x1) 위젯설정" android:name="teamjj.tools.weather_nara.widget.Widget4x1_week_Settings"/>
+        <activity android:label="시간별날씨(4x1) 위젯설정" android:name="teamjj.tools.weather_nara.widget.Widget4x1_hour_Settings"/>
+        <activity android:label="미세먼지(4x1) 위젯설정" android:name="teamjj.tools.weather_nara.widget.Widget4x1_now_dust_Settings"/>
+        <service android:name="teamjj.tools.weather_nara.widget.Widget2x1_now_Service"/>
+        <service android:name="teamjj.tools.weather_nara.widget.Widget2x2_radar_Service"/>
+        <service android:name="teamjj.tools.weather_nara.widget.Widget2x2_satellite_Service"/>
+        <service android:name="teamjj.tools.weather_nara.widget.Widget4x1_hour_Service"/>
+        <service android:name="teamjj.tools.weather_nara.widget.Widget4x1_week_Service"/>
+        <service android:name="teamjj.tools.weather_nara.widget.Widget4x1_now_dust_Service"/>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+        <meta-data android:name="com.google.android.gms.wallet.api.enabled" android:value="true"/>
+        <receiver android:exported="false" android:name="com.google.android.gms.wallet.EnableWalletOptimizationReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wallet.ENABLE_WALLET_OPTIMIZATION"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

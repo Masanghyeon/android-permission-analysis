@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.nhn.android.webtoon" platformBuildVersionCode="23" platformBuildVersionName="6.0-2704002">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:maxSdkVersion="22" android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:maxSdkVersion="22" android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:maxSdkVersion="22" android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:maxSdkVersion="22" android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:maxSdkVersion="20" android:name="android.permission.GET_TASKS"/>
+    <permission android:name="com.nhn.android.webtoon.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.nhn.android.webtoon.permission.C2D_MESSAGE"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.microphone" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="true" android:icon="@drawable/ic_webtoon" android:label="@string/app_name" android:largeHeap="true" android:name="com.nhn.android.webtoon.WebtoonApplication" android:theme="@style/WebtoonTheme">
+        <meta-data android:name="com.sec.android.support.multiwindow" android:value="true"/>
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_W" android:resource="@dimen/app_defaultsize_w"/>
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_H" android:resource="@dimen/app_defaultsize_h"/>
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_W" android:resource="@dimen/app_minimumsize_w"/>
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_H" android:resource="@dimen/app_minimumsize_h"/>
+        <meta-data android:name="optimization_key" android:value="G91TCbRyfhW6pbPYgOfciiXQ2Q8IRuVBgCaKFcVaFrvPng3wvPhE3fruIFw4O6P0AToqNAYKjzXMzzuNp08MkPt1+BBhsjGnQiSeP/9OrgpHiciIq/JDeO/wf/xjlUufsoJj7YBHlQJIcUnB7hA0zvcB7J4GxqEnzz5RxxiiMc3w2FZQVD1QN37zWCL0NB2lqoFGOjlFYBHZfT7AnEQGYMP0RMooCw2HgvPENlQlla3gO/cELSNjSip6K8jKUPysAY2XP0Lh7jSGqQWBO0VQbJ63NI5pQWRi6Uz/lEVQmsacHeyHzznGAWnKAj8F7ADyY/nO3ygOK3X8SPA9D5qIUg=="/>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kakao_app_key"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.nhn.android.webtoon.GlideSetup" android:value="GlideModule"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.nhn.android.webtoon.splash.SplashActivity" android:noHistory="true" android:theme="@style/WebtoonTheme.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.nhn.android.webtoon.SchemeActivity" android:noHistory="true" android:theme="@style/WebtoonTheme.Transparent">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER"/>
+                <data android:scheme="webtoonkr"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="comickr"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.nhn.android.webtoon.common.scheme.UpgreadDialogActivity" android:noHistory="true" android:theme="@style/WebtoonTheme.Transparent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.title.daily.DailyTitleActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.store.StoreActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.webtoon.BACK_ACTIVITY" android:value="com.nhn.android.webtoon.title.daily.DailyTitleActivity"/>
+        </activity>
+        <activity android:configChanges="keyboard|orientation|screenLayout" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.my.MyActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.webtoon.BACK_ACTIVITY" android:value="com.nhn.android.webtoon.title.daily.DailyTitleActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.nhn.android.webtoon.tutorial.TutorialActivity" android:theme="@style/WebtoonTheme.Transparent"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.my.TempSaveEpisodeListActivity" android:parentActivityName="com.nhn.android.webtoon.my.MyActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.main.mystore.MyLibrarySecondDepthActivity" android:parentActivityName="com.nhn.android.webtoon.my.MyActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/title_trash" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.main.mystore.TrashActivity" android:parentActivityName="com.nhn.android.webtoon.my.MyActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/Setting" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.main.setting.SettingActivity" android:parentActivityName="com.nhn.android.webtoon.my.MyActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/push_setting_activity_title" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.main.setting.PushSettingActivity" android:parentActivityName="com.nhn.android.webtoon.main.setting.SettingActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/program_info" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.main.setting.ProgramInfoActivity" android:parentActivityName="com.nhn.android.webtoon.main.setting.SettingActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/legal_notice" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.main.setting.LegalNoticeActivity" android:parentActivityName="com.nhn.android.webtoon.main.setting.ProgramInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/Setting_auto_play_movie_ad" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.main.setting.AutoPlayMovieAdSettingActivity" android:parentActivityName="com.nhn.android.webtoon.main.setting.SettingActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.main.P2PAgreementActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.nhn.android.webtoon.episode.list.EpisodeListActivity" android:parentActivityName="com.nhn.android.webtoon.title.daily.DailyTitleActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="*comic.naver.com" android:path="/webtoon/list.nhn" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.episode.viewer.EpisodeViewerActivity" android:parentActivityName="com.nhn.android.webtoon.episode.list.EpisodeListActivity" android:theme="@style/WebtoonTheme.EpisodeViewer">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="*comic.naver.com" android:path="/webtoon/detail.nhn" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.episode.viewer.effect.EffectViewerActivity" android:parentActivityName="com.nhn.android.webtoon.episode.list.EpisodeListActivity" android:screenOrientation="portrait" android:theme="@style/WebtoonTheme.EpisodeViewer"/>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.episode.viewer.TemporaryEpisodeViewerActivity" android:parentActivityName="com.nhn.android.webtoon.my.TempSaveEpisodeListActivity" android:theme="@style/WebtoonTheme.EpisodeViewer"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.episode.viewer.SmartToonViewerActivity" android:parentActivityName="com.nhn.android.webtoon.episode.list.EpisodeListActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.episode.viewer.cutview.CutToonViewerActivity" android:parentActivityName="com.nhn.android.webtoon.episode.list.EpisodeListActivity" android:screenOrientation="portrait" android:theme="@style/WebtoonTheme.EpisodeViewer"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.nhn.android.webtoon.zzal.tool.CropImageActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.nhn.android.webtoon.zzal.tool.CropImageTutorialActivity" android:theme="@style/WebtoonTheme.Transparent"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.nhn.android.webtoon.zzal.tool.CutEditActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.nhn.android.webtoon.zzal.tool.ZzalShareActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.nhn.android.webtoon.zzal.tool.ZzalUploadActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.zzal.ZzalMainActivity" android:screenOrientation="portrait">
+            <meta-data android:name="android.webtoon.BACK_ACTIVITY" android:value="com.nhn.android.webtoon.title.daily.DailyTitleActivity"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.nhn.android.webtoon.zzal.ZzalSystemTagActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.nhn.android.webtoon.zzal.ZzalListActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.nhn.android.webtoon.zzal.ZzalListPagerActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.nhn.android.webtoon.zzal.ZzalDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.nhn.android.webtoon.episode.viewer.MarkboxActivity" android:theme="@style/WebtoonTheme.Transparent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.episode.viewer.MovieAdActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.comment.CommentListActivity" android:parentActivityName="com.nhn.android.webtoon.episode.viewer.EpisodeViewerActivity" android:screenOrientation="portrait" android:theme="@style/WebtoonTheme.CommentList"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.comment.CommentListActivity_v2" android:parentActivityName="com.nhn.android.webtoon.episode.viewer.cutview.CutToonViewerActivity" android:screenOrientation="portrait" android:theme="@style/WebtoonTheme.CommentList.V2"/>
+        <activity android:configChanges="orientation" android:label="@string/comment_write" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.comment.CommentWriteActivity" android:parentActivityName="com.nhn.android.webtoon.comment.CommentListActivity" android:screenOrientation="portrait" android:theme="@style/WebtoonTheme.CommentList" android:windowSoftInputMode="stateAlwaysVisible"/>
+        <activity android:configChanges="orientation" android:label="@string/comment_write" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.comment.CommentWriteActivity_v2" android:parentActivityName="com.nhn.android.webtoon.comment.CommentListActivity_v2" android:screenOrientation="portrait" android:theme="@style/WebtoonTheme.CommentList.V2" android:windowSoftInputMode="stateAlwaysVisible"/>
+        <activity android:configChanges="orientation" android:label="@string/temporary_image_save_title" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.temp.TemporaryImageDownloadActivity" android:parentActivityName="com.nhn.android.webtoon.episode.list.EpisodeListActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:name="com.nhn.android.webtoon.temp.service.TemporaryImageDownloadService"/>
+        <activity android:configChanges="orientation" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.search.SearchActivity" android:parentActivityName="com.nhn.android.webtoon.episode.list.EpisodeListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.nhn.android.webtoon.common.gcm.PushPopupActivity" android:theme="@style/WebtoonTheme.Transparent"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.nhn.android.webtoon.main.mystore.viewer.PocketViewerActivity" android:theme="@style/WebtoonTheme.PocketViewer"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.nhn.android.webtoon.main.mystore.viewer.PocketViewerComicActivity" android:theme="@style/WebtoonTheme.PocketViewer"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.nhn.android.webtoon.main.mystore.viewer.PocketViewerBookmarkListActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.nhn.android.webtoon.main.mystore.viewer.PocketViewerEndPopup" android:theme="@style/WebtoonTheme.NoActionBar.Translucent.Custom"/>
+        <activity android:name="com.nhn.android.webtoon.main.mystore.viewer.PocketViewerDownloadActivity" android:screenOrientation="portrait" android:theme="@style/WebtoonTheme.NoActionBar.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.nhn.android.webtoon.webview.BaseWebViewActivity" android:screenOrientation="portrait" android:theme="@style/WebtoonTheme.BaseWebview">
+            <intent-filter>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.nhn.android.webtoon.sns.SnsDialogActivity" android:theme="@style/WebtoonTheme.Transparent"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/facebook_title" android:name="com.nhn.android.webtoon.sns.FacebookWriteActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.nhn.android.webtoon.sns.twitter.TwitterActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:label="@string/app_name" android:name="com.facebook.LoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.nhn.android.webtoon.main.banner.BannerMovieViewActivity"/>
+        <activity android:configChanges="keyboardHidden" android:label="@string/game_list_title" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.game.GameListActivity" android:parentActivityName="com.nhn.android.webtoon.title.daily.DailyTitleActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:label="@string/game_detail_title" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.game.GameDetailActivity" android:parentActivityName="com.nhn.android.webtoon.game.GameListActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.nhn.android.webtoon.game.GameImageViewActivity"/>
+        <activity android:label="@string/nloginresource_activityname_onetimeloginnum_view" android:name="com.nhn.android.login.ui.NLoginGlobalOneTimeLoginNumViewActivity"/>
+        <activity android:label="@string/nloginresource_activityname_onetimeloginnum_help" android:name="com.nhn.android.login.ui.NLoginGlobalOneTimeLoginNumHelpActivity"/>
+        <activity android:label="@string/nloginresource_activityname_signin_info" android:name="com.nhn.android.login.ui.NLoginGlobalSignInInfoActivity"/>
+        <activity android:label="@string/nloginresource_activityname_normal_signin" android:name="com.nhn.android.login.ui.NLoginGlobalNormalSignInActivity"/>
+        <activity android:label="@string/nloginresource_activityname_simple_signin" android:name="com.nhn.android.login.ui.NLoginGlobalSimpleSignInActivity"/>
+        <activity android:label="@string/nloginresource_activityname_add_simple_id" android:name="com.nhn.android.login.ui.NLoginGlobalSimpleIdAddActivity"/>
+        <activity android:label="@string/nloginresource_activityname_inappbrowser" android:name="com.nhn.android.login.ui.webview.NLoginInAppBrowserActivity"/>
+        <activity android:name="com.nhn.android.login.account.AuthenticatorActivity" android:theme="@android:style/Theme.Dialog"/>
+        <service android:name="com.nhn.android.login.account.AuthenticationService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/nloginglobal_authenticator"/>
+        </service>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="com.nhn.android.navernotice.NaverNoticeBrowser"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="com.nhn.android.minibrowser.MiniWebBrowser"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:launchMode="singleTop" android:name="com.nhn.android.navernotice.NaverNoticeArchiveActivity"/>
+        <receiver android:exported="true" android:name="com.google.android.gms.gcm.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.nhn.android.webtoon"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.nhn.android.webtoon.common.gcm.WebtoonGcmListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.nhn.android.webtoon.common.gcm.WebtoonInstanceIDListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.nhn.android.webtoon.common.gcm.WebtoonGcmRegistrationService"/>
+        <service android:exported="false" android:name="com.nhncorp.platoonservice.MainService">
+            <intent-filter>
+                <action android:name="com.nhncorp.plaTOON.SERVICE_ACTION_START"/>
+                <action android:name="com.nhncorp.plaTOON.SERVICE_ACTION_STOP"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.nhncorp.nelo2.android.util.NetworkStatusReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.facebook.app.NativeAppCallContentProvider455753897775430" android:exported="true" android:name="com.facebook.NativeAppCallContentProvider"/>
+        <receiver android:enabled="true" android:label="TimeSyncBroadReceiver" android:name="com.nhn.android.webtoon.BootingReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_SHUTDOWN"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="android.app.lib_name" android:value="cocos2dcpp"/>
+        <meta-data android:name="android.app.nelo_for_ndk" android:value="NeloNDK_0.14.0"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <provider android:authorities="com.nhn.android.webtoon.google_measurement_service" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+    </application>
+</manifest>

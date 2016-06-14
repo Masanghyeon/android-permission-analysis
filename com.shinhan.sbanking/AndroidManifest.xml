@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.shinhan.sbanking" platformBuildVersionCode="21" platformBuildVersionName="5.0.1-1624448">
+    <uses-feature android:name="android.hardware.camera"/>
+    <permission android:name=".permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name=".permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_MMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_WAP_PUSH"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <application android:debuggable="false" android:icon="@drawable/ic_launcher" android:killAfterRestore="false" android:label="@string/app_name" android:largeHeap="true" android:launchMode="singleTask" android:name="com.shinhan.bank.sbank.orchestra.base.BaseApplication" android:theme="@style/appTheme">
+        <meta-data android:name="orh_encrypted" android:value="N"/>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kakao_app_key"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebookapp_id"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name=".ui.MainView">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="sbankandnor"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="sbankmoasign"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="@string/kakaolink_host" android:scheme="@string/kakao_scheme"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="sbankAndNor"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="sbankAndNor"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.main.MainActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.main.MainMyMenuActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.totalmenu.TotalMenuActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kakao_app_key"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.sample.TestComActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.sample.TestNatiActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.sample.TestSpayActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.sample.TestIssueActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.sample.TestPdfView" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.shinhan.sswf.common.component.v3.V3ExecuteInstallActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.hybrid.ProductCenterActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.hybrid.SimpleWebViewAcitivity" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.SimpleWebViewLinkAcitivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.secure.CertSignActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.secure.StoredCertSignActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.google.zxing.client.android.CaptureActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="com.shinhan.bank.sbank.common.certcenter.google.zxing.client.android.SCAN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="btworks.codeguard.agent.AgentActivity" android:screenOrientation="portrait"/>
+        <service android:enabled="true" android:name="btworks.codeguard.engine.MainService" android:process=":engine">
+            <intent-filter>
+                <action android:name="btworks.codeguard.action.Service.Start"/>
+                <action android:name="btworks.codeguard.action.Service.Bind"/>
+                <action android:name="btworks.codeguard.action.Service.Unbind"/>
+                <action android:name="btworks.codeguard.action.Service.Stop"/>
+                <category android:name="com.shinhan.sbanking"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="false" android:name="com.shinhan.sswf.common.component.codeguard.SBCodeGuardReceiver">
+            <intent-filter>
+                <action android:name="kr.co.btworks.CodeGuard"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.setting.SettingAntiphishingActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.setting.SettingAntiphishingCompleteActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.setting.SettingAllMenuPopupActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.setting.SettingSecureEditActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.setting.SettingCacheCookieActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.common.RoughMapActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.common.MobileTalkActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.common.SmartCareTalkActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <receiver android:name="com.shinhan.pushlib.SafeOnGCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.shinhan.sbanking"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="GCMIntentService" android:value="com.shinhan.bank.sbank.common.component.push.GCMIntentService"/>
+        <service android:name="com.shinhan.bank.sbank.common.component.push.GCMIntentService"/>
+        <activity android:configChanges="keyboardHidden|screenSize" android:name="com.nshc.nfilter.NFilterChar"/>
+        <activity android:configChanges="keyboardHidden|screenSize" android:name="com.nshc.nfilter.NFilterNum"/>
+        <activity android:configChanges="keyboardHidden|screenSize" android:name="com.nshc.nfilter.NFilterSerialNum"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.nonghcom.shinhan.sa.plugin.activity.NFilterNativeTestActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.ShbCertCenterActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.ShbCertIssueAgreeActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.ShbCertIssueAgreeDetailActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.ShbCertIssueUserActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.ShbCertIssueReReqActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.ShbCertIssueReqActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.ShbCertIssueInputPWDActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.ShbCertIssueCompleteActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.ShbCertUpdateActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.ShbCertUpdateUserActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.ShbCertUpdateInputPWDActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.ShbCertRevokeUserActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.ShbCertRevokeCompleteActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.ShbCertWindowIssueActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.ShbCertWindowIssueInputPWDActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.ShbCertQRCodeImportActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.SBCertImportLinkActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.sswf.common.component.cert.SBCertImportActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.CertPrivImportActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.sswf.common.component.cert.SBCertImportPwdActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.sswf.common.component.cert.SBCertExportActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.sswf.common.component.cert.SBCertExportPwdActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.CertExportCertNoActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.CertExportCertNoLinkActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.CertManagerListActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.CertManagerListLinkActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.ShbCertPWDChangeActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.certcenter.CertManagerInfoActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.ShbCertOtherActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.ShbCertOtherUserActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.UBIKeyGuideAcitivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.ShbCertCenterCertListActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.ShbCertCenterCertPwdActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.certcenter.UBIKeyServiceAcitivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.secure.SecureCardActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.securecard.SHBHybridSecureCardActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.securecard.SHBCertSecureCardActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.securecard.SHBSecureCardQuestionActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.auth.AuthActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.secure.AuthSelectedActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.auth.SHBARSAuthStep1Activity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="cocom.shinhan.bank.sbank.common.auth.SHBARSAuthStep2Activity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="cocom.shinhan.bank.sbank.common.auth.SHBPhoneAuthStep1Activity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.auth.SHBPhoneAuthStep2Activity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shcom.shinhan.bank.sbank.common.auth.SHBForeignAuthActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.login.LoginActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.certcenter.moasign.MCertMainActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.certcenter.moasign.MCertLoginActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.certcenter.moasign.MCertListActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.setting.SettingLoginActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.cert.CommonCertListActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.cert.CommonCertPwdActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.login.LoginIDPWChangeActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.cert.IDPWHybridActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.login.pin.PinSetting00Activity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.login.pin.PinSetting10Activity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.login.pin.PinSetting20Activity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.login.pin.PinSettingAuthCertActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.login.pin.PinSettingAuthIDActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.spinpad.SpinpadJoinStep00Activity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.spinpad.SpinpadJoinStep10Activity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.spinpad.SpinpadJoinStep20Activity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.spinpad.SpinpadChangePwdActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.spinpad.SpinpadTerminateActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.spinpad.SpinpadGuideActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.usim.USIMSmartCertJoin00Activity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.usim.USIMSmartCertJoin10Activity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.usim.USIMSmartCertJoin20Activity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.usim.USIMSmartCertJoin30Activity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.usim.USIMSmartCertCancel00Activity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.usim.USIMSmartCertCancel10Activity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.usim.USIMSecureCardActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.usim.manage.USIMCertPCCopyActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.usim.manage.USIMCertCopyListActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.usim.manage.USIMCertCopyActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.usim.manage.USIMCertDeleteActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.sswf.common.component.login.TransparentActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <receiver android:name="com.shinhan.sswf.module.timer.LogoutTimeReceiver"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.account.AccountFragListActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.account.AccountDetailListActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.account.AccountDetailSubActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.TransferAccInquiryActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.TransferInputActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.TransferConfirmActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.TransferResultActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.TransferSMSRequestActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.TransferSMSChangeUserNameActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.TransferDepositInputActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.TransferDepositConfirmActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.TransferDepositResultActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.TransferModeSelectionActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.TransferDrawingConfirmActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.TransferDrawingResultActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.TransferDrawingSMoreInputActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.TransferDrawingSMoreConfirmActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.TransferDrawingSMoreResultActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.salay.TransferSalayInputActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.salay.TransferSalayConfirmActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.salay.TransferSalayResultActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.TransferCongratulatorInputActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.TransferCongratulatorConfirmActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.TransferCongratulatorResultActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.management.FrequentlyAccountInquiryActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.management.FrequentlyAccountRegInputActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.management.FrequentlyAccountRegResultActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.management.FrequentlyAccountGroupMgrActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.management.FrequentlyAccountOrderChangeActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.smart.TransferSmartSettingActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.smart.TransferSmartResultActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.delayed.TransferDelayedHistoryInquiryActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.delayed.TransferDelayedInquiryActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.delayed.TransferDelayedInquiryDetailActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.delayed.TransferDelayedCancelConfirmActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.delayed.TransferDelayedCancelResultActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.delayed.TransferDelayedInputActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.delayed.TransferDelayedConfirmInfoActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.delayed.TransferDelayedConfirmSeqActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.delayed.TransferDelayedResultActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.fund.FundPrivListActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.event.EventMintActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.event.EventAgreeMarketingActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.event.EventMintAgreeActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.event.EventApplicationActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:label="@string/app_name" android:name="com.shinhan.bank.sbank.activity.sns.TwitterActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.sns.FaceBookNewActivity"/>
+        <activity android:name="com.facebook.FacebookActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.facebook.LoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.account.AccountViewControllerActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboard|orientation" android:label="@string/app_name" android:name="com.finger.orchestra.plugin.camer.HCameraActivity" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.atm.AtmAgreementActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.atm.AtmMainActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.common.CommonMapActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.TransferHistoryInquiryActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.TransferHistoryDetailActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.management.SpeedTransferNickNameActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.management.SpeedTransferInquiryActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.management.SpeedTransferRegistrationCompleteActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.management.SpeedTransferResigstrationInputActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.auto.AutoTransferInputActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.auto.AutoTransferAgreementActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.auto.AutoTransferHistoryInquiryActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.auto.AutoTransferHistoryDetailListActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.auto.AutoTransferInqAndChangeActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.auto.AutoTransferInquiryActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.auto.AutoTransferDetailActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.auto.AutoTransferChangeActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.auto.AutoTransferConfirmActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.auto.AutoTransferAgreementMarketingActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.auto.AutoTransferResultActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.booked.BookedTransferConfirmActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.booked.BookedTransferHistoryInquiryActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.booked.BookedTransferInputActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.booked.BookedTransferInquiryActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.booked.BookedTransferInquiryDetailActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.transfer.booked.BookedTransferResultActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.settings.DisablePhoneInquiryActivity" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.spay.action.SpayReleaseInfoActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.spay.action.SpayPaymentAccountActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.spay.action.SpayPaymentPasswordActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.spay.common.SMSpaySecureCardActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.spay.common.SpayCommonActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.spay.common.SpayCompleteActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.spay.common.SpayConfirmActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.spay.common.SpayResultActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.spay.info.SpayShopInfoActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.spay.join.SpayAccountSetupActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.spay.join.SpayAgreementActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.spay.join.SpayJoinInfoActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.spay.join.SpayJoinPasswordActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.spay.payment.SpayOrderPaymentActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.spay.payment.SpayPasswordActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.spay.payment.SpayPaymentActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.npay.NPayPaymentActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.npay.NPayAccountActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.npay.NPayAccountListFragment"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.fund.FundMenuListActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.loan.LoanMenuListActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.insurance.InsuranceMenuListActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.forex.ForexMenuListActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.gold.GoldMenuListActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.activity.guide.GuideActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.login.SampleLoginActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.login.SamplePrivLoginActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.login.SampleCertLoginActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.common.login.SampleCertLoginPWDActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.sample.SampleInquiryActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.sample.SampleNativeComponentActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.sample.SampleLockListActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.sample.SampleLockScrollActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.sample.SampleAccountListUtilActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.sample.SampleStyleActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.sample.SampleStyleSubActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.sample.SampleSecureCardActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.ezpdfview.activity.UniActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.ezpdfview.activity.UniEditActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.shinhan.bank.sbank.ezpdfview.activity.UniPopupActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.shinhan.bank.sbank.orchestra.plugin.secure.MyCarCertSignActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+    </application>
+</manifest>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.northpark.squats" platformBuildVersionCode="19" platformBuildVersionName="4.4.2-1456859">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="false"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <application android:allowBackup="true" android:icon="@drawable/icon" android:label="@string/app_name" android:theme="@style/AppTheme">
+        <activity android:configChanges="keyboard|keyboardHidden|navigation|orientation" android:label="@string/app_name" android:launchMode="singleInstance" android:name=".AdMobActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".OptionsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".WidgetSubActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ReminderSettings" android:screenOrientation="portrait"/>
+        <activity android:name="ChartActivity" android:screenOrientation="portrait"/>
+        <activity android:name="WorkoutActivity" android:screenOrientation="portrait"/>
+        <activity android:name="StatisticActivity" android:screenOrientation="portrait"/>
+        <activity android:name="NowActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="Now2Activity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="IntroduceActivity" android:screenOrientation="portrait"/>
+        <activity android:name="TestActivity" android:screenOrientation="portrait"/>
+        <activity android:name="PlanActivity" android:screenOrientation="portrait"/>
+        <activity android:name="DoActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="RestActivity" android:screenOrientation="portrait"/>
+        <activity android:name="TaskActivity" android:screenOrientation="portrait"/>
+        <activity android:name="CongratulationsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="ExitActivity" android:screenOrientation="portrait"/>
+        <activity android:name="LevelAdjustActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".More" android:screenOrientation="portrait"/>
+        <activity android:name=".ThanksActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity"/>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <receiver android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".AlamrReceiver" android:process=":remote"/>
+        <receiver android:name=".SnoozeReceiver"/>
+        <receiver android:name=".systemBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.HOME"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:icon="@drawable/icon" android:label="@string/app_name" android:name=".WidgetProvider">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_provider"/>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.dropbox.sync.android.DbxAuthActivity"/>
+        <activity android:launchMode="singleTask" android:name="com.dropbox.client2.android.AuthActivity">
+            <intent-filter>
+                <data android:scheme="db-vvy9k4hzsq7xbd8"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <service android:enabled="true" android:exported="false" android:label="Dropbox Sync" android:name="com.dropbox.sync.android.DbxSyncService"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <service android:name="com.northpark.recommend.AutoCheckUpdateConfigService"/>
+        <service android:name="com.northpark.squats.services.FitnessSyncService"/>
+        <receiver android:name="com.northpark.squats.services.FitnessSyncBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.northpark.squats.googlefit.sync"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:sharedUserId="daum.uid.shared" package="net.daum.android.tvpot" platformBuildVersionCode="23" platformBuildVersionName="6.0-2704002">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.PREVENT_POWER_KEY"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="net.daum.android.login.AUTHENTICATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="net.daum.android.tvpot.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="net.daum.android.tvpot.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <application android:hardwareAccelerated="true" android:icon="@drawable/tvpot_icon" android:label="@string/app_name" android:largeHeap="true" android:name="net.daum.android.tvpot.TvpotApplication" android:theme="@style/TvpotApplicationTheme">
+        <service android:name="net.daum.mf.push.gcm.GCMIntentService"/>
+        <receiver android:name="net.daum.mf.push.gcm.DaumGCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="net.daum.android.tvpot"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="net.daum.android.tvpot.IntroFromStoreActivity" android:noHistory="true" android:theme="@style/TvpotNoTitle">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.INFO"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="net.daum.android.tvpot.IntroActivity" android:noHistory="true" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER"/>
+            </intent-filter>
+            <meta-data android:name="com.sec.minimode.icon.portrait.normal" android:resource="@drawable/tvpot_icon"/>
+            <meta-data android:name="com.sec.minimode.icon.landscape.normal" android:resource="@drawable/tvpot_icon"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="net.daum.android.tvpot.activity.MainActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="launch" android:scheme="daumtvpot"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="net.daum.android.tvpot.activity.EventPopupActivity" android:screenOrientation="portrait"/>
+        <activity android:name="net.daum.android.tvpot.activity.UploadActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:name="net.daum.android.tvpot.activity.CommentWriteActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:name="net.daum.android.tvpot.activity.BrowserActivity" android:screenOrientation="portrait"/>
+        <activity android:name="net.daum.PotPlayer.BrowserActivity" android:screenOrientation="portrait"/>
+        <activity android:name="net.daum.android.tvpot.activity.AddPlaylistActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="net.daum.mf.login.ui.LoginActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="net.daum.mf.login.ui.SimpleLoginActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="net.daum.mf.login.ui.SimpleLoginMigrationActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="net.daum.mf.login.ui.BrowserActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="net.daum.PotPlayer.PotPlayerActivity" android:theme="@style/TvpotApplicationTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:icon="@drawable/player_icon_url" android:label="@string/text_copy_url" android:name="net.daum.android.tvpot.activity.ClipBoardActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/*"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="net.daum.PotPlayer.GuideActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="locale|keyboard|keyboardHidden|orientation|screenSize" android:label="@string/tvpot_player_name" android:launchMode="singleTask" android:name="net.daum.android.tvpot.activity.PlayerSchemeBridgeActivity" android:noHistory="true" android:taskAffinity="net.daum.android.tvpot.player.overlay" android:theme="@style/TvpotNoTitle">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="playMovie" android:scheme="daumtvpot4"/>
+                <data android:host="playLive" android:scheme="daumtvpot4"/>
+                <data android:host="playLive2" android:scheme="daumtvpot4"/>
+                <data android:host="playLive3" android:scheme="daumtvpot4"/>
+                <data android:host="playLive4" android:scheme="daumtvpot4"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="locale|keyboard|keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="net.daum.android.tvpot.activity.SchemeBridgeActivity" android:noHistory="true" android:theme="@style/TvpotNoTitle">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="playClip" android:scheme="daumtvpot4"/>
+                <data android:host="openPotView" android:scheme="daumtvpot4"/>
+                <data android:host="openPlaylistView" android:scheme="daumtvpot4"/>
+                <data android:host="openTheme" android:scheme="daumtvpot4"/>
+                <data android:host="openUrl" android:scheme="daumtvpot4"/>
+                <data android:host="openUrl" android:scheme="daumtvpot2"/>
+                <data android:host="reserveLiveSchedule" android:scheme="daumtvpot4"/>
+                <data android:host="editMyPot" android:scheme="daumtvpot4"/>
+                <data android:host="editDibsOn" android:scheme="daumtvpot4"/>
+                <data android:host="editSubscPot" android:scheme="daumtvpot4"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="locale|keyboard|keyboardHidden|orientation|screenSize" android:label="@string/app_name" android:name="net.daum.android.tvpot.activity.TvpotUrlParseActivity" android:theme="@style/TvpotNoTitle">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="tvpot.daum.net" android:pathPrefix="/v/" android:scheme="http"/>
+                <data android:host="m.tvpot.daum.net" android:pathPrefix="/v/" android:scheme="http"/>
+                <data android:host="tvpot.daum.net" android:pathPattern="/.*\\.live.*" android:scheme="http"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="net.daum.android.tvpot.activity.DialogActivity" android:theme="@style/TvpotDialogActivity"/>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation|screenSize" android:name="net.daum.android.tvpot.activity.AppFinishActivity" android:noHistory="true" android:theme="@style/TvpotNoTitle"/>
+        <receiver android:name="net.daum.android.tvpot.receiver.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="net.daum.android.tvpot.receiver.AlarmReceiver"/>
+        <receiver android:name="net.daum.android.tvpot.receiver.NetworkReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="net.daum.android.tvpot.receiver.AppFinishReceiver">
+            <intent-filter>
+                <action android:name="net.daum.android.tvpot.appFinish"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="net.daum.android.tvpot.receiver.InstallReferrerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="net.daum.android.tvpot.service.TvpotPopupPlayerService"/>
+        <service android:enabled="true" android:exported="false" android:name="net.daum.PotPlayer.PopupPlayerService"/>
+        <meta-data android:name="MOBILEAD_CLIENT_ID" android:value="3ccZ0dT12e79bff257"/>
+        <meta-data android:name="MOBILEAD_ALLOW_LOCATION" android:value="true"/>
+        <meta-data android:name="com.sec.android.support.multiwindow" android:value="true"/>
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_W" android:resource="@dimen/app_defaultsize_w"/>
+        <meta-data android:name="com.sec.android.multiwindow.DEFAULT_SIZE_H" android:resource="@dimen/app_defaultsize_h"/>
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_W" android:resource="@dimen/app_minimumsize_w"/>
+        <meta-data android:name="com.sec.android.multiwindow.MINIMUM_SIZE_H" android:resource="@dimen/app_minimumsize_h"/>
+        <meta-data android:name="net.daum.mf.tiara.name" android:value="tvPot"/>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="860d4d0f1f78a12b180f322cc6204d0c"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="d6e5933e2a6b2fc12aa61e8f6f2334e7299b13a3"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="net.daum.mf.login.ui.LoginAccountLinkActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="net.daum.android.tvpot.player.activity.MainActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="net.daum.android.tvpot.player.activity.PlayerActivity" android:theme="@style/TvpotPlayerTheme"/>
+    </application>
+</manifest>

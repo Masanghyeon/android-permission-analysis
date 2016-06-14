@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.imagedrome.jihachul" platformBuildVersionCode="23" platformBuildVersionName="6.0-2704002">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.location" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <uses-feature android:glEsVersion="0x20000" android:required="true"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="com.imagedrome.jihachul.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.imagedrome.jihachul.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="com.imagedrome.jihachul.jihachul" android:screenOrientation="portrait" android:supportsRtl="true" android:theme="@style/MyTheme.NoTitleBar.SplashWindow">
+        <activity android:configChanges="locale|fontScale|keyboard|keyboardHidden|layoutDirection|mcc|mnc|orientation|screenLayout|screenSize" android:launchMode="singleTask" android:name="com.imagedrome.jihachul.JihachulActivity" android:screenOrientation="user">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="subwaykorea"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="locale|fontScale|keyboard|keyboardHidden|layoutDirection|mcc|mnc|orientation|screenLayout|screenSize" android:name="com.imagedrome.jihachul.information.JihachulInfomationActivity" android:screenOrientation="user">
+            <intent-filter>
+                <action android:name="JihachulInfomationActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="locale|fontScale|keyboard|keyboardHidden|layoutDirection|mcc|mnc|orientation|screenLayout|screenSize" android:name="com.imagedrome.jihachul.reward.RewardTempServiceActivity" android:screenOrientation="userPortrait">
+            <intent-filter>
+                <action android:name="RewardTempServiceActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="locale|fontScale|keyboard|keyboardHidden|layoutDirection|mcc|mnc|orientation|screenLayout|screenSize" android:name="com.imagedrome.jihachul.reward.RewardTempDonationDetailActivity" android:screenOrientation="userPortrait">
+            <intent-filter>
+                <action android:name="RewardTempDonationDetailActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="locale|fontScale|keyboard|keyboardHidden|layoutDirection|mcc|mnc|orientation|screenLayout|screenSize" android:name="com.imagedrome.jihachul.reward.RewardTempRefundDetailActivity" android:screenOrientation="userPortrait">
+            <intent-filter>
+                <action android:name="RewardTempRefundDetailActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="locale|fontScale|keyboard|keyboardHidden|layoutDirection|mcc|mnc|orientation|screenLayout|screenSize" android:name="com.imagedrome.jihachul.community.CommunityMainActivity" android:screenOrientation="user">
+            <intent-filter>
+                <action android:name="CommunityMainActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="locale|fontScale|keyboard|keyboardHidden|layoutDirection|mcc|mnc|orientation|screenLayout|screenSize" android:name="com.imagedrome.jihachul.community.CommunityWriteActivity" android:screenOrientation="user" android:windowSoftInputMode="adjustResize|stateVisible">
+            <intent-filter>
+                <action android:name="CommunityWriteActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="locale|fontScale|keyboard|keyboardHidden|layoutDirection|mcc|mnc|orientation|screenLayout|screenSize" android:name="com.imagedrome.jihachul.community.CommunityDetailActivity" android:screenOrientation="user" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="CommunityDetailActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="locale|fontScale|keyboard|keyboardHidden|layoutDirection|mcc|mnc|orientation|screenLayout|screenSize" android:name="com.imagedrome.jihachul.community.CommunityCommentActivity" android:screenOrientation="user" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="CommunityCommentActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="locale|fontScale|keyboard|keyboardHidden|layoutDirection|mcc|mnc|orientation|screenLayout|screenSize" android:name="com.imagedrome.jihachul.community.CommunityTestActivity" android:screenOrientation="user" android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="CommunityTestActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="locale|fontScale|keyboard|keyboardHidden|layoutDirection|mcc|mnc|orientation|screenLayout|screenSize" android:name="com.imagedrome.jihachul.account.AccountActivity" android:screenOrientation="userPortrait" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <action android:name="RewardMainActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:screenOrientation="userPortrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:icon="@mipmap/ic_launcher" android:logo="@mipmap/ic_launcher" android:name="com.imagedrome.jihachul.Alarm.RouteDetailAlarmReceiver"/>
+        <receiver android:name="com.imagedrome.jihachul.reward.RewardReceiver">
+            <intent-filter android:priority="9999">
+                <action android:name="android.intent.action.PACKAGE_INSTALL"/>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:name="com.tapjoy.TJAdUnitActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:hardwareAccelerated="true" android:name="com.tapjoy.TJContentActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tapjoy.mraid.view.ActionHandler"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tapjoy.mraid.view.Browser"/>
+        <receiver android:exported="true" android:name="com.tapjoy.InstallReferrerReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyApMPwnY357_Jql2_kSTcSuLqNP1xKZa1s"/>
+        <uses-library android:name="com.google.android.maps" android:required="false"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <activity android:name="com.onesignal.NotificationOpenedActivity" android:theme="@android:style/Theme.NoDisplay"/>
+        <receiver android:name="com.onesignal.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.imagedrome.jihachul"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.onesignal.GcmIntentService"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="2efcadd84881f732c62a61b9aa2a4f9631b090c8"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MoPubActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.common.MoPubBrowser"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidVideoPlayerActivity"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent"/>
+        <meta-data android:name="tnkad_app_id" android:value="10702090-b0f1-c48f-f84c-1f0b060b090f"/>
+        <meta-data android:name="tnkad_tracking" android:value="true"/>
+        <meta-data android:name="com.sweettracker.trendsave.AppType" android:value="112"/>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+        <activity android:name="com.sweettracker.trendsave.ui.NewTrendsAveItemDetailActivity" android:screenOrientation="portrait" android:theme="@style/TAAppTheme.DarkActionBar"/>
+        <activity android:label="@string/app_name" android:name="com.sweettracker.trendsave.ui.TrendsAveMainActivity" android:screenOrientation="portrait" android:theme="@style/TAAppTheme"/>
+        <activity android:name="com.sweettracker.trendsave.ui.TrendsAveNewsView" android:screenOrientation="portrait" android:theme="@style/TAAppTheme"/>
+        <activity android:name="com.sweettracker.trendsave.ui.BrandsAveActivity" android:screenOrientation="portrait" android:theme="@style/TAAppTheme.DarkActionBar"/>
+        <activity android:name="com.sweettracker.trendsave.ui.FavoriteAveActivity" android:screenOrientation="portrait" android:theme="@style/TAAppTheme"/>
+        <activity android:name="com.sweettracker.trendsave.ui.SearchActivity" android:screenOrientation="portrait" android:theme="@style/TAAppTheme"/>
+        <activity android:name="com.sweettracker.trendsave.ui.SearchResultActivity" android:screenOrientation="portrait" android:theme="@style/TAAppTheme"/>
+        <activity android:name="com.sweettracker.trendsave.ui.ShoppingMallSearchActivity" android:screenOrientation="portrait" android:theme="@style/TAAppTheme"/>
+        <activity android:name="com.sweettracker.trendsave.ui.ShoppingSubCategoryListActivity" android:screenOrientation="portrait" android:theme="@style/TAAppTheme"/>
+        <activity android:name="com.sweettracker.trendsave.ui.TrendsAveWebViewActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Translucent.TA"/>
+        <meta-data android:name="com.sweettracker.trendsave.util.SweetGlideModule" android:value="GlideModule"/>
+        <meta-data android:name="com.bumptech.glide.integration.okhttp.OkHttpGlideModule" android:value="GlideModule"/>
+    </application>
+</manifest>

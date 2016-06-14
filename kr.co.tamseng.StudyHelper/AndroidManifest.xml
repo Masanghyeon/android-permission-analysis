@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="kr.co.tamseng.StudyHelper" platformBuildVersionCode="23" platformBuildVersionName="6.0-2438415">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="kr.co.tamseng.StudyHelper.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <application android:allowBackup="true" android:hardwareAccelerated="true" android:icon="@drawable/app_icon" android:label="@string/app_name" android:name="kr.co.tamseng.StudyHelper.StudyHelper" android:theme="@style/AppTheme">
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:label="@string/app_name" android:name="kr.co.tamseng.StudyHelper.activity.main.MainActivity" android:screenOrientation="portrait" android:theme="@style/IntroTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.community.CmBoardActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="kr.co.tamseng.StudyHelper.activity.community.CmArticleDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.community.CmWritingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.community.CmReplyModifyActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.community.CmReplyDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.facebook.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name="eu.janmuller.android.simplecropimage.CropImage" android:screenOrientation="portrait"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.dday.DDayListActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTask" android:name="kr.co.tamseng.StudyHelper.activity.record.TimeRecordActivity" android:screenOrientation="portrait" android:theme="@style/NoActionBarStyle" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:launchMode="singleTask" android:name="kr.co.tamseng.StudyHelper.activity.record.ListRecordActivity" android:screenOrientation="portrait" android:theme="@style/NoActionBarStyle" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.statistics.StatisticsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.history.HistoryActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateVisible"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.group.GroupFindingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.group.GroupDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="kr.co.tamseng.StudyHelper.activity.group.GroupMakingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.group.GroupMainActivity" android:screenOrientation="portrait" android:theme="@style/NoActionBarStyle" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.group.TaskPresentActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.group.MemberRankActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="kr.co.tamseng.StudyHelper.activity.group.BoardDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="orientation|screenSize" android:name="kr.co.tamseng.StudyHelper.activity.group.WritingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.setting.SettingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="kr.co.tamseng.StudyHelper.activity.setting.ProfileActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.setting.FaceBookFriendActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.setting.FindingByIDActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.setting.PhoneBookFriendActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.setting.FriendSelectActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="keyboard|keyboardHidden|screenLayout" android:name="kr.co.tamseng.StudyHelper.activity.setting.ChattingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.login.LoginMainActivity" android:screenOrientation="portrait" android:theme="@style/NoActionBarStyle" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.login.LoginActivity" android:screenOrientation="portrait" android:theme="@style/BackBtnTheme" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.login.SearchIdActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.login.SearchIdResultActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.login.SearchPasswordActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.login.JoinActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.login.AgreementWebView" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.record.LockScreenActivity" android:screenOrientation="portrait" android:theme="@style/NoActionBarStyle" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.record.ListLockScreenActivity" android:screenOrientation="portrait" android:theme="@style/NoActionBarStyle" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:name="kr.co.tamseng.StudyHelper.activity.group.GroupSettingActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.main.NotiActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.group.ImageWebViewActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.activity.statistics.ShareActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="kr.co.tamseng.StudyHelper.activity.setting.QuoteActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@android:style/Theme.Dialog" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="kr.co.tamseng.StudyHelper.activity.dday.DDayAlarmActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@android:style/Theme.Dialog" android:windowSoftInputMode="adjustPan"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:name="kr.co.tamseng.StudyHelper.activity.main.WebViewActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/NoActionBarStyle"/>
+        <activity android:name="kr.co.tamseng.StudyHelper.widget.config.AllDdayConfigPopupActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="kr.co.tamseng.StudyHelper.widget.config.QuetoConfigPopupActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="kr.co.tamseng.StudyHelper.widget.config.DdayConfigPopupActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="kr.co.tamseng.StudyHelper.widget.config.LockScreenConfigPopupActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="kr.co.tamseng.StudyHelper.widget.config.StatConfigPopupActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="kr.co.tamseng.StudyHelper.widget.config.TodayConfigPopupActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="kr.co.tamseng.StudyHelper.widget.config.DdayTimeConfigPopupActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="kr.co.tamseng.StudyHelper.widget.config.SmallQuoteConfigPopupActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name="kr.co.tamseng.StudyHelper.receiver.BootCompletedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="android.app.admin.DeviceAdminReceiver" android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data android:name="android.app.device_admin" android:resource="@xml/policies"/>
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="kr.co.tamseng.StudyHelper.receiver.DateChangeAlramReceiver"/>
+        <receiver android:name="kr.co.tamseng.StudyHelper.receiver.DateChangeReceiver">
+            <action android:name="kr.co.tamseng.StudyHelper.receiver.DateChangedReceiver.BROADCAST"/>
+        </receiver>
+        <receiver android:name="kr.co.tamseng.StudyHelper.receiver.DDayAlarmReceiver"/>
++
+<receiver android:name="kr.co.tamseng.StudyHelper.receiver.QuoteAlarmReceiver"/>
+        <receiver android:name="kr.co.tamseng.StudyHelper.receiver.QuoteReceiver">
+            <intent-filter>
+                <action android:name="kr.co.tamseng.StudyHelper.receiver.QuoteReceiver.BROADCAST"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="kr.co.tamseng.StudyHelper.service.ActivityManagerService"/>
+        <service android:label="@string/app_name" android:name="kr.co.tamseng.StudyHelper.service.StudyHelperAccessBility" android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+            <meta-data android:name="android.accessibilityservice" android:resource="@xml/accessibility_service_config"/>
+        </service>
+        <service android:name="kr.co.tamseng.StudyHelper.service.StudyHelperVpnService" android:permission="android.permission.BIND_VPN_SERVICE"/>
+        <service android:name="kr.co.tamseng.StudyHelper.service.PackageService"/>
+        <service android:exported="false" android:name="kr.co.tamseng.StudyHelper.service.AllDdayWidgetService" android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <receiver android:name="kr.co.tamseng.StudyHelper.receiver.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="kr.co.tamseng.StudyHelper"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="kr.co.tamseng.StudyHelper.service.GcmIntentService"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="bc0ba21587f429a4d2456504b7ccc0d564612a82"/>
+        <receiver android:label="@string/widget_transparent_small_quote" android:name="kr.co.tamseng.StudyHelper.widget.TransparentSmallQuotesWidgetProvider">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_provider_transparent_small_quote"/>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.buzzpia.aqua.appwidget.GET_VERSION"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="@string/widget_dday_time" android:name="kr.co.tamseng.StudyHelper.widget.TransparentDdayTimeWidgetProvider">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_provider_transparent_dday_time"/>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.buzzpia.aqua.appwidget.GET_VERSION"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="@string/widget_transparent_quotes" android:name="kr.co.tamseng.StudyHelper.widget.TransparentQuotesWidgetProvider">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_provider_transparent_quotes"/>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.buzzpia.aqua.appwidget.GET_VERSION"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="@string/widget_transparent_lockscreen" android:name="kr.co.tamseng.StudyHelper.widget.TransparentLockScreenWidgetProvider">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_provider_transparent_lockscreen"/>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.buzzpia.aqua.appwidget.GET_VERSION"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="@string/widget_transparent_today" android:name="kr.co.tamseng.StudyHelper.widget.TransparentTodayWidgetProvider">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_provider_transparent_today"/>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.buzzpia.aqua.appwidget.GET_VERSION"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="@string/widget_transparent_stat" android:name="kr.co.tamseng.StudyHelper.widget.TransparentStatWidgetProvider">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_provider_transparent_stat"/>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.buzzpia.aqua.appwidget.GET_VERSION"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="@string/widget_transparent_alldday" android:name="kr.co.tamseng.StudyHelper.widget.TransparentAllDdayWidgetProvider">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_provider_transparent_alldday"/>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.buzzpia.aqua.appwidget.GET_VERSION"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="@string/widget_transparent_dday" android:name="kr.co.tamseng.StudyHelper.widget.TransparentDdayWidgetProvider">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_provider_transparent_dday"/>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.buzzpia.aqua.appwidget.GET_VERSION"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+        <provider android:authorities="kr.co.tamseng.StudyHelper.google_measurement_service" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+    </application>
+</manifest>

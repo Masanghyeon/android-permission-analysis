@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="cc.pacer.androidapp" platformBuildVersionCode="23" platformBuildVersionName="6.0-2704002">
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.REGISTER"/>
+    <uses-permission android:name="cc.pacer.androidapp.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-feature android:glEsVersion="0x20000" android:required="true"/>
+    <uses-feature android:name="android.hardware.sensor.stepcounter" android:required="false"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <application android:allowBackup="true" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:logo="@drawable/home" android:name="cc.pacer.androidapp.common.PacerApplication" android:persistent="true" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="cc.pacer.androidapp.ui.subscription.controllers.StoreFrontActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="do" android:path="/sync/subscriptions" android:scheme="pacerapp"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="cc.pacer.androidapp.ui.gps.controller.locationpicker.LocationPickerActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <service android:exported="false" android:name="cc.pacer.androidapp.ui.gps.controller.locationpicker.FetchAddressIntentService"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyANmGcx-S-bvnk_pAhvGCCLv7wSDdVYDJU"/>
+        <receiver android:name="cc.pacer.androidapp.dataaccess.push.receivers.PacerPushMessageReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTER"/>
+                <category android:name="cc.pacer.androidapp"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:name="com.amazonaws.mobileconnectors.s3.transferutility.TransferService"/>
+        <activity android:label="@string/app_name" android:name="cc.pacer.androidapp.ui.splash.SplashActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="cc.pacer.androidapp.ui.history.HistoryListActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTask" android:name="cc.pacer.androidapp.ui.main.MainLandscapeActivity" android:screenOrientation="landscape" android:theme="@style/PacerLightTheme"/>
+        <activity android:launchMode="singleTask" android:name="cc.pacer.androidapp.ui.main.MainActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="mfp-pacer"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="ddqq"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="ddwx"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="pacerfb"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="cc.pacer.androidapp.ui.input.InputExerciseActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:launchMode="singleTask" android:name="cc.pacer.androidapp.ui.input.AddWeightActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:launchMode="singleTask" android:name="cc.pacer.androidapp.ui.settings.SettingsActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:launchMode="singleTask" android:name="cc.pacer.androidapp.ui.settings.SettingsNotificationActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:launchMode="singleTask" android:name="cc.pacer.androidapp.ui.settings.SettingsAboutActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:launchMode="singleTask" android:name="cc.pacer.androidapp.ui.subscription.controllers.AccountTypeActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:launchMode="singleTask" android:name="cc.pacer.androidapp.ui.settings.SettingsPedometerSettingsActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:launchMode="singleTask" android:name="cc.pacer.androidapp.ui.settings.SettingsProfileActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:launchMode="singleTask" android:name="cc.pacer.androidapp.ui.settings.SettingsStepGoalsActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:launchMode="singleTask" android:name="cc.pacer.androidapp.ui.settings.SettingsTranslationActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:launchMode="singleTask" android:name="cc.pacer.androidapp.ui.gps.controller.MapActivity" android:screenOrientation="portrait" android:theme="@style/MapTheme"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent1101360875"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.tencent.connect.common.AssistActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:exported="true" android:launchMode="singleTask" android:name="cc.pacer.androidapp.ui.mfp.MFPActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="mfp-pacer-connect"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize|smallestScreenSize" android:hardwareAccelerated="true" android:name="com.inmobi.androidsdk.IMBrowserActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <receiver android:exported="true" android:name="cc.pacer.androidapp.dataaccess.core.service.RebootBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="cc.pacer.androidapp.dataaccess.core.service.PackageReplaceReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="cc.pacer.androidapp.dataaccess.core.service.pedometer.PedometerServiceRestartReceiver">
+            <intent-filter>
+                <action android:name="cc.pacer.alarm.action.start_pedometer_service"/>
+                <action android:name="cc.pacer.alarm.action.start_gps_service"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="cc.pacer.androidapp.ui.notification.NotificationReceiver">
+            <intent-filter>
+                <action android:name="cc.pacer.notifications.weekly"/>
+                <action android:name="cc.pacer.notifications.activity.level"/>
+                <action android:name="cc.pacer.notifications.daily.morning"/>
+                <action android:name="cc.pacer.notifications.activity.added"/>
+                <action android:name="cc.pacer.notifications.weight.added"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="cc.pacer.androidapp.dataaccess.core.service.UserLocaleChangedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="false" android:name="cc.pacer.androidapp.dataaccess.core.service.pedometer.AutoStartStopManager">
+            <intent-filter>
+                <action android:name="cc.pacer.androidapp.auto_start_pedometer"/>
+                <action android:name="cc.pacer.androidapp.auto_stop_pedometer"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="cc.pacer.androidapp.dataaccess.core.service.pedometer.PedometerService"/>
+        <service android:name="cc.pacer.androidapp.dataaccess.core.service.gps.GPSService"/>
+        <service android:label="@string/workout_plan" android:name="cc.pacer.androidapp.ui.workoutplan.core.WorkoutService"/>
+        <activity android:label="@string/title_activity_join_group" android:name="cc.pacer.androidapp.ui.group.JoinGroupActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:label="@string/title_activity_add_user" android:name="cc.pacer.androidapp.ui.group.AddUserActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:label="@string/title_activity_user_profile" android:name="cc.pacer.androidapp.ui.group.SocialProfileActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:label="@string/title_activity_user_profile" android:name="cc.pacer.androidapp.ui.group.SocialProfileNewActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:label="@string/title_activity_group_events" android:name="cc.pacer.androidapp.ui.group.GroupEventsActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:label="@string/title_activity_update_user" android:name="cc.pacer.androidapp.ui.group.UpdateUserActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:label="@string/social_login_label" android:name="cc.pacer.androidapp.ui.social.SocialLoginActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:label="@string/activity_group_notification_title" android:name="cc.pacer.androidapp.ui.group.GroupNotificationActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:name="cc.pacer.androidapp.ui.group.GroupManagementActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:exported="true" android:name="com.mandian.android.dongdong.wxapi.WXEntryActivity"/>
+        <activity android:exported="true" android:name="cc.pacer.androidapp.wxapi.WXEntryActivity"/>
+        <activity android:label="@string/app_name" android:name="com.facebook.LoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="cc.pacer.androidapp.ui.me.controllers.MeBadgeActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_id"/>
+        <receiver android:label="@string/app_name" android:name="cc.pacer.androidapp.ui.appwidget.PacerWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED"/>
+                <action android:name="cc.pacer.androidapp.ACTIVITY_DATA_CHANGED_INTENT"/>
+                <action android:name="cc.pacer.androidapp.GPS_ACTIVITY_DATA_CHANGED_INTENT"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/pacer_widget_provider"/>
+        </receiver>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="cc.pacer.androidapp.ui.goal.controllers.GoalCheckInDetailsActivity" android:screenOrientation="portrait" android:theme="@style/Theme.TabPageIndicatorWhiteFullWidth"/>
+        <activity android:label="@string/app_name" android:name="cc.pacer.androidapp.ui.goal.controllers.GoalDetailsActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="cc.pacer.androidapp.ui.goal.controllers.GoalCatalogActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="cc.pacer.androidapp.ui.goal.controllers.GoalCatalogDetailListActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:label="@string/app_name" android:name="cc.pacer.androidapp.ui.goal.controllers.GoalInstanceSettingActivity" android:theme="@style/PacerLightTheme"/>
+        <activity android:label="@string/app_name" android:name="cc.pacer.androidapp.ui.survey.controllers.SurveyActivity" android:screenOrientation="portrait" android:theme="@style/DialogActivity"/>
+        <activity android:label="@string/app_name" android:name="cc.pacer.androidapp.ui.playfeedback.controllers.PlayFeedbackActivity" android:screenOrientation="portrait" android:theme="@style/DialogActivity"/>
+        <activity android:label="@string/app_name" android:name="cc.pacer.androidapp.ui.goal.controllers.GoalCreateDetailsActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:label="@string/app_name" android:name="cc.pacer.androidapp.ui.goal.controllers.GoalDescriptionInputActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:label="@string/app_name" android:name="cc.pacer.androidapp.ui.faq.FaqActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:label="@string/app_name" android:name="cc.pacer.androidapp.ui.common.CommonWebviewActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:label="@string/app_name" android:name="cc.pacer.androidapp.ui.coach.controllers.CoachActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:launchMode="singleTask" android:name="cc.pacer.androidapp.ui.tutorial.controllers.TutorialActivity" android:theme="@style/PacerLightTheme"/>
+        <activity android:name="cc.pacer.androidapp.ui.group.CreateUserActivity" android:theme="@style/PacerLightTheme"/>
+        <activity android:name="cc.pacer.androidapp.ui.group.MessageCenterActivity" android:theme="@style/PacerLightTheme"/>
+        <activity android:name="cc.pacer.androidapp.ui.group.ChatActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:name="cc.pacer.androidapp.ui.group.FindGroupActivity" android:theme="@style/PacerLightTheme"/>
+        <activity android:name="cc.pacer.androidapp.ui.group.JoinPremiumGroupActivity" android:theme="@style/PacerLightTheme"/>
+        <activity android:launchMode="singleTop" android:name="cc.pacer.androidapp.ui.coach.controllers.tutorial.CoachGuideActivity" android:theme="@style/PacerLightTheme"/>
+        <activity android:launchMode="singleTop" android:name="cc.pacer.androidapp.ui.workoutplan.controllers.WorkoutPlanActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:label="@string/app_name" android:name="cc.pacer.androidapp.ui.personalrecords.controllers.PersonalRecordsMainActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:label="@string/app_name" android:name="cc.pacer.androidapp.ui.personalrecords.controllers.PersonalRecordsGuideActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:allowTaskReparenting="true" android:alwaysRetainTaskState="false" android:clearTaskOnLaunch="true" android:enabled="true" android:excludeFromRecents="true" android:finishOnTaskLaunch="true" android:name="cc.pacer.androidapp.ui.common.DummyActivity" android:noHistory="true" android:stateNotNeeded="true" android:theme="@android:style/Theme.NoDisplay"/>
+        <activity android:label="@string/app_name" android:name="cc.pacer.androidapp.ui.workoutplan.controllers.LearnMoreActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:label="@string/app_name" android:name="cc.pacer.androidapp.ui.prome.controllers.personalrecords.PRDetailActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="cc.pacer.androidapp.ui.coach.controllers.CoachGuideView" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Translucent"/>
+        <activity android:label="@string/app_name" android:launchMode="singleTask" android:name="cc.pacer.androidapp.ui.prome.controllers.PromeMainActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:name="cc.pacer.androidapp.ui.main.YesterdayReportActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightThemeTransparentBackground"/>
+        <activity android:name="cc.pacer.androidapp.ui.workoutplan.controllers.DoMoreWithPlanActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:name="cc.pacer.androidapp.ui.group2.search.Group2SearchActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:name="cc.pacer.androidapp.ui.group2.invite.InviteListActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:name="cc.pacer.androidapp.ui.group2.invite.FollowListActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:name="cc.pacer.androidapp.ui.settings.editavatar.AvatarEditActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="ff5d8ece243a36c1549d5fef772c43a2e75ce39c"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="8fd8e72429e26071a99201b756353e58072c3575"/>
+        <service android:exported="false" android:label="PushMessageService" android:name="cc.pacer.androidapp.dataaccess.push.PushMessageService">
+            <intent-filter>
+                <action android:name="cc.pacer.androidapp.ui.push.ExternalReceiver"/>
+                <category android:name="cc.pacer.androidapp"/>
+            </intent-filter>
+        </service>
+        <activity android:launchMode="singleTask" android:name="cc.pacer.androidapp.ui.prome.controllers.weight.PromeWeightMonthlyActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:hardwareAccelerated="true" android:name="cc.pacer.androidapp.ui.web.GroupCreateWebActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:hardwareAccelerated="true" android:name="cc.pacer.androidapp.ui.web.GroupMainWebActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <activity android:hardwareAccelerated="true" android:launchMode="standard" android:name="cc.pacer.androidapp.ui.web.WebActivity" android:screenOrientation="portrait" android:theme="@style/PacerLightTheme"/>
+        <provider android:authorities="cc.pacer.androidapp.google_measurement_service" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <activity android:name="cn.finalteam.galleryfinal.PhotoSelectActivity" android:screenOrientation="portrait"/>
+        <activity android:name="cn.finalteam.galleryfinal.PhotoEditActivity" android:screenOrientation="portrait"/>
+        <activity android:name="cn.finalteam.galleryfinal.PhotoPreviewActivity" android:screenOrientation="portrait"/>
+        <service android:enabled="true" android:name="com.xone.internal.XoneService"/>
+        <activity android:label="@string/title_activity_popup" android:name="com.xone.internal.ListingActivity" android:theme="@style/Theme.Transparent"/>
+        <activity android:name="com.xone.internal.PermissionActivity" android:theme="@style/Theme.Transparent"/>
+        <receiver android:enabled="true" android:name="com.xone.internal.BluetoothStateReceiver">
+            <intent-filter>
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+    </application>
+</manifest>

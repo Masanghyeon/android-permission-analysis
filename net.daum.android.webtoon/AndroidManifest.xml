@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="net.daum.android.webtoon" platformBuildVersionCode="23" platformBuildVersionName="6.0-2438415">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="net.daum.android.login.AUTHENTICATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <permission android:name="net.daum.android.webtoon.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="net.daum.android.webtoon.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="net.daum.android.webtoon.permission.AOM_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="net.daum.android.webtoon.permission.AOM_MESSAGE"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+    <application android:allowBackup="false" android:icon="@drawable/ico_launcher" android:label="@string/common_appName_text" android:largeHeap="true" android:name="net.daum.android.webtoon.WebtoonApplication_" android:theme="@android:style/Theme.NoTitleBar">
+        <meta-data android:name="net.daum.mf.tiara.name" android:value="daumcomics"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="cdd3a6ece614b691179c3dd7ca088d32"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="net.daum.mf.login.ui.LoginActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="net.daum.mf.login.ui.SimpleLoginActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="net.daum.mf.login.ui.BrowserActivity"/>
+        <activity android:name="net.daum.android.webtoon.gui.LaunchingActivity_" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="net.daum.android.webtoon.gui.CategoryInfoDummyActivity" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.INFO"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="net.daum.android.webtoon.gui.FinishingActivity_" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="net.daum.android.webtoon.gui.GatewayActivity_" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <data android:scheme="daumwebtoon"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="net.daum.android.webtoon.gui.list.ListActivity_" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="net.daum.android.webtoon.gui.list.EventFragmentActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="net.daum.android.webtoon.gui.my.MyActivity_" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="net.daum.android.webtoon.gui.view.ViewActivity_" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="net.daum.android.webtoon.gui.view.LeaguetoonViewActivity_" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="net.daum.android.webtoon.gui.viewer.ViewerActivity_" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="net.daum.android.webtoon.gui.viewer.scrap.ScrapCreateActivity_" android:theme="@style/Theme.Transparent" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="net.daum.android.webtoon.gui.viewer.CommentActivity_" android:screenOrientation="portrait" android:theme="@style/commentActivityTheme"/>
+        <activity android:name="net.daum.android.webtoon.gui.search.SearchActivity_" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:name="net.daum.android.webtoon.gui.setting.SettingActivity_" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="net.daum.android.webtoon.gui.setting.NoticeViewActivity_" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="net.daum.android.webtoon.gui.setting.LicenseActivity_" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="net.daum.android.tvpot.player.activity.PlayerActivity" android:theme="@style/TvpotPlayerTheme"/>
+        <activity android:name="net.daum.android.webtoon.gui.viewer.SettlementFragmentActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="net.daum.android.webtoon.gui.my.MyCouponHelpFragmentActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.valuepotion.sdk.VPInterstitialActivity" android:theme="@android:style/Theme.Translucent"/>
+        <receiver android:exported="true" android:name="com.valuepotion.sdk.VPInstallReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+            <meta-data android:name="forwardToTiara" android:value="net.daum.mf.tiara.TiaraReferrerBroadcastReceiver"/>
+        </receiver>
+        <service android:name="net.daum.android.webtoon.service.GCMIntentService"/>
+        <receiver android:name="net.daum.android.webtoon.service.GCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="net.daum.android.webtoon"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.valuepotion.sdk.push.NotificationOpenedReceiver">
+            <intent-filter>
+                <action android:name="com.valuepotion.sdk.push.NOTIFICATION_OPENED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="net.daum.android.webtoon.google_measurement_service" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="net.daum.mf.login.ui.SimpleLoginMigrationActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="net.daum.mf.login.ui.LoginAccountLinkActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:launchMode="singleTop" android:name="net.daum.mf.login.ui.KakaoAccountLinkStartActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="net.daum.android.tvpot.player.activity.MainActivity"/>
+    </application>
+</manifest>

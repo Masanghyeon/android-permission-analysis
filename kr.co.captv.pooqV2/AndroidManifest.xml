@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="kr.co.captv.pooqV2" platformBuildVersionCode="23" platformBuildVersionName="6.0-2438415">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <application android:allowBackup="true" android:debuggable="false" android:icon="@drawable/icon" android:label="@string/app_name" android:largeHeap="true" android:name="kr.co.captv.pooqV2.PooqApplication" android:theme="@style/AppTheme">
+        <meta-data android:name="iap:api_version" android:value="2"/>
+        <meta-data android:name="fma.endpoint" android:value="http://ad.smartmediarep.com/NetInsight/inapp/"/>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kakao_app_key"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.analytics.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <receiver android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:exported="true" android:label="@string/app_name" android:name="kr.co.captv.pooqV2.main.IntroActivity" android:theme="@style/PlayerTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="@string/kakaolink_host" android:scheme="@string/kakao_scheme"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="home" android:scheme="captvpooq"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="theme" android:scheme="captvpooq"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="coupon" android:scheme="captvpooq"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="program" android:scheme="captvpooq"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="live" android:scheme="captvpooq"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="vod" android:scheme="captvpooq"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="movie" android:scheme="captvpooq"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="clip" android:scheme="captvpooq"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="webview" android:scheme="captvpooq"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="theme_detail" android:scheme="captvpooq"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:name="kr.co.captv.pooqV2.base.BaseLayoutActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.View"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:name="kr.co.captv.pooqV2.base.BaseBackLayoutActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.View"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:label="@string/title_activity_search" android:name="kr.co.captv.pooqV2.search.SearchActivity" android:windowSoftInputMode="stateVisible"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:label="@string/title_activity_search_detail" android:name="kr.co.captv.pooqV2.search.SearchDetailActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:label="@string/title_activity_notice" android:name="kr.co.captv.pooqV2.notice.NoticeActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:exported="true" android:label="@string/title_activity_main" android:name="kr.co.captv.pooqV2.main.MainActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:name="kr.co.captv.pooqV2.main.MainWebViewActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:label="@string/title_activity_login" android:name="kr.co.captv.pooqV2.login.LoginActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:name="kr.co.captv.pooqV2.login.FindInfoActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:name="kr.co.captv.pooqV2.login.LoginWebViewActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:name="kr.co.captv.pooqV2.login.ChangePasswordActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:label="@string/title_activity_live" android:name="kr.co.captv.pooqV2.live.LiveActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:label="@string/title_activity_vod" android:name="kr.co.captv.pooqV2.vod.VodActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:label="@string/title_activity_movie" android:name="kr.co.captv.pooqV2.movie.MovieActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:label="@string/title_activity_movie_theme" android:name="kr.co.captv.pooqV2.movie.MovieThemeActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:label="@string/title_activity_genre_theme" android:name="kr.co.captv.pooqV2.movie.MovieGenreActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:label="@string/title_activity_movie_program" android:name="kr.co.captv.pooqV2.movie.MovieProgramActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:label="@string/title_activity_free" android:name="kr.co.captv.pooqV2.free.FreeActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:label="@string/title_activity_mypooq" android:name="kr.co.captv.pooqV2.mypooq.MyPooqActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:name="kr.co.captv.pooqV2.download.DownloadManagement"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:label="@string/title_activity_purchase" android:name="kr.co.captv.pooqV2.purchase.PurchaseActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="captvpooqpurchase"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:label="@string/title_activity_setting" android:name="kr.co.captv.pooqV2.setting.SettingActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:label="@string/title_activity_customer" android:name="kr.co.captv.pooqV2.customer.CustomerActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:name="kr.co.captv.pooqV2.customer.CustomerErrorReportActivity" android:windowSoftInputMode="stateVisible"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:label="@string/title_activity_vod_program" android:name="kr.co.captv.pooqV2.vod.VodProgramActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:exported="true" android:label="@string/title_activity_player" android:name="kr.co.captv.pooqV2.player.PlayerActivity" android:theme="@style/PlayerTheme"/>
+        <service android:name="kr.co.captv.pooqV2.download.WebDownloadService"/>
+        <receiver android:name="kr.co.captv.pooqV2.download.DownloadReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:name="kr.co.captv.pooqV2.aot.AotPooqService" android:permission="android.permission.SYSTEM_ALERT_WINDOW">
+            <intent-filter>
+                <action android:name="pe.sbk.OnTop"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:name="kr.co.captv.pooqV2.player.PlayerWebViewActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="captvpooqplayer"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:name="kr.co.captv.pooqV2.player.PlayerAdultWebViewActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:name="kr.co.captv.pooqV2.download.DownloadCompleteActivity" android:theme="@style/TransparentTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize|uiMode" android:name="kr.co.captv.pooqV2.chromecast.ChromeCastPreviewActivity" android:theme="@style/TransparentTheme"/>
+        <receiver android:name="com.captv.pooqv2.UPNSMessageReceiver">
+            <intent-filter>
+                <action android:name="kr.co.captv.pooqV2.MESSAGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.captv.pooqv2.upns.receiver.UPNSActionReceiver">
+            <intent-filter>
+                <action android:name="kr.co.captv.pooqV2.REGISTRATION"/>
+                <action android:name="kr.co.captv.pooqV2.MESSAGECONFIRM"/>
+                <action android:name="kr.co.captv.pooqV2.VERSIONINFO"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.captv.pooqv2.upns.cbs.ClientBackgroundService">
+            <intent-filter>
+                <action android:name="com.captv.pooqv2.upns.cbs.SERVICE"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.captv.pooqv2.upns.cbs.receiver.RemoveReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_CHANGED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.captv.pooqv2.upns.cbs.receiver.ConnectivityReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.net.wifi.STATE_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.captv.pooqv2.upns.cbs.receiver.RestartReceiver" android:process=":remote">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_SHUTDOWN"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.HOME"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.captv.pooqv2.upns.cbs.receiver.AlarmReceiver">
+            <intent-filter>
+                <action android:name="com.evezarypush.upns.cbs.RESTART"/>
+                <action android:name="com.evezarypush.upns.cbs.ARRANGEMSG"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.captv.pooqv2.upns.cbs.receiver.CBSActionReceiver">
+            <intent-filter>
+                <action android:name="com.captv.pooqv2.upns.cbs.REGISTER"/>
+                <action android:name="com.captv.pooqv2.upns.cbs.UNREGISTER"/>
+                <action android:name="com.captv.pooqv2.upns.cbs.MESSAGECONFIRM"/>
+                <action android:name="com.captv.pooqv2.upns.cbs.VERSIONINFO"/>
+                <action android:name="com.captv.pooqv2.upns.cbs.CONFIG"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:name="kr.co.captv.pooqV2.chromecast.VideoCastNotificationService"/>
+        <receiver android:name="kr.co.captv.pooqV2.chromecast.VideoCastNotificationService$VideoCastNotificationReceiver"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+    </application>
+</manifest>

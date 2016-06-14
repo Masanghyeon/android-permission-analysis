@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="co.riiid.sledge" platformBuildVersionCode="23" platformBuildVersionName="6.0-2438415">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="co.riiid.sledge.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="co.riiid.sledge.permission.C2D_MESSAGE"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="false" android:xlargeScreens="true"/>
+    <application android:allowBackup="true" android:fullBackupContent="@xml/backup" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="co.riiid.sledge.app.SledgeApp" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <activity android:name="co.riiid.sledge.app.main.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:host="co.riiid.sledge" android:scheme="content"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/title_signin" android:name="co.riiid.sledge.app.sign.SignInActivity" android:theme="@style/AppTheme.NoTransparentToolbar" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/title_signup" android:name="co.riiid.sledge.app.sign.SignUpActivity" android:theme="@style/AppTheme.NoTransparentToolbar" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/title_findpwd" android:name="co.riiid.sledge.app.sign.FindPwdActivity" android:theme="@style/AppTheme.NoTransparentToolbar" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/title_settings" android:name="co.riiid.sledge.app.setting.SettingsActivity" android:theme="@style/AppTheme.NoTransparentToolbar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/title_diagnosis" android:name="co.riiid.sledge.app.quiz.DiagnosisActivity" android:screenOrientation="sensorPortrait" android:theme="@style/AppTheme.NoTransparentToolbar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/title_diagnosis" android:name="co.riiid.sledge.app.quiz.QuizActivity" android:screenOrientation="sensorPortrait" android:theme="@style/AppTheme.NoTransparentToolbar"/>
+        <activity android:name="co.riiid.sledge.app.qna.detail.QnasDetailActivity" android:theme="@style/AppTheme.NoTransparentToolbar"/>
+        <activity android:name="co.riiid.sledge.app.quiz.QuizLandingActivity" android:theme="@style/AppTheme.Transparent"/>
+        <activity android:name="co.riiid.sledge.app.intro.IntroActivity" android:screenOrientation="sensorPortrait" android:theme="@style/AppTheme.TransparentStatusBar"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_bug_report" android:name="co.riiid.sledge.app.bug.BugReportActivity" android:theme="@style/AppTheme.NoTransparentToolbar" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="orientation|screenSize" android:label="@string/title_add_memo" android:name="co.riiid.sledge.app.edit.TextEditorActivity" android:theme="@style/AppTheme.NoTransparentToolbar"/>
+        <activity android:name="co.riiid.sledge.app.history.HistoryActivity" android:theme="@style/AppTheme.NoTransparentToolbar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="co.riiid.sledge.app.graphs.GraphsActivity" android:theme="@style/AppTheme.NoTransparentToolbar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="co.riiid.sledge.app.tag.SmallTagActivity" android:theme="@style/AppTheme.NoTransparentToolbar"/>
+        <activity android:name="co.riiid.sledge.app.quiz.SolutionActivity" android:theme="@style/AppTheme.NoTransparentToolbar"/>
+        <activity android:name="co.riiid.sledge.dev.DevActivity" android:theme="@style/AppTheme.NoTransparentToolbar"/>
+        <activity android:label="@string/opensource_licenses" android:name="co.riiid.sledge.app.license.LicensesActivity" android:theme="@style/AppTheme.NoTransparentToolbar"/>
+        <activity android:label="@string/opensource_licenses" android:name="co.riiid.sledge.app.license.LicenseActivity" android:theme="@style/AppTheme.NoTransparentToolbar"/>
+        <activity android:name="co.riiid.sledge.app.tutorial.TutorialActivity" android:screenOrientation="sensorPortrait" android:theme="@style/AppTheme.TransparentStatusBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="co.riiid.sledge.app.qna.viewer.DetailViewerActivity" android:theme="@style/AppTheme.TransparentStatusBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/diagnosis_result_title" android:name="co.riiid.sledge.app.quiz.DiagnosisResultActivity" android:screenOrientation="sensorPortrait" android:theme="@style/AppTheme.NoTransparentToolbar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/chat" android:launchMode="singleTask" android:name="co.riiid.sledge.app.chat.ChatActivity" android:theme="@style/AppTheme.NoTransparentToolbar" android:windowSoftInputMode="adjustResize"/>
+        <receiver android:exported="true" android:name="co.riiid.sledge.app.gcm.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="co.riiid.sledge"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="co.riiid.sledge.app.gcm.SledgeGcmListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="co.riiid.sledge.app.gcm.SledgeInstanceIDListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="co.riiid.sledge.app.gcm.RegistrationIntentService"/>
+        <service android:exported="false" android:name="co.riiid.sledge.app.gcm.GcmDeleteService"/>
+        <provider android:authorities="co.riiid.sledge.google_measurement_service" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementContentProvider"/>
+        <receiver android:enabled="true" android:name="com.google.android.gms.measurement.AppMeasurementReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+    </application>
+</manifest>

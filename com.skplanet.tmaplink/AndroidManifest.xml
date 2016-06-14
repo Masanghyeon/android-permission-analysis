@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.skplanet.tmaplink" platformBuildVersionCode="19" platformBuildVersionName="4.4.2-1035858">
+    <uses-permission android:name="android.permission.WRITE_OWNER_DATA"/>
+    <uses-permission android:name="android.permission.READ_OWNER_DATA"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.ACCESS_SUPERUSER"/>
+    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.UPDATE_DEVICE_STATS"/>
+    <uses-permission android:name="android.permission.SET_PREFERRED_APPLICATIONS"/>
+    <uses-permission android:name="android.permission.HARDWARE_TEST"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.BATTERY_STATS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_WAP_PUSH"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS"/>
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL"/>
+    <permission android:name="com.skplanet.tmaplink.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.skplanet.tmaplink.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-feature android:glEsVersion="0x20000" android:required="true"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <application android:debuggable="false" android:hardwareAccelerated="false" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="com.skt.tmap.TmapAppContext">
+        <meta-data android:name="com.google.android.gms.version" android:value="4242000"/>
+        <activity android:configChanges="locale|fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:launchMode="singleTop" android:name="com.skt.tmap.activity.TmapAuthActivity" android:screenOrientation="landscape" android:theme="@style/Theme.Intro">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+        <activity android:alwaysRetainTaskState="true" android:configChanges="locale|fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.skt.tmap.activity.TmapIntroActivity" android:screenOrientation="landscape" android:theme="@style/Theme.Intro" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.MainActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.TmapMainActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.TmapNaviActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:name="com.skt.tmap.activity.TmapNoticeActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.SettingDirectDestinationActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.TmapQMLocalSettingActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.TmapQMRecentDesActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.TmapQMSearchFavoriteActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.TmapSearchResultList" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.TmapSearchResultMapActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.TmapQMMapSettingActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.TmapMainSettingActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.TmapMainSettingUpdateActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.TmapMainSettingGuidanceActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.TmapMainRecentDesActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.TmapMainSearchFavoriteActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.TmapMainSettingDisplayActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.TmapMainSettingUserInfoActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.TmapMainSettingControlAccountActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.TmapMainSettingControlAccountLoginActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.TmapMainLocalSettingActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.TmapMenuListEditActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:name="com.skt.tmap.activity.TmapMenuNoticeList" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.TmapQMTotalSearchActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:name="com.skt.tmap.activity.TmapQuickSearchPhotoActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.TmapMainSettingGuideRoadActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.TmapMainSettingGuideDefaultVoiceMenuActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.DrivingSettingActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.AroundInfoListActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:name="com.skt.tmap.activity.TmapPoiDetailActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:hardwareAccelerated="false" android:launchMode="singleTop" android:name="com.skt.tmap.activity.TmapRouteSearchActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:launchMode="singleTop" android:name="com.skt.tmap.activity.TmapMapPathActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:name="com.skt.tmap.activity.TmapWebViewActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:name="com.skt.tmap.activity.TmapPositionAgreeActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:name="com.skt.tmap.activity.TmapMainServiceAgreementActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:name="com.skt.tmap.activity.TmapPoiViewActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:name="com.skt.tmap.activity.TmapReportPlaceErrorAddActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:name="com.skt.tmap.activity.TmapReportPlaceErrorEditActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:name="com.skt.tmap.activity.TmapMainShareWebViewActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:name="com.skt.tmap.activity.MapDownloadConfirmActivity" android:screenOrientation="landscape" android:theme="@style/Theme.TranslucentStyle"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:name="com.skt.tmap.activity.TmapMapDownloadActivity" android:screenOrientation="landscape" android:theme="@style/Theme.TranslucentStyle"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:excludeFromRecents="true" android:name="com.skt.tmap.activity.TmapInterruptActivity" android:screenOrientation="landscape" android:theme="@style/Theme.TranslucentStyle"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.skt.tmap.activity.TmapAgentOffScreenActivity" android:screenOrientation="landscape"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:excludeFromRecents="true" android:exported="true" android:launchMode="singleInstance" android:name="com.skplanet.tmaplink.IntroActivity" android:noHistory="true" android:screenOrientation="landscape" android:theme="@style/Theme.TranslucentStyle">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="A1" android:scheme="TMAP"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="A100" android:scheme="TMAP"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="A1" android:scheme="tmap"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="A100" android:scheme="tmap"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="check" android:scheme="tmap4"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="route" android:scheme="tmap"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="viewmap" android:scheme="tmap"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="geo"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden" android:name="com.skt.tmap.miniapp.ReservationMapDownloadActivity" android:screenOrientation="portrait" android:theme="@style/Theme.TranslucentStyle"/>
+        <activity android:configChanges="locale|fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.skt.tmap.activity.HiddenSettingMenu" android:screenOrientation="landscape"/>
+        <activity android:configChanges="locale|fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.skt.tmap.activity.TmapNetworkTestActivity" android:screenOrientation="landscape"/>
+        <activity android:configChanges="locale|fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.skt.tmap.activity.TmapNetworkTestActivity2" android:screenOrientation="landscape"/>
+        <activity android:configChanges="locale|fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.skt.tmap.activity.TmapNetworkReportTest" android:screenOrientation="landscape"/>
+        <activity android:configChanges="locale|fontScale|keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:launchMode="singleTop" android:name="com.skt.tmap.activity.TmapMainSettingGuideRoadVoiceMenuActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NoBackground"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:exported="false" android:name="com.skp.crashlogger.CrashReportDialog" android:process=":remote" android:screenOrientation="landscape" android:stateNotNeeded="true" android:theme="@android:style/Theme.Dialog"/>
+        <service android:enabled="true" android:exported="false" android:name="com.skt.tmap.service.LocationGpsService" android:stopWithTask="true">
+            <intent-filter>
+                <action android:name="com.skplanet.tmaplink.BIND_RG"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="false" android:name="com.skt.tmap.service.NmeaGpsService" android:stopWithTask="true">
+            <intent-filter>
+                <action android:name="com.skplanet.tmaplink.BIND_RG"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="false" android:name="com.skt.tmap.service.FileGpsService" android:stopWithTask="true">
+            <intent-filter>
+                <action android:name="com.skplanet.tmaplink.BIND_RG_FILE"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="false" android:name="com.android.library.AML.BackService" android:stopWithTask="true"/>
+        <receiver android:name="com.skt.tmap.receiver.SMSReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.skt.tmap.receiver.SyncReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.TMAP4_END"/>
+                <action android:name="android.intent.action.TMAP4_CLICK_NOTIFICATION"/>
+                <action android:name="android.intent.action.TMAP4_CLICK_MAP_NOTIFICATION"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="com.skt.tmap.action.TMAP_VOICE_ACTIVE"/>
+                <action android:name="com.skt.tmap.action.PHONE_VOICE_STOPPED"/>
+                <action android:name="com.skt.tmap.action.TMAPSTAR_GUIDEDB"/>
+                <action android:name="com.samsung.cover.OPEN"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboard|keyboardHidden" android:excludeFromRecents="true" android:name="com.skt.tmap.activity.TmapMainSchedulerActivity" android:theme="@style/Theme.NoBackground" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:excludeFromRecents="true" android:name="com.skt.tmap.activity.TmapMainSchedulerAdditionActivity" android:theme="@style/Theme.NoBackground" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboard|keyboardHidden" android:excludeFromRecents="true" android:name="com.skt.tmap.activity.TmapMainSchedulerAlarmActivity" android:theme="@style/Theme.NoBackground" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <receiver android:name="com.google.android.gcm.GCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.skplanet.tmaplink"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.skplanet.tmaplink.GCMIntentService"/>
+        <receiver android:name="com.skt.tmap.agent.TmapAgent_BroadcastReceiverAlarm">
+            <intent-filter>
+                <action android:name="android.intent.action.TMAP4_ALARM_PUSH"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.skt.tmap.activity.BaseActivity$SmartConnectWiFiStateReceiver">
+            <intent-filter>
+                <action android:name="com.skt.skaf.tmaplink"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.skt.tmap.miniapp.ReservationMapDownloadAlramReceiver"/>
+        <meta-data android:name="com.samsung.android.disable.dpad.navigation" android:value="true"/>
+    </application>
+</manifest>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.wr.alrim" platformBuildVersionCode="22" platformBuildVersionName="5.1.1-1819727">
+    <permission android:name="com.wr.alrim.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.wr.alrim.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <application android:debuggable="false" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:theme="@style/AppTheme">
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kakao_app_key"/>
+        <receiver android:name="com.wr.alrim.util.SMSMessageReceiver">
+            <intent-filter android:priority="999">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/app_name" android:name="com.wr.alrim.Intro" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.wr.alrim.ui.InitServiceInfo" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.wr.alrim.ui.IntroEvent" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.wr.alrim.ui.FunctionGuide" android:screenOrientation="portrait"/>
+        <activity android:name="com.wr.alrim.ui.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="@string/kakaolink_host" android:scheme="@string/kakao_scheme"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.wr.alrim.ui.MyAccntDeco" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.wr.alrim.ui.CustomerCouncelCenter" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.wr.alrim.ui.ServiceInfo" android:screenOrientation="portrait"/>
+        <activity android:name="com.wr.alrim.ui.ServiceDescription" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.wr.alrim.ui.UseTerms" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.wr.alrim.ui.NoticeEvent" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.wr.alrim.ui.NoticeEventDetail" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.wr.alrim.ui.VersionInfo" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.wr.alrim.ui.PinPwdChange" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.wr.alrim.ui.ConfigFinanceStory" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.wr.alrim.ui.FishingSmsSetting" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.wr.alrim.ui.ConfigDepositWithdrawNoti" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.wr.alrim.ui.ConfigDepositWithdrawNotiConfirm" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.wr.alrim.ui.ConfigDepositWithdrawNotiDetail" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.wr.alrim.ui.NotiMsgSetting" android:screenOrientation="portrait"/>
+        <activity android:name="com.wr.alrim.ui.ExchangeNotiSetting" android:screenOrientation="portrait"/>
+        <activity android:name="com.wr.alrim.ui.ExchangeDesNotiSetting" android:screenOrientation="portrait"/>
+        <activity android:name="com.wr.alrim.ui.ExchangeDesNotiSettingDetail" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.wr.alrim.ui.ResiNumCheckForPinLoseGet" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.wr.alrim.ui.AccntCheckForPinLoseGet" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.wr.alrim.ui.PinResetForPinLoseGet" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.wr.alrim.ui.ServiceUseInfo" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.wr.alrim.ui.SubsConfirmByPhone" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.wr.alrim.ui.ResiNumCheckForServiceUse" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.wr.alrim.ui.TermsAgree" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.wr.alrim.ui.UseTermsForServiceUse" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.wr.alrim.ui.InOutAccntSettingForServiceUse" android:screenOrientation="portrait"/>
+        <activity android:name="com.wr.alrim.ui.ServiceSubsComplete" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.wr.alrim.ui.AccntCheckForServiceUse" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.wr.alrim.ui.AccntSelectForServiceUse" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.wr.alrim.ui.PinResetForServiceUse" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.wr.alrim.ui.PinLockScreen" android:screenOrientation="portrait"/>
+        <activity android:excludeFromRecents="true" android:name="com.wr.alrim.ui.PushPopup" android:screenOrientation="portrait" android:taskAffinity="com.wr.alrim.ui.PushPopup" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.wr.alrim.ui.SlidingWebActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.softsecurity.transkey.TransKeyActivity" android:screenOrientation="portrait"/>
+        <receiver android:name="com.google.android.gcm.GCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.wr.alrim"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.wr.alrim.GCMIntentService"/>
+        <activity android:name="btworks.codeguard.agent.AgentActivity" android:screenOrientation="portrait"/>
+        <service android:enabled="true" android:name="btworks.codeguard.engine.MainService" android:process=":engine">
+            <intent-filter>
+                <action android:name="btworks.codeguard.action.Service.Start"/>
+                <action android:name="btworks.codeguard.action.Service.Bind"/>
+                <action android:name="btworks.codeguard.action.Service.Unbind"/>
+                <action android:name="btworks.codeguard.action.Service.Stop"/>
+                <category android:name="SmartPush"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.wr.alrim.setting.SmartPushTwitterLogin" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="com.wr.alrim.setting.TWITTER_LOGIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.wr.alrim.ui.ConfigPushSound" android:screenOrientation="portrait"/>
+        <activity android:name="com.wr.alrim.ui.DataManager" android:screenOrientation="portrait"/>
+        <activity android:name="com.wr.alrim.ui.DataManagerBackup" android:screenOrientation="portrait"/>
+        <activity android:name="com.wr.alrim.ui.DataManagerRestore" android:screenOrientation="portrait"/>
+        <activity android:name="com.wr.alrim.ui.DutchPayDataList" android:screenOrientation="portrait"/>
+        <activity android:name="com.wr.alrim.ui.DutchPayDetailView" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="@string/kakaolink_host" android:scheme="@string/kakao_scheme"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.wr.alrim.ui.DutchPayCreateData" android:screenOrientation="portrait"/>
+        <activity android:name="com.wr.alrim.ui.DutchPayCreateItem" android:screenOrientation="portrait"/>
+        <meta-data android:name="optimization_key" android:value="@string/samsung_smart_manager_optimization_key"/>
+    </application>
+</manifest>

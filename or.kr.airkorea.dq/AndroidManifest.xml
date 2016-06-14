@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="or.kr.airkorea.dq" platformBuildVersionCode="21" platformBuildVersionName="5.0.1-1624448">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL"/>
+    <permission android:name="or.kr.airkorea.dq.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="or.kr.airkorea.dq.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <android:uses-permission android:maxSdkVersion="18" android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <application android:allowBackup="true" android:debuggable="false" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:theme="@android:style/Theme.NoTitleBar">
+        <receiver android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:name=".widget.WidgetMain">
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_configuration"/>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="or.kr.airkorea.dq.widget.ACTION_UPDATE"/>
+                <action android:name="or.kr.airkorea.dq.widget.ACTION_EVENT"/>
+                <action android:name="or.kr.airkorea.dq.widget.ACTION_CALL_ACTIVITY1"/>
+                <action android:name="or.kr.airkorea.dq.widget.ACTION_DIALOG"/>
+            </intent-filter>
+        </receiver>
+        <service android:name=".widget.ClockService"/>
+        <activity android:label="@string/app_name" android:name=".Intro" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name=".Intro2" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="or.kr.airkorea.dq.widget.ACTION_CALL_ACTIVITY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name=".ContentDetect" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="airkorea" android:scheme="airkorea"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/app_name" android:name=".AppMain" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/app_name" android:name=".AirWebview" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/app_name" android:name=".activity.AreaActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name=".activity.DQSettingActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name=".activity.SettingAreaActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name=".activity.SettingDustActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name=".activity.SettingMainActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name=".activity.SettingViewtypeActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name=".activity.WebViewActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name=".activity.EventActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name=".activity.PushWebViewActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:label="@string/app_name" android:name="com.dgmodule.sns.WebAuthActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <activity android:label="@string/app_name" android:name="com.dgmodule.gcm.PushPopup" android:screenOrientation="portrait" android:theme="@android:style/Theme.Dialog"/>
+        <receiver android:name="com.dgmodule.gcm.GCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="or.kr.airkorea.dq"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="or.kr.airkorea.dq"/>
+            </intent-filter>
+        </receiver>
+        <activity android:label="@string/title_activity_setting_time" android:name=".activity.SettingTimeActivity"/>
+    </application>
+</manifest>

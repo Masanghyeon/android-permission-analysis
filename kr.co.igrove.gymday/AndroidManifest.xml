@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="kr.co.igrove.gymday" platformBuildVersionCode="23" platformBuildVersionName="6.0-2438415">
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="kr.co.igrove.gymday.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-feature android:name="android.hardware.nfc" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <permission android:name="kr.co.igrove.gymday.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-feature android:glEsVersion="0x20000" android:required="true"/>
+    <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="kr.co.igrove.gymday.common.ApplicationContextProvider" android:theme="@style/AppTheme">
+        <meta-data android:name="com.samsung.android.health.platform_type" android:value="rel"/>
+        <meta-data android:name="com.samsung.android.health.permission.read" android:value="com.samsung.health.step_count"/>
+        <receiver android:name="kr.co.igrove.gymday.receiver.PhoneCallReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:name="kr.co.igrove.gymday.activity.LaunchActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:name="kr.co.igrove.gymday.activity.TalkPhotoActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:name="kr.co.igrove.gymday.activity.WelcomeActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.Translucent" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:name="kr.co.igrove.gymday.activity.TutorialActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="kr.co.igrove.gymday.activity.MagazineDetailActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:name="kr.co.igrove.gymday.activity.ProfileSettingActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:name="kr.co.igrove.gymday.activity.BodyTestActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:name="kr.co.igrove.gymday.activity.GDiaryMainActivity" android:theme="@style/AppTheme.Drawer" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:name="kr.co.igrove.gymday.activity.GDiaryActivity" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|screenSize|uiMode" android:name="kr.co.igrove.gymday.activity.GDiaryPictureDialogActivity" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|screenSize|uiMode" android:name="kr.co.igrove.gymday.activity.GDiaryFoodDialogActivity" android:theme="@style/Theme.AppCompat.Light.Translucent" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:name="kr.co.igrove.gymday.activity.GDiarySettingActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|screenSize|uiMode" android:name="kr.co.igrove.gymday.activity.ImageViewDialogActivity" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:name="kr.co.igrove.gymday.activity.SettingActivity" android:theme="@style/AppTheme.Drawer" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.LoginActivity" android:theme="@style/Theme.AppCompat.Light.Translucent"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:name="kr.co.igrove.gymday.activity.MemberOutActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:name="kr.co.igrove.gymday.activity.PasswdChangeActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:name="kr.co.igrove.gymday.activity.ServiceTermsActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:name="kr.co.igrove.gymday.activity.GCoachGuideActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:name="kr.co.igrove.gymday.activity.PictureMenuDialogActivity" android:theme="@style/AppTheme.Translucent"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:name="kr.co.igrove.gymday.activity.TalkPictureDialogActivity" android:theme="@style/Theme.AppCompat.Light.Dialog"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:name="kr.co.igrove.gymday.activity.NoticeActivity" android:theme="@style/AppTheme.Drawer"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.PushNoticeActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:name="kr.co.igrove.gymday.activity.FAQActivity" android:theme="@style/AppTheme.Drawer"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:name="kr.co.igrove.gymday.activity.HelpActivity"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:name="kr.co.igrove.gymday.activity.CustomerServiceActivity" android:theme="@style/AppTheme.Drawer" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:name="kr.co.igrove.gymday.activity.GClipActivity" android:theme="@style/AppTheme.Drawer" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:name="kr.co.igrove.gymday.activity.GClipHomeTrainingActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:name="kr.co.igrove.gymday.activity.GClipDetailActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:name="kr.co.igrove.gymday.activity.VideoPlayerActivity" android:theme="@style/Theme.AppCompat" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.MemberJoinActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.MemberJoinKakaoActivity"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.MemberJoinNaverActivity" android:theme="@style/Theme.AppCompat.Light.Translucent"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:name="kr.co.igrove.gymday.activity.LeftLoginActivity" android:theme="@style/AppTheme.Translucent"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.AuthSearchActivity"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.SelectedMagazineActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.MagazineActivity" android:theme="@style/AppTheme.Drawer" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.WorkoutRoutineActivity" android:theme="@style/AppTheme.Drawer" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.WorkoutRoutineDetailActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.TalkListActivity" android:theme="@style/AppTheme.Drawer" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.MyHomeActivity" android:theme="@style/AppTheme.Drawer" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.MyHomeSettingActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.WebViewPayActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="gymday"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.MyGCashActivity"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.TalkWriteActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.TalkDetailActivity" android:theme="@style/PopupMenuStyle" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.RankActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.GClipStretchingActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.GClipPartActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.GCommerceListActivity" android:theme="@style/AppTheme.Drawer" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.GCommerceDetailActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.GCommerceBasketActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.GCommercePayActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.GCommerceMineActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.GCommercePurchaseListActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.GCommerceChangeAddressActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.GCommerceWebViewPayActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:exported="true" android:launchMode="singleInstance" android:name="kr.co.igrove.gymday.activity.GCommerceWebViewKakaoPayActivity" android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="gymday"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.TalkSearchActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.MagazineSearchActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.TalkClippingActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="locale|fontScale|keyboardHidden|orientation|uiMode" android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.MainActivity" android:theme="@style/MaterialDrawerTheme.Light.DarkToolbar.TranslucentStatus" android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:scheme="gymday"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.MyHomeTargetActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.ChallengeActivity" android:theme="@style/AppTheme.Drawer" android:windowSoftInputMode="stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.PushSettingActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.ChallengeDetailActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.ChallengeMineActivity" android:theme="@style/AppTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.SettingUserDataResetActivity" android:theme="@style/AppTheme" android:windowSoftInputMode="stateHidden"/>
+        <activity android:launchMode="singleTop" android:name="kr.co.igrove.gymday.activity.TimerActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme" android:windowSoftInputMode="stateHidden"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_facebook_id"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.kakao.LoginActivity"/>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kakao_app_key"/>
+        <activity android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:label="OAuth2.0 In-app" android:name="com.nhn.android.naverlogin.ui.OAuthLoginInAppBrowserActivity"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyDbnUdJhc9ytbVkOGZHmJNWMep3Fyt7AkA"/>
+        <receiver android:name="com.google.android.gcm.GCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="kr.co.igrove.gymday"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="kr.co.igrove.gymday.GCMIntentService"/>
+        <service android:name="com.google.analytics.tracking.android.CampaignTrackingService"/>
+        <receiver android:exported="true" android:name="com.google.analytics.tracking.android.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="kr.co.igrove.gymday.activity.ChallengeAlarmReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="kr.co.igrove.gymday.UPDATE_CHALLENGE_ALARM"/>
+                <action android:name="kr.co.igrove.gymday.SHOW_CHALLENGE_ALARM"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:label="@string/album" android:name="com.sangcomz.fishbun.ui.album.AlbumActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name="com.sangcomz.fishbun.ui.picker.PickerActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+    </application>
+</manifest>

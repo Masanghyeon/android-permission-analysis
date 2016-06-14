@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.pipcamera.activity" platformBuildVersionCode="21" platformBuildVersionName="5.0.1-1624448">
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:smallScreens="true" android:xlargeScreens="true"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="com.pipcamera.activity.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.pipcamera.activity.permission.C2D_MESSAGE"/>
+    <application android:allowBackup="false" android:icon="@drawable/icon" android:label="@string/app_name" android:largeHeap="true" android:name="com.pipcamera.application.PIPCameraApplication" android:supportsRtl="true" android:theme="@style/Theme.Background">
+        <receiver android:exported="true" android:name="com.google.android.gms.gcm.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
+                <category android:name="com.pipcamera.activity"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.pipcamera.activity.FotoGcmListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <meta-data android:name="app_license" android:value="04d1ec5892bf7f3d64112835e6747cba"/>
+        <provider android:authorities="com.pipcamera.activity.DuAdCacheProvider" android:exported="false" android:name="com.duapps.ad.stats.DuAdCacheProvider"/>
+        <receiver android:name="com.duapps.ad.base.PackageAddReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <activity android:icon="@drawable/icon" android:label="@string/app_desc" android:launchMode="singleTop" android:name="com.pipcamera.activity.SplashScreenActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.instamag.activity.lib.MagLibActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.instamag.activity.lib.NewMagCountListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.instamag.activity.lib.InstaPhotoSelectorActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.instamag.activity.lib.MagComposeActivity" android:screenOrientation="portrait"/>
+        <activity android:exported="true" android:name="com.pipcamera.activity.ExternReceiverActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="pip"/>
+            </intent-filter>
+        </activity>
+        <activity android:hardwareAccelerated="false" android:label="@string/app_name" android:name="com.pipcamera.activity.PhotoShareToInstagramActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:launchMode="singleTop" android:name="com.pipcamera.activity.PIPCameraActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleInstance" android:name="com.pipcamera.activity.ShortCutActicity" android:screenOrientation="portrait" android:theme="@style/ContentOverlay"/>
+        <activity android:name="com.fotoable.alertAd.TAlertAdActivity" android:screenOrientation="portrait" android:theme="@style/ThemeNotTitleBar"/>
+        <activity android:name="com.pipcamera.activity.ShareEditActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name="com.pipcamera.activity.weibo.QQAuthroizeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.pipcamera.activity.SettingActivity" android:screenOrientation="portrait"/>
+        <activity android:largeHeap="true" android:name="com.pipcamera.activity.pip.Pip2FragmentActivity" android:screenOrientation="portrait"/>
+        <activity android:largeHeap="true" android:name="com.pipcamera.activity.pip.PipStyleActivity" android:screenOrientation="portrait"/>
+        <activity android:largeHeap="true" android:name="com.pipcamera.activity.pip.PipRealTimeCameraActivity" android:screenOrientation="portrait"/>
+        <activity android:largeHeap="true" android:name="com.pipcamera.activity.pip.PipFreeStyleActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wantu.ResourceOnlineLibrary.activity.MainResourceActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.pipcamera.activity.weibo.QQCallBackActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="QQCallBackActivity" android:scheme="wantu"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/photo_share_title" android:name="com.pipcamera.activity.PhotoShareActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/photo_share_title" android:name="com.pipcamera.activity.NewPhotoShareActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.fotoable.adbuttonlib.TWebBrowActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.pipcamera.activity.photoselector.SinglePhotoSelectorActivity" android:screenOrientation="portrait"/>
+        <service android:name="com.fotoable.photoselector.MediaStoreScannerService"/>
+        <activity android:name="com.pipcamera.activity.guide.GuideViewAcitivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.pipcamera.activity.FWebViewActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="7154d9e206dec423717e96b5658df06992157a66"/>
+        <activity android:name="com.fotoable.photocollage.activity.compose2.ComposePhotoesActivity2" android:screenOrientation="portrait"/>
+        <activity android:label="@string/effect" android:name="com.fotoable.photocollage.activity.photoselector.PhotoSelectorActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.fotoable.photocollage.activity.photoselector.MultiPhotoSelectorActivity" android:screenOrientation="portrait"/>
+        <activity android:label="@string/app_name" android:name="com.fotoable.fotoproedit.activity.ProEditMainActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:label="@string/app_name" android:name="com.fotoable.fotoproedit.activity.ProEditCropActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:label="@string/app_name" android:name="com.fotoable.fotoproedit.activity.ProEditNewStretchActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:label="@string/app_name" android:name="com.fotoable.fotoproedit.activity.ProEditFilterActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.fotoable.fotoproedit.activity.ProEditAdjustActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.fotoable.fotoproedit.activity.ProEditFontActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:windowSoftInputMode="stateAlwaysVisible"/>
+        <activity android:name="com.fotoable.fotoproedit.activity.ProEditMosaicActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.fotoable.sketch.activity.TTieZhiActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.fotoable.photocollage.activity.photoselector.PhotoTakeActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.realtimecamera.camera.ActivityCameraNew" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.facebook.ads.InterstitialAdActivity"/>
+        <receiver android:name="com.pipcamera.activity.DownloadBackgroundReciver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="true" android:name="com.pipcamera.activity.wxapi.WXEntryActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.meimeng.module.MeiMengSinglePhotoSelectorActivity" android:screenOrientation="portrait"/>
+        <activity android:launchMode="singleTop" android:name="com.meimeng.module.MeiMengActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.NoTitleBar"/>
+        <service android:name="com.fotoable.autowakeup.BGService" android:process=":remote">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.fotoable.autowakeup.MyBroadcastReceiver" android:process=":remote">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.wantu.service.net.PushService"/>
+        <service android:exported="false" android:name="com.fotoable.message.IDListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.fotoable.message.RegistrationService"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.facebook.ads.VideoAdActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.facebook.LoginActivity"/>
+        <activity android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+        <activity android:name="com.fotoable.common.TCommonWebActivity"/>
+        <activity android:name="com.fotoable.common.FotoCameraActivity"/>
+        <receiver android:enabled="true" android:name="com.fotoable.battery.Receiver.LockScreenReceiver">
+            <intent-filter android:priority="999">
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.fotoable.battery.BatteryCoreService"/>
+        <activity android:launchMode="singleTask" android:name="com.fotoable.battery.LockScreenActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:name="com.fotoable.simplecamera.camera.SimpleCameraActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+        <activity android:name="jp.co.cyberagent.android.gpuimage.grafika.CameraCaptureActivity"/>
+        <activity android:name="jp.co.cyberagent.android.gpuimage.grafika.MovieCaptureActivity"/>
+    </application>
+</manifest>
